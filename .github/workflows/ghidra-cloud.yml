@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "21"
@@ -54,7 +54,7 @@ jobs:
 
       - name: Headless analyze + decompile
         run: |
-          set -e
+          set -eo pipefail
           AH="$GHIDRA_DIR/support/analyzeHeadless"
           chmod +x "$AH"
           mkdir -p out proj
@@ -65,14 +65,14 @@ jobs:
             echo "### $f" >> out/RUN_SUMMARY.md
             echo "== import+analyze $f ==" | tee -a out/RUN_SUMMARY.md
             "$AH" "$GITHUB_WORKSPACE/proj" "$base" \
-              -Import "$GITHUB_WORKSPACE/targets/$f" -overwrite -MaxMem 4G \
-              2>&1 | tail -5 | tee -a out/headless-import-$base.log
+              -Import "$GITHUB_WORKSPACE/targets/$f" -overwrite \
+              2>&1 | tee out/headless-import-$base.log | tail -5
             echo "== dump funcs $f ==" | tee -a out/RUN_SUMMARY.md
             "$AH" "$GITHUB_WORKSPACE/proj" "$base" \
-              -process "$f" -noanalysis -MaxMem 4G \
+              -process "$f" -noanalysis \
               -scriptPath "$GITHUB_WORKSPACE/scripts" \
               -postScript DumpFuncs.java "$GITHUB_WORKSPACE/out/$base-funcs.csv" \
-              2>&1 | tail -3 | tee -a out/headless-funcs-$base.log
+              2>&1 | tee out/headless-funcs-$base.log | tail -3
             python3 tools/split_batches.py \
               "out/$base-funcs.csv" "out/$base-batches" \
               "${{ inputs.batch_size }}" "${{ inputs.scope }}" \
@@ -82,16 +82,17 @@ jobs:
               i=$((i+1))
               echo "== decompile $f batch $i ==" | tee -a out/RUN_SUMMARY.md
               "$AH" "$GITHUB_WORKSPACE/proj" "$base" \
-                -process "$f" -noanalysis -MaxMem 4G \
+                -process "$f" -noanalysis \
                 -scriptPath "$GITHUB_WORKSPACE/scripts" \
                 -postScript DecompileBatch.java "$GITHUB_WORKSPACE/$b" \
                   "$GITHUB_WORKSPACE/out/$base-decomp-$i.txt" \
-                2>&1 | tail -2 | tee -a out/headless-decomp-$base-$i.log
+                2>&1 | tee out/headless-decomp-$base-$i.log | tail -2
             done
           done
           echo "inputs: ghidra=${{ inputs.ghidra_version }} target=${{ inputs.target }} scope=${{ inputs.scope }}" >> out/RUN_SUMMARY.md
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: cloud-${{ inputs.target }}-${{ inputs.scope }}
           path: out/
@@ -104,14 +105,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "21"
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install REA + Ghidra 12.1.2
         run: |
