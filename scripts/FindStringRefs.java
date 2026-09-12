@@ -53,6 +53,14 @@ public class FindStringRefs extends GhidraScript {
                     w.write(needleStr.get(n) + "|" + a + "|"
                             + (f != null ? f.getName() + "@" + f.getEntryPoint() : "-") + "|"
                             + callers + "\n");
+                    // pointer scan: find code that loads this string address
+                    // (Delphi/analyzed gaps often lack created refs)
+                    byte[] ptr = new byte[] {
+                            (byte) (a.getOffset() & 0xff),
+                            (byte) ((a.getOffset() >> 8) & 0xff),
+                            (byte) ((a.getOffset() >> 16) & 0xff),
+                            (byte) ((a.getOffset() >> 24) & 0xff) };
+                    scanPointer(mem, w, needleStr.get(n) + ":ptr", a, ptr);
                     hits++;
                     from = at + 1;
                     if (hits > 20000)
@@ -66,6 +74,33 @@ public class FindStringRefs extends GhidraScript {
         }
         w.close();
         println("string refs done hits=" + hits + " -> " + outPath);
+    }
+
+    private void scanPointer(Memory mem, FileWriter w, String tag, Address strAddr, byte[] ptr)
+            throws Exception {
+        for (MemoryBlock block : mem.getBlocks()) {
+            if (!block.isInitialized() || !block.isExecute()
+                    || block.getSize() > 128 * 1024 * 1024)
+                continue;
+            byte[] buf = new byte[(int) block.getSize()];
+            try {
+                block.getBytes(block.getStart(), buf);
+            } catch (Exception e) {
+                continue;
+            }
+            int from = 0, shown = 0;
+            while (shown < 25) {
+                int at = indexOf(buf, ptr, from);
+                if (at < 0)
+                    break;
+                Address a = block.getStart().add(at);
+                Function cf = currentProgram.getFunctionManager().getFunctionContaining(a);
+                w.write(tag + "|" + strAddr + "|load@" + a + "|"
+                        + (cf != null ? cf.getName() + "@" + cf.getEntryPoint() : "-") + "\n");
+                shown++;
+                from = at + 1;
+            }
+        }
     }
 
     private int indexOf(byte[] hay, byte[] nd, int from) {

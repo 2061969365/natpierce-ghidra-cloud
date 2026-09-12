@@ -13,10 +13,10 @@ on:
         type: choice
         options: [all, dll, exe, network]
       scope:
-        description: "app = business packages only, full = all named functions"
+        description: "app = business packages only, full = all named functions, all = literally everything"
         default: "app"
         type: choice
-        options: [app, full]
+        options: [app, full, all]
       batch_size:
         description: "Functions per DecompileBatch run"
         default: "60"

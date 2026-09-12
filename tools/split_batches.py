@@ -1,7 +1,8 @@
 """Filter ghidra-funcs.csv and split into batch lists for DecompileBatch.java.
 Usage: python3 split_batches.py funcs.csv outdir batch_size scope
   scope=app  : only natpierce business packages (same regex as local triage)
-  scope=full : everything except FUN_ unnamed stubs
+  scope=full : everything except FUN_ unnamed stubs and entry
+  scope=all  : literally everything (for stripped Delphi binaries)
 Writes outdir/batch1.lst ... (lines: addr:name)
 """
 import csv
@@ -31,6 +32,8 @@ with open(funcs_csv, newline="") as f:
         if scope == "app":
             if not APP.search("," + name):
                 continue
+        elif scope == "all":
+            pass
         else:
             if name.startswith("FUN_") or name in ("entry",):
                 continue
