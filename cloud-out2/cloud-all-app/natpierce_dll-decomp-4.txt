@@ -1,0 +1,5600 @@
+===== encode.utf8ToGbk @ 6c4ba6c0 =====
+
+/* Golang function info: {@address 6c9514ac "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/encode/encode.go:22
+   Golang stacktrace signature: func encode.utf8ToGbk(struct? {4, 4, 4}) ??? */
+
+void encode::encode_utf8ToGbk(int param_1,int param_2,int param_3)
+
+{
+  io_Reader r;
+  unsafe_Pointer pvVar1;
+  int *piVar2;
+  undefined4 *puVar3;
+  int in_FS_OFFSET;
+  int *piVar4;
+  int *piVar5;
+  undefined4 *puVar6;
+  unsafe_Pointer pvStack_20;
+  error_itab *peStack_18;
+  multireturn___byte_error_ local_24;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  piVar4 = runtime::runtime_newobject(&bytes::bytes_Reader___Struct_type.Type);
+  piVar4[1] = param_2;
+  piVar4[2] = param_3;
+  piVar5 = piVar4;
+  if (runtime_writeBarrier_discovered != 0) {
+    piVar2 = (int *)runtime::runtime_gcWriteBarrier1();
+    *piVar2 = param_1;
+  }
+  *piVar4 = param_1;
+  piVar4[3] = 0;
+  piVar4[4] = 0;
+  piVar4[5] = -1;
+  (**(code **)(
+              PTR__golang_org_x_text_encoding_internal_Encoding__implements__encoding_Encoding__itab_6c544878
+              + 0x14))(PTR_PTR_6c54487c);
+  (**(code **)(*piVar5 + 0x10))(piVar5[1]);
+  pvStack_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x1000,0x1000);
+  pvVar1 = pvStack_20;
+  pvStack_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x1000,0x1000);
+  puVar6 = runtime::runtime_newobject
+                     (&golang.org/x/text/transform::golang_org_x_text_transform_Reader___Struct_type
+                       .Type);
+  *puVar6 = &bytes::_bytes_Reader__implements__io_Reader__itab;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = piVar4;
+  }
+  puVar6[1] = piVar4;
+  puVar6[2] = &golang.org/x/text/encoding::
+               _golang_org_x_text_encoding_Encoder__implements__transform_Transformer__itab;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = piVar5;
+  }
+  puVar6[3] = piVar5;
+  puVar6[7] = 0x1000;
+  puVar6[8] = 0x1000;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = pvVar1;
+  }
+  puVar6[6] = pvVar1;
+  puVar6[0xc] = 0x1000;
+  puVar6[0xd] = 0x1000;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = pvStack_20;
+  }
+  puVar6[0xb] = pvStack_20;
+  r.data = puVar6;
+  r.tab = (io_Reader_itab *)
+          &golang.org/x/text/transform::
+           _golang_org_x_text_transform_Reader__implements__io_Reader__itab;
+  local_24 = io::io_ReadAll(r);
+  if (peStack_18 == (error_itab *)0x0) {
+    return;
+  }
+  return;
+}
+
+
+===== encode.StrToGBK @ 6c4ba8d0 =====
+
+/* Golang function info: {@address 6c9514fc "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/encode/encode.go:42
+   Golang stacktrace signature: func encode.StrToGBK(4) ??? */
+
+void encode::encode_StrToGBK(string *param_1)
+
+{
+  undefined4 *puVar1;
+  int in_FS_OFFSET;
+  __byte local_14;
+  int local_8;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  local_14 = runtime::runtime_stringtoslicebyte((runtime_tmpBuf *)0x0,*param_1);
+  encode_utf8ToGbk(local_14.array,local_14.len,local_14.cap);
+  if (local_8 == 0) {
+    local_14._0_8_ =
+         runtime::runtime_slicebytetostring((runtime_tmpBuf *)0x0,local_14.array,local_14.len);
+    param_1->len = local_14.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar1 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar1 = local_14.array;
+      puVar1[1] = param_1->str;
+    }
+    param_1->str = (char *)local_14.array;
+    return;
+  }
+  return;
+}
+
+
+===== nat11.Exec @ 6c4becc0 =====
+
+/* Golang function info: {@address 6c951d64 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:23
+   Golang stacktrace signature: func nat11.Exec(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_Exec(int param_1,uint param_2,undefined4 param_3)
+
+{
+  char *pcVar1;
+  int in_FS_OFFSET;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  if ((DAT_6c97e94b == '\0') && (DAT_6c97e94c == '\0')) {
+    return;
+  }
+  if (1 < param_2) {
+    if (*(int *)(param_1 + 0xc) == 1) {
+      pcVar1 = *(char **)(param_1 + 8);
+      if (*pcVar1 < '4') {
+        if (*pcVar1 == '1') {
+          nat11_n11_1(param_1,param_2,param_3);
+        }
+        else if (*pcVar1 == '2') {
+          nat11_n11_2(param_1,param_2,param_3);
+        }
+        else if (*pcVar1 == '3') {
+          nat11_n11_3(param_1,param_2,param_3);
+        }
+      }
+      else if (*pcVar1 == '4') {
+        nat11_n11_4(param_1,param_2,param_3);
+      }
+      else if (*pcVar1 == '5') {
+        nat11_n11_5(param_1,param_2,param_3);
+      }
+      else if (*pcVar1 == '6') {
+        nat11_n11_6(param_1,param_2,param_3);
+      }
+    }
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+
+===== nat11.N11Start @ 6c4bee00 =====
+
+/* Golang function info: {@address 6c951db0 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:49
+   Golang stacktrace signature: func nat11.N11Start(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_N11Start(int param_1,uint param_2)
+
+{
+  __string a;
+  multireturn_int_error_ mVar1;
+  string sVar2;
+  string sVar3;
+  int iVar4;
+  int iVar5;
+  char *pcVar6;
+  int in_FS_OFFSET;
+  internal_abi_Type **ppiVar7;
+  int iVar8;
+  string local_58;
+  internal_abi_Type *local_40;
+  undefined **local_3c;
+  undefined *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4bf0da;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_40 = &string___String_type;
+  local_3c = &PTR_DAT_6c75cd30;
+  ppiVar7 = &local_40;
+  iVar8 = 1;
+  myfmt::myfmt_Println(ppiVar7,1,1);
+  UDPTools::UDPTools_GetRandPort();
+  DAT_6c97e9a8 = ppiVar7;
+  UDPTools::UDPTools_GetOutPort();
+  if (iVar8 < 1) {
+    sVar2.len = DAT_6c957524;
+    sVar2.str = DAT_6c957520;
+    local_58 = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,sVar2,(string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_58.str,local_58.len);
+    DAT_6c97e94c = 0;
+    return;
+  }
+  if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  mVar1 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  UDPTools::UDPTools_N11Recv(mVar1.~r0,10,0,0x32,1);
+  sVar2 = strconv::strconv_FormatInt((long)iVar8,10);
+  iVar8 = sVar2.len;
+  if (DAT_6c95787c == 0) {
+    iVar5 = 1;
+    pcVar6 = "0";
+  }
+  else {
+    iVar5 = 0;
+    pcVar6 = (char *)0x0;
+    for (iVar4 = 0; iVar4 < DAT_6c95787c; iVar4 = iVar4 + 1) {
+      sVar3.len = iVar5;
+      sVar3.str = pcVar6;
+      sVar3 = runtime::runtime_concatstring2
+                        ((runtime_tmpBuf *)0x0,sVar3,*(string *)(DAT_6c957878 + iVar4 * 8));
+      iVar5 = sVar3.len;
+      pcVar6 = sVar3.str;
+      if (iVar4 != DAT_6c95787c + -1) {
+        sVar3 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar3,(string)0x16c759e9c);
+        iVar5 = sVar3.len;
+        pcVar6 = sVar3.str;
+      }
+    }
+  }
+  FUN_6c1a99b2();
+  local_38 = &DAT_6c5e80d6;
+  local_34 = 0xb;
+  local_30 = DAT_6c957520;
+  local_2c = DAT_6c957524;
+  local_28 = &DAT_6c759e30;
+  local_24 = 1;
+  local_18 = &DAT_6c759e30;
+  local_14 = 1;
+  local_8 = 0x6c5e4a3c;
+  local_4 = 2;
+  a.len = 7;
+  a.array = (string *)&local_38;
+  a.cap = 7;
+  local_20 = sVar2.str;
+  local_1c = iVar8;
+  local_10 = pcVar6;
+  local_c = iVar5;
+  sVar2 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a);
+  TCPTools::TCPTools_TCPSend(sVar2.str,sVar2.len);
+  return;
+}
+
+
+===== nat11.n11_1 @ 6c4bf0e0 =====
+
+/* Golang function info: {@address 6c951e00 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:64
+   Golang stacktrace signature: func nat11.n11_1(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_1(int param_1,uint param_2)
+
+{
+  string s;
+  string a1;
+  char *pcVar1;
+  undefined4 *puVar2;
+  uintptr *puVar3;
+  int in_FS_OFFSET;
+  runtime_funcval *fn;
+  uintptr uVar4;
+  uintptr uVar5;
+  uint uVar6;
+  error_itab *peVar8;
+  string sVar9;
+  string *psVar10;
+  __string local_40;
+  string sStack_3c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  multireturn_int_error_ mVar7;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4bf557;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75cd38;
+  myfmt::myfmt_Println(&local_18,1,1);
+  runtime::runtime_chansend1(DAT_6c957084,&DAT_6c75b9c0);
+  if (9 < DAT_6c4de1d4) {
+    DAT_6c4de1d4 = DAT_6c4de1d4 + -10;
+  }
+  if (param_2 < 5) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  if (*(int *)(param_1 + 0x24) < 7) {
+    local_40 = strings::strings_genSplit(*(string *)(param_1 + 0x10),(string)0x16c759e9c,0,-1);
+    DAT_6c95789c = (int)sStack_3c.str;
+    DAT_6c9578a0 = sStack_3c.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar2 = psVar10;
+      puVar2[1] = DAT_6c957898;
+    }
+  }
+  else {
+    sVar9.len = *(int *)(param_1 + 0x24);
+    sVar9.str = *(char **)(param_1 + 0x20);
+    sStack_3c = runtime::runtime_concatstring3
+                          ((runtime_tmpBuf *)0x0,*(string *)(param_1 + 0x10),(string)0x16c759e9c,
+                           sVar9);
+    local_40 = strings::strings_genSplit(sStack_3c,(string)0x16c759e9c,0,-1);
+    DAT_6c95789c = (int)sStack_3c.str;
+    DAT_6c9578a0 = sStack_3c.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar2 = psVar10;
+      puVar2[1] = DAT_6c957898;
+    }
+  }
+  DAT_6c957898 = psVar10;
+  mVar7 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  peVar8 = mVar7.~r1.tab;
+  uVar4 = mVar7.~r0;
+  if ((int)uVar4 < 0x186a1) {
+    uVar6 = 0xfffffffb;
+    UDPTools::UDPTools_N11Recv(uVar4,0x32,0xfffffffb,10,(uint)mVar7.~r1.data._1_3_ << 8);
+    time::time_Sleep((time *)0xb2d05e00,(ulong)uVar6 << 0x20);
+    s.len = DAT_6c957534;
+    s.str = DAT_6c957530;
+    local_40 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+    if ((int)sStack_3c.str < 3) {
+      a1.len = DAT_6c957544;
+      a1.str = DAT_6c957540;
+      sStack_3c = runtime::runtime_concatstring3
+                            ((runtime_tmpBuf *)0x0,(string)0xb6c5e80e1,a1,(string)0x26c5e4a3c);
+      TCPTools::TCPTools_TCPSend(sStack_3c.str,sStack_3c.len);
+    }
+  }
+  else {
+    uVar5 = uVar4;
+    nat11_getRandCon(10000,20000);
+    sVar9 = strconv::strconv_FormatInt((long)(int)(uVar4 - 100000),10);
+    if (DAT_6c95789c == 0) {
+                    /* WARNING: Subroutine does not return */
+      runtime::runtime_panicIndex();
+    }
+    sStack_3c = runtime::runtime_concatstring3
+                          ((runtime_tmpBuf *)0x0,*DAT_6c957898,(string)0x16c759ea0,sVar9);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75cd40;
+    local_4 = runtime::runtime_convTstring(sStack_3c);
+    local_8 = &string___String_type;
+    myfmt::myfmt_Println(&local_10,2,2);
+    uVar4 = DAT_6c957544;
+    pcVar1 = DAT_6c957540;
+    fn = runtime::runtime_newobject
+                   (&nat11_struct___F_uintptr___autotmp_20_string___autotmp_21_int___autotmp_22_string___autotmp_23__net_UDPConn_____Struct_type
+                     .Type);
+    fn->fn = (uintptr)nat11_n11_1_func1;
+    fn[2].fn = uVar4;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar2 = pcVar1;
+    }
+    fn[1].fn = (uintptr)pcVar1;
+    fn[3].fn = (uintptr)peVar8;
+    fn[5].fn = sStack_3c.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar3 = (uintptr *)runtime::runtime_gcWriteBarrier2();
+      *puVar3 = (uintptr)sStack_3c.str;
+      puVar3[1] = uVar5;
+    }
+    fn[4].fn = (uintptr)sStack_3c.str;
+    fn[6].fn = uVar5;
+    runtime::runtime_newproc(fn);
+  }
+  return;
+}
+
+
+===== nat11.n11_1.func1 @ 6c4bf560 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c951e50 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:91
+   Golang stacktrace signature: [partial] [error] func nat11.n11_1.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat11::nat11_n11_1_func1
+               (nat11_struct___F_uintptr___autotmp_20_string___autotmp_21_int___autotmp_22_string___autotmp_23__net_UDPConn__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_24;
+  int local_20;
+  undefined *local_1c;
+  undefined4 local_18;
+  int local_14;
+  char *local_10;
+  int local_c;
+  net_UDPConn *local_8;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4bf5c3;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_24;
+  }
+  local_24 = (_context->_autotmp_20).str;
+  local_20 = (_context->_autotmp_20).len;
+  local_14 = _context->_autotmp_21;
+  local_10 = (_context->_autotmp_22).str;
+  local_8 = _context->_autotmp_23;
+  local_c = (_context->_autotmp_22).len;
+  local_1c = &DAT_6c5e7ae8;
+  local_18 = 0xb;
+  node::node_MappingClientStar();
+  return;
+}
+
+
+===== nat11.n11_2 @ 6c4bf5e0 =====
+
+/* Golang function info: {@address 6c951ea4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:110
+   Golang stacktrace signature: func nat11.n11_2(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_2(void)
+
+{
+  string val;
+  string a1;
+  string a1_00;
+  string a1_01;
+  string sVar1;
+  multireturn_net_UDPConn___error_ mVar2;
+  __string _Var3;
+  char cVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  uintptr *puVar7;
+  int in_FS_OFFSET;
+  uintptr uVar8;
+  net_UDPAddr *laddr;
+  char *pcVar9;
+  runtime_funcval *fn;
+  int iVar10;
+  uint uVar11;
+  undefined4 in_stack_ffffff94;
+  string local_58;
+  undefined1 local_48 [16];
+  undefined1 local_38 [16];
+  uint8 *local_28;
+  net_UDPConn *local_24;
+  unsafe_Pointer local_20;
+  uint8 *local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (cVar4 = (char)in_stack_ffffff94,
+        &local_4 <= *(unsafe_Pointer **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4bfab5;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75cd48;
+  uVar11 = 1;
+  myfmt::myfmt_Println(&local_18,1);
+  UDPTools::UDPTools_StopRecv(0);
+  time::time_Sleep((time *)0x5f5e100,(ulong)uVar11 << 0x20);
+  local_1c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_38,&stack0xffffff84);
+  runtime::runtime_duffcopy_6c1a9ea8(local_48,local_38);
+  runtime::runtime_duffcopy_6c1a9ea8(local_1c,local_48);
+  if (cVar4 == '\0') {
+    iVar5 = 0;
+    local_28 = (uint8 *)0x0;
+  }
+  else {
+    iVar5 = 0x10;
+    local_28 = local_1c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar5;
+  (laddr->IP).cap = iVar5;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar6 = local_28;
+  }
+  (laddr->IP).array = local_28;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar9 = (char *)0x3;
+  mVar2 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_24 = mVar2.~r0;
+  if (mVar2.~r1.tab != (error_itab *)0x0) {
+    (*(mVar2.~r1.tab)->Error)(mVar2.~r1.data);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75cd50;
+    val.len = (int)laddr;
+    val.str = pcVar9;
+    local_4 = runtime::runtime_convTstring(val);
+    local_8 = &string___String_type;
+    myfmt::myfmt_Println(&local_10,2);
+    DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+    DAT_6c97e94c = 0;
+    a1_01.len = DAT_6c957524;
+    a1_01.str = DAT_6c957520;
+    sVar1 = runtime::runtime_concatstring3
+                      ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1_01,(string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(sVar1.str,sVar1.len);
+    return;
+  }
+  uVar11 = 0x200;
+  local_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x200,0x200);
+  uVar8 = DAT_6c97e9a8;
+  fn = runtime::runtime_newobject
+                 (&nat11_struct___F_uintptr___autotmp_19__net_UDPConn___autotmp_20_int___autotmp_21___uint8_____Struct_type
+                   .Type);
+  fn->fn = (uintptr)nat11_n11_2_func1;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar6 = local_24;
+  }
+  fn[1].fn = (uintptr)local_24;
+  fn[2].fn = uVar8;
+  fn[4].fn = 0x200;
+  fn[5].fn = 0x200;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = (uintptr)local_20;
+  }
+  fn[3].fn = (uintptr)local_20;
+  runtime::runtime_newproc(fn);
+  UDPTools::UDPTools_UDPScanNat3(local_24,10);
+  time::time_Sleep((time *)0x3b9aca00,(ulong)uVar11 << 0x20);
+  sVar1.len = DAT_6c957534;
+  sVar1.str = DAT_6c957530;
+  iVar10 = DAT_6c957534;
+  _Var3 = strings::strings_genSplit(sVar1,(string)0x16c759ea4,0,-1);
+  if (_Var3.len < 3) {
+    uVar8 = 0;
+    UDPTools::UDPTools_StopRecv();
+    UDPTools::UDPTools_GetRandPort();
+    DAT_6c97e9a8 = uVar8;
+    UDPTools::UDPTools_GetOutPort();
+    if (iVar10 < 1) {
+      a1_00.len = DAT_6c957524;
+      a1_00.str = DAT_6c957520;
+      sVar1 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1_00,(string)0x26c5e4a3c);
+      TCPTools::TCPTools_TCPSend(sVar1.str,sVar1.len);
+      DAT_6c97e94c = 0;
+      return;
+    }
+    sVar1 = strconv::strconv_FormatInt((long)iVar10,10);
+    a1.len = DAT_6c957524;
+    a1.str = DAT_6c957520;
+    local_58 = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xb6c5e80ec,a1,(string)0x16c759e30,sVar1,
+                          (string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_58.str,local_58.len);
+    local_18 = &string___String_type;
+    local_14 = &PTR_DAT_6c75cd58;
+    myfmt::myfmt_Println(&local_18,1);
+  }
+  return;
+}
+
+
+===== nat11.n11_2.func1 @ 6c4bfac0 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c951ef4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:125
+   Golang stacktrace signature: [partial] [error] func nat11.n11_2.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat11::nat11_n11_2_func1
+               (nat11_struct___F_uintptr___autotmp_19__net_UDPConn___autotmp_20_int___autotmp_21___uint8__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  net_UDPConn *local_28;
+  int local_24;
+  uint8 *local_20;
+  int local_1c;
+  int local_18;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4bfb0a;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_28;
+  }
+  local_28 = _context->_autotmp_19;
+  local_24 = _context->_autotmp_20;
+  local_20 = (_context->_autotmp_21).array;
+  local_1c = (_context->_autotmp_21).len;
+  local_18 = (_context->_autotmp_21).cap;
+  UDPTools::UDPTools_UDPRecv();
+  return;
+}
+
+
+===== nat11.n11_3 @ 6c4bfb20 =====
+
+/* Golang function info: {@address 6c951f48 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:142
+   Golang stacktrace signature: func nat11.n11_3(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_3(int param_1,uint param_2)
+
+{
+  string a1;
+  undefined4 *puVar1;
+  int in_FS_OFFSET;
+  undefined4 uVar2;
+  int iVar3;
+  multireturn_int_error_ mVar4;
+  string sVar5;
+  string local_14;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4bfd26;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cd60;
+  iVar3 = 1;
+  myfmt::myfmt_Println(&local_8,1,1);
+  uVar2 = 0;
+  UDPTools::UDPTools_StopRecv();
+  UDPTools::UDPTools_GetRandPort();
+  DAT_6c97e9a8 = uVar2;
+  UDPTools::UDPTools_GetOutPort();
+  if (0 < iVar3) {
+    if (2 < param_2) {
+      mVar4 = strconv::strconv_Atoi(*(string *)(param_1 + 0x10));
+      UDPTools::UDPTools_N11Recv(mVar4.~r0,10,0,0x32,(uint)mVar4.~r1.data._1_3_ << 8);
+      sVar5 = strconv::strconv_FormatInt((long)iVar3,10);
+      a1.len = DAT_6c957544;
+      a1.str = DAT_6c957540;
+      local_14 = runtime::runtime_concatstring5
+                           ((runtime_tmpBuf *)0x0,(string)0xb6c5e80f7,a1,(string)0x16c759e30,sVar5,
+                            (string)0x26c5e4a3c);
+      TCPTools::TCPTools_TCPSend(local_14.str,local_14.len);
+      return;
+    }
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  sVar5.len = DAT_6c957544;
+  sVar5.str = DAT_6c957540;
+  sVar5 = runtime::runtime_concatstring3
+                    ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,sVar5,(string)0x26c5e4a3c);
+  TCPTools::TCPTools_TCPSend(sVar5.str,sVar5.len);
+  uVar2 = DAT_6c957530;
+  DAT_6c957534 = 6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar1 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar1 = uVar2;
+  }
+  DAT_6c957530 = &DAT_6c5e590e;
+  return;
+}
+
+
+===== nat11.n11_4 @ 6c4bfd30 =====
+
+/* Golang function info: {@address 6c951f98 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:159
+   Golang stacktrace signature: func nat11.n11_4(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_4(int param_1,uint param_2)
+
+{
+  string s;
+  string a1;
+  int in_FS_OFFSET;
+  uint uVar1;
+  multireturn_int_error_ mVar2;
+  __string local_14;
+  string sStack_10;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4bfe9e;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cd68;
+  myfmt::myfmt_Println(&local_8,1,1);
+  if (2 < param_2) {
+    mVar2 = strconv::strconv_Atoi(*(string *)(param_1 + 0x10));
+    uVar1 = 0xfffffffb;
+    UDPTools::UDPTools_N11Recv(mVar2.~r0,0x32,0xfffffffb,10,(uint)mVar2.~r1.data._1_3_ << 8);
+    time::time_Sleep((time *)0x3b9aca00,(ulong)uVar1 << 0x20);
+    s.len = DAT_6c957534;
+    s.str = DAT_6c957530;
+    local_14 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+    if (((int)sStack_10.str < 3) && (DAT_6c957534 != 0)) {
+      a1.len = DAT_6c957524;
+      a1.str = DAT_6c957520;
+      sStack_10 = runtime::runtime_concatstring3
+                            ((runtime_tmpBuf *)0x0,(string)0xb6c5e8102,a1,(string)0x26c5e4a3c);
+      TCPTools::TCPTools_TCPSend(sStack_10.str,sStack_10.len);
+    }
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+
+===== nat11.n11_5 @ 6c4bfeb0 =====
+
+/* Golang function info: {@address 6c951fe8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:176
+   Golang stacktrace signature: func nat11.n11_5(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_5(void)
+
+{
+  string s;
+  string a1;
+  string a1_00;
+  multireturn_net_UDPConn___error_ mVar1;
+  __string _Var2;
+  string sVar3;
+  uintptr uVar4;
+  char cVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  uintptr *puVar8;
+  int in_FS_OFFSET;
+  net_UDPAddr *laddr;
+  char *pcVar9;
+  runtime_funcval *fn;
+  uint uVar10;
+  undefined4 in_stack_ffffffa4;
+  char *local_58;
+  int local_54;
+  undefined1 local_48 [16];
+  undefined1 local_38 [16];
+  uint8 *local_28;
+  net_UDPConn *local_24;
+  unsafe_Pointer local_20;
+  uint8 *local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (cVar5 = (char)in_stack_ffffffa4,
+        &stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c0309;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75cd70;
+  uVar10 = 1;
+  myfmt::myfmt_Println(&local_18,1);
+  UDPTools::UDPTools_StopRecv(0);
+  time::time_Sleep((time *)0x5f5e100,(ulong)uVar10 << 0x20);
+  local_1c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_38,&stack0xffffff94);
+  runtime::runtime_duffcopy_6c1a9ea8(local_48,local_38);
+  runtime::runtime_duffcopy_6c1a9ea8(local_1c,local_48);
+  if (cVar5 == '\0') {
+    iVar6 = 0;
+    local_28 = (uint8 *)0x0;
+  }
+  else {
+    iVar6 = 0x10;
+    local_28 = local_1c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar6;
+  (laddr->IP).cap = iVar6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = local_28;
+  }
+  (laddr->IP).array = local_28;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar9 = (char *)0x3;
+  mVar1 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_24 = mVar1.~r0;
+  if (mVar1.~r1.tab == (error_itab *)0x0) {
+    uVar10 = 0x200;
+    local_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x200,0x200);
+    uVar4 = DAT_6c97e9a8;
+    fn = runtime::runtime_newobject
+                   (&nat11_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8_____Struct_type
+                     .Type);
+    fn->fn = (uintptr)nat11_n11_5_func1;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar7 = local_24;
+    }
+    fn[1].fn = (uintptr)local_24;
+    fn[2].fn = uVar4;
+    fn[4].fn = 0x200;
+    fn[5].fn = 0x200;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar8 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+      *puVar8 = (uintptr)local_20;
+    }
+    fn[3].fn = (uintptr)local_20;
+    runtime::runtime_newproc(fn);
+    UDPTools::UDPTools_UDPScanNat3(local_24,10);
+    time::time_Sleep((time *)0x3b9aca00,(ulong)uVar10 << 0x20);
+    s.len = DAT_6c957534;
+    s.str = DAT_6c957530;
+    _Var2 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+    local_58 = (char *)_Var2.len;
+    if (2 < (int)local_58) {
+      return;
+    }
+    UDPTools::UDPTools_StopRecv(0);
+    local_18 = &string___String_type;
+    local_14 = &PTR_DAT_6c75cd80;
+    myfmt::myfmt_Println(&local_18,1);
+    pcVar9 = DAT_6c957530;
+    DAT_6c957534 = 5;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar7 = pcVar9;
+    }
+    DAT_6c957530 = &DAT_6c5e5486;
+    a1_00.len = DAT_6c957544;
+    a1_00.str = DAT_6c957540;
+    sVar3 = runtime::runtime_concatstring3
+                      ((runtime_tmpBuf *)0x0,(string)0xb6c5e810d,a1_00,(string)0x26c5e4a3c);
+    local_54 = sVar3.len;
+    local_58 = sVar3.str;
+    TCPTools::TCPTools_TCPSend(local_58,local_54);
+    return;
+  }
+  (*(mVar1.~r1.tab)->Error)(mVar1.~r1.data);
+  local_8 = (internal_abi_Type *)0x0;
+  local_4 = (unsafe_Pointer)0x0;
+  local_10 = &string___String_type;
+  local_c = &PTR_DAT_6c75cd78;
+  sVar3.len = (int)laddr;
+  sVar3.str = pcVar9;
+  local_4 = runtime::runtime_convTstring(sVar3);
+  local_8 = &string___String_type;
+  myfmt::myfmt_Println(&local_10,2);
+  pcVar9 = DAT_6c957530;
+  DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+  DAT_6c957534 = 6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = pcVar9;
+  }
+  DAT_6c957530 = &DAT_6c5e590e;
+  a1.len = DAT_6c957544;
+  a1.str = DAT_6c957540;
+  sVar3 = runtime::runtime_concatstring3
+                    ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,a1,(string)0x26c5e4a3c);
+  local_54 = sVar3.len;
+  local_58 = sVar3.str;
+  TCPTools::TCPTools_TCPSend(local_58,local_54);
+  return;
+}
+
+
+===== nat11.n11_5.func1 @ 6c4c0310 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952038 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:191
+   Golang stacktrace signature: [partial] [error] func nat11.n11_5.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat11::nat11_n11_5_func1
+               (nat11_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  net_UDPConn *local_28;
+  int local_24;
+  uint8 *local_20;
+  int local_1c;
+  int local_18;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c035a;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_28;
+  }
+  local_28 = _context->_autotmp_16;
+  local_24 = _context->_autotmp_17;
+  local_20 = (_context->_autotmp_18).array;
+  local_1c = (_context->_autotmp_18).len;
+  local_18 = (_context->_autotmp_18).cap;
+  UDPTools::UDPTools_UDPRecv();
+  return;
+}
+
+
+===== nat11.n11_6 @ 6c4c0370 =====
+
+/* Golang function info: {@address 6c95208c "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:204
+   Golang stacktrace signature: func nat11.n11_6(struct? {4, 4, 4}) ??? */
+
+void nat11::nat11_n11_6(void)
+
+{
+  int in_FS_OFFSET;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c03df;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cd88;
+  myfmt::myfmt_Println(&local_8,1,1);
+  UDPTools::UDPTools_StopRecv(0);
+  DAT_6c97e94c = 0;
+  return;
+}
+
+
+===== nat11.getRandCon @ 6c4c03f0 =====
+
+/* Golang function info: {@address 6c9520d8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat11/nat11.go:214
+   Golang stacktrace signature: func nat11.getRandCon(4, 4) ??? */
+
+void nat11::nat11_getRandCon(int param_1,int param_2)
+
+{
+  time_Time tVar1;
+  multireturn_uint8_16__bool_ mVar2;
+  multireturn_net_UDPConn___error_ mVar3;
+  uint uVar4;
+  uint uVar5;
+  undefined4 *puVar6;
+  int in_FS_OFFSET;
+  int iVar7;
+  net_UDPAddr *laddr;
+  undefined4 uVar8;
+  error_itab *local_68;
+  bool local_60;
+  undefined1 local_50 [16];
+  undefined1 local_40 [16];
+  uint8 *local_30;
+  uint8 *local_2c;
+  uint local_28;
+  uint local_24;
+  uint local_20;
+  int local_1c;
+  undefined1 local_14 [16];
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c05a0;
+    runtime::runtime_morestack_noctxt();
+  }
+  tVar1 = time::time_Now();
+  uVar8 = (undefined4)tVar1.ext;
+  runtime::runtime_duffcopy_6c1a9e9e(local_14,&stack0xffffff88);
+  runtime::runtime_duffcopy_6c1a9e9e(&local_28,local_14);
+  if ((local_24 & 0x80000000) != 0) {
+    uVar4 = local_28 >> 0x1f | local_24 << 1;
+    uVar5 = uVar4 << 1 | (local_28 & 0x7fffffff) >> 0x1e;
+    local_20 = uVar5 + 0xd7b17f80;
+    local_1c = (0xd - ((int)uVar4 >> 0x1f)) + (uint)(0x284e807f < uVar5);
+  }
+  math/rand::math_rand_Seed
+            ((math_rand *)(local_20 + 0x886e0900),
+             CONCAT44(uVar8,local_1c + -0xf + (uint)(0x7791f6ff < local_20)));
+  iVar7 = math/rand::math_rand_Intn(param_2 - param_1);
+  param_1 = iVar7 + param_1;
+  while( true ) {
+    local_2c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+    mVar2 = net::net_parseIP((string)0x76c5e5ee4);
+    local_60 = mVar2.~r1;
+    runtime::runtime_duffcopy_6c1a9ea8(local_40,&stack0xffffff90);
+    runtime::runtime_duffcopy_6c1a9ea8(local_50,local_40);
+    runtime::runtime_duffcopy_6c1a9ea8(local_2c,local_50);
+    if (local_60 == false) {
+      iVar7 = 0;
+      local_30 = (uint8 *)0x0;
+    }
+    else {
+      iVar7 = 0x10;
+      local_30 = local_2c;
+    }
+    laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+    (laddr->IP).len = iVar7;
+    (laddr->IP).cap = iVar7;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar6 = local_30;
+    }
+    (laddr->IP).array = local_30;
+    laddr->Port = param_1;
+    mVar3 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+    local_68 = mVar3.~r1.tab;
+    if (local_68 == (error_itab *)0x0) break;
+    param_1 = param_1 + 1;
+  }
+  return;
+}
+
+
+===== nat1x.CS1or0 @ 6c4c05b0 =====
+
+/* Golang function info: {@address 6c952128 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:17
+   Golang stacktrace signature: func nat1x.CS1or0(struct? {4, 4, 4}, 4) ??? */
+
+void nat1x::nat1x_CS1or0(int param_1,uint param_2)
+
+{
+  __string a;
+  string a1;
+  multireturn_int_error_ mVar1;
+  multireturn_int_error_ mVar2;
+  string sVar3;
+  string sVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  char *pcVar8;
+  int in_FS_OFFSET;
+  undefined4 in_stack_ffffff8c;
+  char cVar9;
+  string local_58;
+  undefined *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c08f6;
+    runtime::runtime_morestack_noctxt();
+  }
+  UDPTools::UDPTools_GetRandPort();
+  DAT_6c97e9a8 = in_stack_ffffff8c;
+  if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  mVar1 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  if (param_2 < 5) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  iVar6 = *(int *)(param_1 + 0x24);
+  mVar2 = strconv::strconv_Atoi(*(string *)(param_1 + 0x20));
+  cVar9 = (char)mVar2.~r1.tab;
+  UDPTools::UDPTools_GetOutPort(DAT_6c97e9a8);
+  if (iVar6 < 1) {
+    a1.len = DAT_6c957524;
+    a1.str = DAT_6c957520;
+    local_58 = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1,(string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_58.str,local_58.len);
+    DAT_6c97e94c = 0;
+    return;
+  }
+  nat1x_scan(DAT_6c97e9a8,mVar1.~r0,mVar2.~r0);
+  if (cVar9 == '\0') {
+    sVar3.len = DAT_6c957524;
+    sVar3.str = DAT_6c957520;
+    local_58 = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,sVar3,(string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_58.str,local_58.len);
+    DAT_6c97e94c = 0;
+    return;
+  }
+  sVar3 = strconv::strconv_FormatInt((long)iVar6,10);
+  iVar6 = sVar3.len;
+  if (DAT_6c95787c == 0) {
+    iVar7 = 1;
+    pcVar8 = "0";
+  }
+  else {
+    iVar7 = 0;
+    pcVar8 = (char *)0x0;
+    for (iVar5 = 0; iVar5 < DAT_6c95787c; iVar5 = iVar5 + 1) {
+      sVar4.len = iVar7;
+      sVar4.str = pcVar8;
+      sVar4 = runtime::runtime_concatstring2
+                        ((runtime_tmpBuf *)0x0,sVar4,*(string *)(DAT_6c957878 + iVar5 * 8));
+      iVar7 = sVar4.len;
+      pcVar8 = sVar4.str;
+      if (iVar5 != DAT_6c95787c + -1) {
+        sVar4 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar4,(string)0x16c759e9c);
+        iVar7 = sVar4.len;
+        pcVar8 = sVar4.str;
+      }
+    }
+  }
+  FUN_6c1a99b2();
+  local_38 = &DAT_6c5e8a5c;
+  local_34 = 0xc;
+  local_30 = DAT_6c957520;
+  local_2c = DAT_6c957524;
+  local_28 = &DAT_6c759e30;
+  local_24 = 1;
+  local_18 = &DAT_6c759e30;
+  local_14 = 1;
+  local_8 = 0x6c5e4a3c;
+  local_4 = 2;
+  a.len = 7;
+  a.array = (string *)&local_38;
+  a.cap = 7;
+  local_20 = sVar3.str;
+  local_1c = iVar6;
+  local_10 = pcVar8;
+  local_c = iVar7;
+  sVar3 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a);
+  TCPTools::TCPTools_TCPSend(sVar3.str,sVar3.len);
+  return;
+}
+
+
+===== nat1x.CC1or0 @ 6c4c0900 =====
+
+/* Golang function info: {@address 6c952178 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:39
+   Golang stacktrace signature: func nat1x.CC1or0(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_CC1or0(int param_1,uint param_2)
+
+{
+  __string a;
+  multireturn_int_error_ mVar1;
+  string sVar2;
+  string sVar3;
+  string sVar4;
+  int iVar5;
+  int iVar6;
+  error_itab *peVar7;
+  int iVar8;
+  int iVar9;
+  char *pcVar10;
+  int in_FS_OFFSET;
+  uint32 in_stack_ffffff60;
+  uint uVar11;
+  string local_84;
+  internal_abi_Type *local_60;
+  undefined **local_5c;
+  internal_abi_Type *local_58;
+  undefined **local_54;
+  internal_abi_Type *local_50;
+  unsafe_Pointer local_4c;
+  undefined *local_48;
+  undefined4 local_44;
+  char *local_40;
+  int local_3c;
+  undefined4 *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&local_20 <= *(char ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c0ccd;
+    runtime::runtime_morestack_noctxt();
+  }
+  UDPTools::UDPTools_GetRandPort();
+  DAT_6c97e9a8 = in_stack_ffffff60;
+  local_50 = (internal_abi_Type *)0x0;
+  local_4c = (unsafe_Pointer)0x0;
+  local_58 = &string___String_type;
+  local_54 = &PTR_DAT_6c75cd90;
+  local_4c = runtime::runtime_convT32(DAT_6c97e9a8);
+  local_50 = &int___Int_type;
+  myfmt::myfmt_Println(&local_58,2,2);
+  if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  uVar11 = *(uint *)(param_1 + 0x1c);
+  mVar1 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  peVar7 = mVar1.~r1.tab;
+  DAT_6c97eac4 = mVar1.~r0;
+  if (DAT_6c4de1d4 == 3) {
+    iVar5 = 0x400;
+    peVar7 = (error_itab *)0xfffd;
+  }
+  else {
+    iVar5 = DAT_6c97eac4;
+    UDPTools::UDPTools_Positions(DAT_6c97eac4,uVar11 & 0xffffff00);
+    if ((iVar5 < 1) || ((int)peVar7 < 1)) {
+      local_60 = &string___String_type;
+      local_5c = &PTR_DAT_6c75cd98;
+      myfmt::myfmt_Println(&local_60,1,1);
+      sVar2.len = DAT_6c957524;
+      sVar2.str = DAT_6c957520;
+      local_84 = runtime::runtime_concatstring3
+                           ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,sVar2,(string)0x26c5e4a3c);
+      TCPTools::TCPTools_TCPSend(local_84.str,local_84.len);
+      DAT_6c97e94c = 0;
+      return;
+    }
+  }
+  sVar2 = strconv::strconv_FormatInt((long)iVar5,10);
+  sVar3 = strconv::strconv_FormatInt((long)(int)peVar7,10);
+  iVar8 = sVar3.len;
+  if (DAT_6c95787c == 0) {
+    iVar9 = 1;
+    pcVar10 = "0";
+  }
+  else {
+    iVar9 = 0;
+    pcVar10 = (char *)0x0;
+    for (iVar6 = 0; iVar6 < DAT_6c95787c; iVar6 = iVar6 + 1) {
+      sVar4.len = iVar9;
+      sVar4.str = pcVar10;
+      sVar4 = runtime::runtime_concatstring2
+                        ((runtime_tmpBuf *)0x0,sVar4,*(string *)(DAT_6c957878 + iVar6 * 8));
+      iVar9 = sVar4.len;
+      pcVar10 = sVar4.str;
+      if (iVar6 != DAT_6c95787c + -1) {
+        sVar4 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar4,(string)0x16c759e9c);
+        iVar9 = sVar4.len;
+        pcVar10 = sVar4.str;
+      }
+    }
+  }
+  FUN_6c1a99ae();
+  local_48 = &DAT_6c5e8a68;
+  local_44 = 0xc;
+  local_40 = DAT_6c957520;
+  local_3c = DAT_6c957524;
+  local_38 = &DAT_6c759e30;
+  local_34 = 1;
+  local_28 = &DAT_6c759e30;
+  local_24 = 1;
+  local_18 = &DAT_6c759e30;
+  local_14 = 1;
+  local_8 = 0x6c5e4a3c;
+  local_4 = 2;
+  a.len = 9;
+  a.array = (string *)&local_48;
+  a.cap = 9;
+  local_30 = sVar2.str;
+  local_2c = sVar2.len;
+  local_20 = sVar3.str;
+  local_1c = iVar8;
+  local_10 = pcVar10;
+  local_c = iVar9;
+  sVar2 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a);
+  TCPTools::TCPTools_TCPSend(sVar2.str,sVar2.len);
+  return;
+}
+
+
+===== nat1x.Exec @ 6c4c0ce0 =====
+
+/* Golang function info: {@address 6c9521c8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:63
+   Golang stacktrace signature: func nat1x.Exec(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_Exec(int param_1,uint param_2,undefined4 param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  char *pcVar3;
+  ushort uVar4;
+  int in_FS_OFFSET;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  if ((DAT_6c97e94b == '\0') && (DAT_6c97e94c == '\0')) {
+    return;
+  }
+  if (param_2 < 2) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  iVar2 = *(int *)(param_1 + 0xc);
+  if (iVar2 != 0) {
+    pcVar3 = *(char **)(param_1 + 8);
+    cVar1 = *pcVar3;
+    if (cVar1 == 's') {
+      if (iVar2 == 2) {
+        uVar4 = (ushort)(byte)pcVar3[1] << 8 | 0x73;
+        if (uVar4 == 0x3173) {
+          nat1x_s1(param_1,param_2,param_3);
+        }
+        else if (uVar4 == 0x3273) {
+          nat1x_s2(param_1,param_2,param_3);
+        }
+        else if (uVar4 == 0x3373) {
+          nat1x_s3(param_1,param_2,param_3);
+        }
+      }
+    }
+    else if (iVar2 == 2) {
+      if (pcVar3[1] < '3') {
+        if (CONCAT11(pcVar3[1],cVar1) == 0x3163) {
+          nat1x_c1(param_1,param_2,param_3);
+        }
+        else if (CONCAT11(pcVar3[1],cVar1) == 0x3263) {
+          nat1x_c2(param_1,param_2,param_3);
+        }
+      }
+      else if (CONCAT11(pcVar3[1],cVar1) == 0x3363) {
+        nat1x_c3(param_1,param_2,param_3);
+      }
+      else if (CONCAT11(pcVar3[1],cVar1) == 0x3463) {
+        nat1x_c4(param_1,param_2,param_3);
+      }
+    }
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+
+===== nat1x.s1 @ 6c4c0e90 =====
+
+/* Golang function info: {@address 6c952214 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:101
+   Golang stacktrace signature: func nat1x.s1(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_s1(int param_1,uint param_2)
+
+{
+  string s;
+  string a0;
+  string a1;
+  string a3;
+  string sVar1;
+  __string _Var2;
+  int iVar3;
+  int iVar4;
+  char *pcVar5;
+  undefined4 *puVar6;
+  int in_FS_OFFSET;
+  uint uVar7;
+  multireturn_int_error_ mVar8;
+  string *psVar9;
+  string local_14;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c1219;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cda0;
+  myfmt::myfmt_Println(&local_8,1,1);
+  if (9 < DAT_6c4de1d4) {
+    DAT_6c4de1d4 = DAT_6c4de1d4 + -10;
+  }
+  runtime::runtime_chansend1(DAT_6c957084,&DAT_6c75b9c0);
+  if (param_2 < 5) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  if (*(int *)(param_1 + 0x24) < 7) {
+    _Var2 = strings::strings_genSplit(*(string *)(param_1 + 0x10),(string)0x16c759e9c,0,-1);
+    DAT_6c9578a0 = _Var2.cap;
+    DAT_6c95789c = _Var2.len;
+    psVar9 = _Var2.array;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar6 = psVar9;
+      puVar6[1] = DAT_6c957898;
+    }
+  }
+  else {
+    sVar1.len = *(int *)(param_1 + 0x24);
+    sVar1.str = *(char **)(param_1 + 0x20);
+    sVar1 = runtime::runtime_concatstring3
+                      ((runtime_tmpBuf *)0x0,*(string *)(param_1 + 0x10),(string)0x16c759e9c,sVar1);
+    _Var2 = strings::strings_genSplit(sVar1,(string)0x16c759e9c,0,-1);
+    DAT_6c9578a0 = _Var2.cap;
+    DAT_6c95789c = _Var2.len;
+    psVar9 = _Var2.array;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar6 = psVar9;
+      puVar6[1] = DAT_6c957898;
+    }
+  }
+  DAT_6c957898 = psVar9;
+  mVar8 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  uVar7 = 0;
+  UDPTools::UDPTools_N11Recv(mVar8.~r0,100,0,5,(uint)mVar8.~r1.data._1_3_ << 8);
+  time::time_Sleep((time *)0x3b9aca00,(ulong)uVar7 << 0x20);
+  s.len = DAT_6c957534;
+  s.str = DAT_6c957530;
+  _Var2 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+  if (_Var2.len < 3) {
+    if (DAT_6c95787c == 0) {
+      iVar4 = 1;
+      pcVar5 = "0";
+    }
+    else {
+      iVar4 = 0;
+      pcVar5 = (char *)0x0;
+      for (iVar3 = 0; iVar3 < DAT_6c95787c; iVar3 = iVar3 + 1) {
+        a0.len = iVar4;
+        a0.str = pcVar5;
+        sVar1 = runtime::runtime_concatstring2
+                          ((runtime_tmpBuf *)0x0,a0,*(string *)(DAT_6c957878 + iVar3 * 8));
+        iVar4 = sVar1.len;
+        pcVar5 = sVar1.str;
+        if (iVar3 != DAT_6c95787c + -1) {
+          sVar1 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar1,(string)0x16c759e9c);
+          iVar4 = sVar1.len;
+          pcVar5 = sVar1.str;
+        }
+      }
+    }
+    a1.len = DAT_6c957544;
+    a1.str = DAT_6c957540;
+    a3.len = iVar4;
+    a3.str = pcVar5;
+    local_14 = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e8a74,a1,(string)0x16c759e30,a3,
+                          (string)0x46c5e5431);
+    TCPTools::TCPTools_TCPSend(local_14.str,local_14.len);
+  }
+  return;
+}
+
+
+===== nat1x.s2 @ 6c4c1220 =====
+
+/* Golang function info: {@address 6c952264 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:122
+   Golang stacktrace signature: func nat1x.s2(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_s2(int param_1,uint param_2)
+
+{
+  string val;
+  string a1;
+  string a1_00;
+  multireturn_net_UDPConn___error_ mVar1;
+  __string _Var2;
+  string sVar3;
+  uintptr uVar4;
+  char cVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  uintptr *puVar8;
+  int in_FS_OFFSET;
+  net_UDPAddr *laddr;
+  char *pcVar9;
+  runtime_funcval *fn;
+  uint uVar10;
+  undefined4 in_stack_ffffffa4;
+  char *local_58;
+  int local_54;
+  undefined1 local_48 [16];
+  undefined1 local_38 [16];
+  uint8 *local_28;
+  net_UDPConn *local_24;
+  unsafe_Pointer local_20;
+  uint8 *local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (cVar5 = (char)in_stack_ffffffa4,
+        &stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c1627;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75cda8;
+  myfmt::myfmt_Println(&local_18,1);
+  UDPTools::UDPTools_StopRecv(0);
+  local_1c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_38,&stack0xffffff94);
+  runtime::runtime_duffcopy_6c1a9ea8(local_48,local_38);
+  runtime::runtime_duffcopy_6c1a9ea8(local_1c,local_48);
+  if (cVar5 == '\0') {
+    iVar6 = 0;
+    local_28 = (uint8 *)0x0;
+  }
+  else {
+    iVar6 = 0x10;
+    local_28 = local_1c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar6;
+  (laddr->IP).cap = iVar6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = local_28;
+  }
+  (laddr->IP).array = local_28;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar9 = (char *)0x3;
+  mVar1 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_24 = mVar1.~r0;
+  if (mVar1.~r1.tab != (error_itab *)0x0) {
+    (*(mVar1.~r1.tab)->Error)(mVar1.~r1.data);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75cdb0;
+    val.len = (int)laddr;
+    val.str = pcVar9;
+    local_4 = runtime::runtime_convTstring(val);
+    local_8 = &string___String_type;
+    myfmt::myfmt_Println(&local_10,2);
+    DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+    DAT_6c97e94c = 0;
+    a1_00.len = DAT_6c957524;
+    a1_00.str = DAT_6c957520;
+    sVar3 = runtime::runtime_concatstring3
+                      ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1_00,(string)0x26c5e4a3c);
+    local_54 = sVar3.len;
+    local_58 = sVar3.str;
+    TCPTools::TCPTools_TCPSend(local_58,local_54);
+    return;
+  }
+  uVar10 = 0x200;
+  local_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x200,0x200);
+  uVar4 = DAT_6c97e9a8;
+  fn = runtime::runtime_newobject
+                 (&nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8_____Struct_type
+                   .Type);
+  fn->fn = (uintptr)nat1x_s2_func1;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = local_24;
+  }
+  fn[1].fn = (uintptr)local_24;
+  fn[2].fn = uVar4;
+  fn[4].fn = 0x200;
+  fn[5].fn = 0x200;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar8 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar8 = (uintptr)local_20;
+  }
+  fn[3].fn = (uintptr)local_20;
+  runtime::runtime_newproc(fn);
+  if (param_2 < 3) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  if (*(int *)(param_1 + 0x14) < 7) {
+    UDPTools::UDPTools_UDPScanNat3(local_24,0x14);
+  }
+  else {
+    uVar10 = DAT_6c95789c;
+    UDPTools::UDPTools_UDPScanNat4(local_24,DAT_6c957898);
+  }
+  time::time_Sleep((time *)0x3b9aca00,(ulong)uVar10 << 0x20);
+  sVar3.len = DAT_6c957534;
+  sVar3.str = DAT_6c957530;
+  _Var2 = strings::strings_genSplit(sVar3,(string)0x16c759ea4,0,-1);
+  local_58 = (char *)_Var2.len;
+  if ((int)local_58 < 3) {
+    DAT_6c97e94c = 0;
+    UDPTools::UDPTools_StopRecv(0);
+    a1.len = DAT_6c957524;
+    a1.str = DAT_6c957520;
+    sVar3 = runtime::runtime_concatstring3
+                      ((runtime_tmpBuf *)0x0,(string)0xc6c5e8a80,a1,(string)0x46c5e5431);
+    local_54 = sVar3.len;
+    local_58 = sVar3.str;
+    TCPTools::TCPTools_TCPSend(local_58,local_54);
+  }
+  return;
+}
+
+
+===== nat1x.s2.func1 @ 6c4c1630 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c9522b4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:135
+   Golang stacktrace signature: [partial] [error] func nat1x.s2.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat1x::nat1x_s2_func1
+               (nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  net_UDPConn *local_28;
+  int local_24;
+  uint8 *local_20;
+  int local_1c;
+  int local_18;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c167a;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_28;
+  }
+  local_28 = _context->_autotmp_16;
+  local_24 = _context->_autotmp_17;
+  local_20 = (_context->_autotmp_18).array;
+  local_1c = (_context->_autotmp_18).len;
+  local_18 = (_context->_autotmp_18).cap;
+  UDPTools::UDPTools_UDPRecv();
+  return;
+}
+
+
+===== nat1x.s3 @ 6c4c1690 =====
+
+/* Golang function info: {@address 6c952308 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:150
+   Golang stacktrace signature: func nat1x.s3(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_s3(void)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int in_FS_OFFSET;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c17a9;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdb8;
+  myfmt::myfmt_Println(&local_8,1,1);
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdc0;
+  myfmt::myfmt_Println(&local_8,1,1);
+  UDPTools::UDPTools_StopRecv(0);
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdc8;
+  myfmt::myfmt_Println(&local_8,1,1);
+  uVar1 = DAT_6c957530;
+  DAT_6c957534 = 5;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar2 = uVar1;
+  }
+  DAT_6c957530 = &DAT_6c5e5486;
+  return;
+}
+
+
+===== nat1x.c1 @ 6c4c17b0 =====
+
+/* Golang function info: {@address 6c952354 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:161
+   Golang stacktrace signature: func nat1x.c1(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_c1(int param_1,uint param_2)
+
+{
+  string a1;
+  string a1_00;
+  string a2;
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int in_FS_OFFSET;
+  char cVar5;
+  multireturn_int_error_ mVar3;
+  multireturn_int_error_ mVar4;
+  string *psVar6;
+  __string local_1c;
+  string sStack_18;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c1af0;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdd0;
+  myfmt::myfmt_Println(&local_8,1,1);
+  if (9 < DAT_6c4de1d4) {
+    DAT_6c4de1d4 = DAT_6c4de1d4 + -10;
+  }
+  runtime::runtime_chansend1(DAT_6c957084,&DAT_6c75b9c0);
+  if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  mVar3 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+  if (param_2 < 5) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  mVar4 = strconv::strconv_Atoi(*(string *)(param_1 + 0x20));
+  if (param_2 < 6) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  if (*(int *)(param_1 + 0x2c) < 7) {
+    cVar5 = '\x01';
+    local_1c = strings::strings_genSplit(*(string *)(param_1 + 0x10),(string)0x16c759e9c,0,-1);
+    DAT_6c95789c = (int)sStack_18.str;
+    DAT_6c9578a0 = sStack_18.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar2 = psVar6;
+      puVar2[1] = DAT_6c957898;
+    }
+  }
+  else {
+    a2.len = *(int *)(param_1 + 0x2c);
+    a2.str = *(char **)(param_1 + 0x28);
+    sStack_18 = runtime::runtime_concatstring3
+                          ((runtime_tmpBuf *)0x0,*(string *)(param_1 + 0x10),(string)0x16c759e9c,a2)
+    ;
+    cVar5 = '\x01';
+    local_1c = strings::strings_genSplit(sStack_18,(string)0x16c759e9c,0,-1);
+    DAT_6c95789c = (int)sStack_18.str;
+    DAT_6c9578a0 = sStack_18.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar2 = psVar6;
+      puVar2[1] = DAT_6c957898;
+    }
+  }
+  DAT_6c957898 = psVar6;
+  nat1x_scan(DAT_6c97e9a8,mVar3.~r0,mVar4.~r0);
+  if (cVar5 != '\0') {
+    a1_00.len = DAT_6c957544;
+    a1_00.str = DAT_6c957540;
+    sStack_18 = runtime::runtime_concatstring3
+                          ((runtime_tmpBuf *)0x0,(string)0xc6c5e8a98,a1_00,(string)0x46c5e5431);
+    TCPTools::TCPTools_TCPSend(sStack_18.str,sStack_18.len);
+    return;
+  }
+  a1.len = DAT_6c957544;
+  a1.str = DAT_6c957540;
+  sStack_18 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,a1,(string)0x26c5e4a3c);
+  TCPTools::TCPTools_TCPSend(sStack_18.str,sStack_18.len);
+  uVar1 = DAT_6c957530;
+  DAT_6c957534 = 6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar2 = uVar1;
+  }
+  DAT_6c957530 = &DAT_6c5e590e;
+  return;
+}
+
+
+===== nat1x.c2 @ 6c4c1b00 =====
+
+/* Golang function info: {@address 6c9523a4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:185
+   Golang stacktrace signature: func nat1x.c2(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_c2(void)
+
+{
+  string a0;
+  string a1;
+  string a3;
+  string sVar1;
+  __string _Var2;
+  int iVar3;
+  int iVar4;
+  char *pcVar5;
+  int in_FS_OFFSET;
+  uint uVar6;
+  uint in_stack_ffffffd0;
+  string local_14;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c1d19;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdd8;
+  myfmt::myfmt_Println(&local_8,1,1);
+  uVar6 = 0;
+  UDPTools::UDPTools_N11Recv(DAT_6c97eac4,100,0,5,in_stack_ffffffd0 & 0xffffff00);
+  DAT_6c97eac4 = 0;
+  time::time_Sleep((time *)0x3b9aca00,(ulong)uVar6 << 0x20);
+  sVar1.len = DAT_6c957534;
+  sVar1.str = DAT_6c957530;
+  _Var2 = strings::strings_genSplit(sVar1,(string)0x16c759ea4,0,-1);
+  if (_Var2.len < 3) {
+    if (DAT_6c95787c == 0) {
+      iVar4 = 1;
+      pcVar5 = "0";
+    }
+    else {
+      iVar4 = 0;
+      pcVar5 = (char *)0x0;
+      for (iVar3 = 0; iVar3 < DAT_6c95787c; iVar3 = iVar3 + 1) {
+        a0.len = iVar4;
+        a0.str = pcVar5;
+        sVar1 = runtime::runtime_concatstring2
+                          ((runtime_tmpBuf *)0x0,a0,*(string *)(DAT_6c957878 + iVar3 * 8));
+        iVar4 = sVar1.len;
+        pcVar5 = sVar1.str;
+        if (iVar3 != DAT_6c95787c + -1) {
+          sVar1 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar1,(string)0x16c759e9c);
+          iVar4 = sVar1.len;
+          pcVar5 = sVar1.str;
+        }
+      }
+    }
+    a1.len = DAT_6c957524;
+    a1.str = DAT_6c957520;
+    a3.len = iVar4;
+    a3.str = pcVar5;
+    local_14 = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e8aa4,a1,(string)0x16c759e30,a3,
+                          (string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_14.str,local_14.len);
+  }
+  return;
+}
+
+
+===== nat1x.c3 @ 6c4c1d20 =====
+
+/* Golang function info: {@address 6c9523f4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:196
+   Golang stacktrace signature: func nat1x.c3(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_c3(int param_1,uint param_2)
+
+{
+  string s;
+  string a1;
+  string a1_00;
+  multireturn_net_UDPConn___error_ mVar1;
+  __string _Var2;
+  string sVar3;
+  uintptr uVar4;
+  char cVar5;
+  int iVar6;
+  undefined4 *puVar7;
+  uintptr *puVar8;
+  int in_FS_OFFSET;
+  net_UDPAddr *laddr;
+  char *pcVar9;
+  runtime_funcval *fn;
+  uint uVar10;
+  undefined4 in_stack_ffffffa4;
+  char *local_58;
+  int local_54;
+  undefined1 local_48 [16];
+  undefined1 local_38 [16];
+  uint8 *local_28;
+  net_UDPConn *local_24;
+  unsafe_Pointer local_20;
+  uint8 *local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (cVar5 = (char)in_stack_ffffffa4,
+        &stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c21d2;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75cde0;
+  uVar10 = 1;
+  myfmt::myfmt_Println(&local_18,1);
+  UDPTools::UDPTools_StopRecv(0);
+  time::time_Sleep((time *)0x5f5e100,(ulong)uVar10 << 0x20);
+  local_1c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_38,&stack0xffffff94);
+  runtime::runtime_duffcopy_6c1a9ea8(local_48,local_38);
+  runtime::runtime_duffcopy_6c1a9ea8(local_1c,local_48);
+  if (cVar5 == '\0') {
+    iVar6 = 0;
+    local_28 = (uint8 *)0x0;
+  }
+  else {
+    iVar6 = 0x10;
+    local_28 = local_1c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar6;
+  (laddr->IP).cap = iVar6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = local_28;
+  }
+  (laddr->IP).array = local_28;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar9 = (char *)0x3;
+  mVar1 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_24 = mVar1.~r0;
+  if (mVar1.~r1.tab == (error_itab *)0x0) {
+    uVar10 = 0x200;
+    local_20 = runtime::runtime_makeslice(&uint8___Uint8_type,0x200,0x200);
+    uVar4 = DAT_6c97e9a8;
+    fn = runtime::runtime_newobject
+                   (&nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8_____Struct_type
+                     .Type);
+    fn->fn = (uintptr)nat1x_c3_func1;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar7 = local_24;
+    }
+    fn[1].fn = (uintptr)local_24;
+    fn[2].fn = uVar4;
+    fn[4].fn = 0x200;
+    fn[5].fn = 0x200;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar8 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+      *puVar8 = (uintptr)local_20;
+    }
+    fn[3].fn = (uintptr)local_20;
+    runtime::runtime_newproc(fn);
+    if (param_2 < 3) {
+                    /* WARNING: Subroutine does not return */
+      runtime::runtime_panicIndex();
+    }
+    if (*(int *)(param_1 + 0x14) < 7) {
+      UDPTools::UDPTools_UDPScanNat3(local_24,0x14);
+    }
+    else {
+      uVar10 = DAT_6c95789c;
+      UDPTools::UDPTools_UDPScanNat4(local_24,DAT_6c957898);
+    }
+    time::time_Sleep((time *)0x3b9aca00,(ulong)uVar10 << 0x20);
+    s.len = DAT_6c957534;
+    s.str = DAT_6c957530;
+    _Var2 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+    local_58 = (char *)_Var2.len;
+    if ((int)local_58 < 3) {
+      UDPTools::UDPTools_StopRecv(0);
+      a1_00.len = DAT_6c957544;
+      a1_00.str = DAT_6c957540;
+      sVar3 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xc6c5e8ab0,a1_00,(string)0x46c5e5431);
+      local_54 = sVar3.len;
+      local_58 = sVar3.str;
+      TCPTools::TCPTools_TCPSend(local_58,local_54);
+      local_18 = &string___String_type;
+      local_14 = &PTR_DAT_6c75cdf0;
+      myfmt::myfmt_Println(&local_18,1);
+      pcVar9 = DAT_6c957530;
+      DAT_6c957534 = 5;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar7 = pcVar9;
+      }
+      DAT_6c957530 = &DAT_6c5e5486;
+    }
+    return;
+  }
+  (*(mVar1.~r1.tab)->Error)(mVar1.~r1.data);
+  local_8 = (internal_abi_Type *)0x0;
+  local_4 = (unsafe_Pointer)0x0;
+  local_10 = &string___String_type;
+  local_c = &PTR_DAT_6c75cde8;
+  sVar3.len = (int)laddr;
+  sVar3.str = pcVar9;
+  local_4 = runtime::runtime_convTstring(sVar3);
+  local_8 = &string___String_type;
+  myfmt::myfmt_Println(&local_10,2);
+  DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+  DAT_6c97e94c = 0;
+  a1.len = DAT_6c957544;
+  a1.str = DAT_6c957540;
+  sVar3 = runtime::runtime_concatstring3
+                    ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,a1,(string)0x26c5e4a3c);
+  local_54 = sVar3.len;
+  local_58 = sVar3.str;
+  TCPTools::TCPTools_TCPSend(local_58,local_54);
+  pcVar9 = DAT_6c957530;
+  DAT_6c957534 = 6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar7 = pcVar9;
+  }
+  DAT_6c957530 = &DAT_6c5e590e;
+  return;
+}
+
+
+===== nat1x.c3.func1 @ 6c4c21e0 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952444 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:211
+   Golang stacktrace signature: [partial] [error] func nat1x.c3.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat1x::nat1x_c3_func1
+               (nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  net_UDPConn *local_28;
+  int local_24;
+  uint8 *local_20;
+  int local_1c;
+  int local_18;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c222a;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_28;
+  }
+  local_28 = _context->_autotmp_16;
+  local_24 = _context->_autotmp_17;
+  local_20 = (_context->_autotmp_18).array;
+  local_1c = (_context->_autotmp_18).len;
+  local_18 = (_context->_autotmp_18).cap;
+  UDPTools::UDPTools_UDPRecv();
+  return;
+}
+
+
+===== nat1x.c4 @ 6c4c2240 =====
+
+/* Golang function info: {@address 6c952498 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:228
+   Golang stacktrace signature: func nat1x.c4(struct? {4, 4, 4}) ??? */
+
+void nat1x::nat1x_c4(void)
+
+{
+  int in_FS_OFFSET;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c22f3;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdf8;
+  myfmt::myfmt_Println(&local_8,1,1);
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75cdc0;
+  myfmt::myfmt_Println(&local_8,1,1);
+  DAT_6c97e94c = 0;
+  UDPTools::UDPTools_StopRecv(0);
+  return;
+}
+
+
+===== nat1x.scan @ 6c4c2300 =====
+
+/* Golang function info: {@address 6c9524e4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:239
+   Golang stacktrace signature: func nat1x.scan(4, 4, 4) ??? */
+
+void nat1x::nat1x_scan(uintptr param_1,int param_2,int param_3)
+
+{
+  string val;
+  int iVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  uintptr *puVar4;
+  int in_FS_OFFSET;
+  net_UDPAddr *laddr;
+  char *pcVar5;
+  runtime_funcval *fn;
+  multireturn_net_UDPConn___error_ mStack_5c;
+  multireturn_uint8_16__bool_ local_60;
+  bool bStack_50;
+  undefined1 local_40 [16];
+  undefined1 local_30 [16];
+  uint8 *local_20;
+  net_UDPConn *local_1c;
+  unsafe_Pointer local_18;
+  uint8 *local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c25cc;
+    runtime::runtime_morestack_noctxt();
+  }
+  iVar1 = param_3;
+  if (param_2 <= param_3) {
+    iVar1 = param_2;
+    param_2 = param_3;
+  }
+  local_14 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  local_60 = net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_30,&stack0xffffffa0);
+  runtime::runtime_duffcopy_6c1a9ea8(local_40,local_30);
+  runtime::runtime_duffcopy_6c1a9ea8(local_14,local_40);
+  if (bStack_50 == false) {
+    iVar2 = 0;
+    local_20 = (uint8 *)0x0;
+  }
+  else {
+    iVar2 = 0x10;
+    local_20 = local_14;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar2;
+  (laddr->IP).cap = iVar2;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = local_20;
+  }
+  (laddr->IP).array = local_20;
+  laddr->Port = param_1;
+  pcVar5 = (char *)0x3;
+  mStack_5c = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  if (mStack_5c.~r1.tab != (error_itab *)0x0) {
+    (*(mStack_5c.~r1.tab)->Error)(mStack_5c.~r1.data);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75ce00;
+    val.len = (int)laddr;
+    val.str = pcVar5;
+    laddr = runtime::runtime_convTstring(val);
+    local_8 = &string___String_type;
+    local_4 = laddr;
+    myfmt::myfmt_Println(&local_10,2);
+    DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+    return;
+  }
+  local_1c = mStack_5c.~r0;
+  mStack_5c.~r0 = runtime::runtime_makeslice(&uint8___Uint8_type,0x200,0x200);
+  local_18 = mStack_5c.~r0;
+  fn = runtime::runtime_newobject
+                 (&nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8_____Struct_type
+                   .Type);
+  fn->fn = (uintptr)nat1x_scan_func1;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar4 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar4 = (uintptr)local_1c;
+  }
+  fn[1].fn = (uintptr)local_1c;
+  fn[2].fn = param_1;
+  fn[4].fn = 0x200;
+  fn[5].fn = 0x200;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar4 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar4 = (uintptr)local_18;
+  }
+  fn[3].fn = (uintptr)local_18;
+  runtime::runtime_newproc(fn);
+  if (DAT_6c95789c < 2) {
+    if (param_2 - iVar1 < 0x12d) {
+      UDPTools::UDPTools_UDPScan(local_1c,iVar1 + -200);
+    }
+    else {
+      UDPTools::UDPTools_UDPScanNat3(local_1c,100);
+    }
+  }
+  else {
+    UDPTools::UDPTools_UDPScanNat4(local_1c,DAT_6c957898);
+  }
+  return;
+}
+
+
+===== nat1x.scan.func1 @ 6c4c25e0 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952534 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat1x/nat1x.go:251
+   Golang stacktrace signature: [partial] [error] func nat1x.scan.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat1x::nat1x_scan_func1
+               (nat1x_struct___F_uintptr___autotmp_16__net_UDPConn___autotmp_17_int___autotmp_18___uint8__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  net_UDPConn *local_28;
+  int local_24;
+  uint8 *local_20;
+  int local_1c;
+  int local_18;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c262a;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_28;
+  }
+  local_28 = _context->_autotmp_16;
+  local_24 = _context->_autotmp_17;
+  local_20 = (_context->_autotmp_18).array;
+  local_1c = (_context->_autotmp_18).len;
+  local_18 = (_context->_autotmp_18).cap;
+  UDPTools::UDPTools_UDPRecv();
+  return;
+}
+
+
+===== nat22.Exec @ 6c4c2640 =====
+
+/* Golang function info: {@address 6c952588 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:23
+   Golang stacktrace signature: func nat22.Exec(struct? {4, 4, 4}) ??? */
+
+void nat22::nat22_Exec(int param_1,uint param_2)
+
+{
+  char *pcVar1;
+  undefined4 *puVar2;
+  int in_FS_OFFSET;
+  multireturn_int_error_ mVar3;
+  multireturn_int_error_ mVar4;
+  __string local_1c;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c29bd;
+    runtime::runtime_morestack_noctxt();
+  }
+  if ((DAT_6c97e94b == '\0') && (DAT_6c97e94c == '\0')) {
+    return;
+  }
+  if (param_2 < 2) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  if (*(int *)(param_1 + 0xc) == 1) {
+    pcVar1 = *(char **)(param_1 + 8);
+    if (*pcVar1 < '3') {
+      if (*pcVar1 == '1') {
+        local_8 = &string___String_type;
+        local_4 = &PTR_DAT_6c75ce08;
+        myfmt::myfmt_Println(&local_8,1,1);
+        if (DAT_6c97e94b != '\0') {
+          if (param_2 < 3) {
+                    /* WARNING: Subroutine does not return */
+            runtime::runtime_panicIndex();
+          }
+          local_1c = strings::strings_genSplit(*(string *)(param_1 + 0x10),(string)0x16c759e9c,0,-1)
+          ;
+          DAT_6c95789c = local_1c.len;
+          DAT_6c9578a0 = local_1c.cap;
+          if (runtime_writeBarrier_discovered != 0) {
+            puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+            *puVar2 = local_1c.array;
+            puVar2[1] = DAT_6c957898;
+          }
+          DAT_6c957898 = local_1c.array;
+          runtime::runtime_chansend1(DAT_6c957084,&DAT_6c75b9c0);
+        }
+        if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+          runtime::runtime_panicIndex();
+        }
+        mVar3 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+        if (param_2 < 5) {
+                    /* WARNING: Subroutine does not return */
+          runtime::runtime_panicIndex();
+        }
+        mVar4 = strconv::strconv_Atoi(*(string *)(param_1 + 0x20));
+        nat22_Scan(mVar3.~r0,mVar4.~r0);
+      }
+      else if (*pcVar1 == '2') {
+        local_8 = &string___String_type;
+        local_4 = &PTR_DAT_6c75ce10;
+        myfmt::myfmt_Println(&local_8,1,1);
+        if (param_2 < 3) {
+                    /* WARNING: Subroutine does not return */
+          runtime::runtime_panicIndex();
+        }
+        mVar3 = strconv::strconv_Atoi(*(string *)(param_1 + 0x10));
+        if (param_2 < 4) {
+                    /* WARNING: Subroutine does not return */
+          runtime::runtime_panicIndex();
+        }
+        mVar4 = strconv::strconv_Atoi(*(string *)(param_1 + 0x18));
+        nat22_DeScan(mVar3.~r0,mVar4.~r0);
+      }
+    }
+    else if (*pcVar1 == '3') {
+      local_8 = &string___String_type;
+      local_4 = &PTR_DAT_6c75ce18;
+      myfmt::myfmt_Println(&local_8,1,1);
+      nat22_Feedback();
+    }
+    else if (*pcVar1 == '4') {
+      local_8 = &string___String_type;
+      local_4 = &PTR_DAT_6c75ce20;
+      myfmt::myfmt_Println(&local_8,1,1);
+      if (param_2 < 3) {
+                    /* WARNING: Subroutine does not return */
+        runtime::runtime_panicIndex();
+      }
+      mVar3 = strconv::strconv_Atoi(*(string *)(param_1 + 0x10));
+      nat22_Connection(mVar3.~r0);
+    }
+  }
+  return;
+}
+
+
+===== nat22.Positions @ 6c4c29d0 =====
+
+/* Golang function info: {@address 6c9525d8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:57
+   Golang stacktrace signature: func nat22.Positions() ??? */
+
+void nat22::nat22_Positions(void)
+
+{
+  __string a;
+  __string a_00;
+  string sVar1;
+  string sVar2;
+  undefined *puVar3;
+  char *pcVar4;
+  char *pcVar5;
+  undefined4 *puVar6;
+  int in_FS_OFFSET;
+  internal_abi_Type **ppiVar7;
+  uint32 val;
+  int iVar8;
+  string local_8c;
+  internal_abi_Type *local_60;
+  undefined **local_5c;
+  internal_abi_Type *local_58;
+  undefined **local_54;
+  internal_abi_Type *local_50;
+  unsafe_Pointer local_4c;
+  internal_abi_Type *local_48;
+  unsafe_Pointer local_44;
+  internal_abi_Type *local_40;
+  undefined **local_3c;
+  undefined *local_38;
+  undefined4 local_34;
+  char *local_30;
+  int local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&local_28 <= *(undefined4 ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c2f12;
+    runtime::runtime_morestack_noctxt();
+  }
+  if (DAT_6c97e94b == '\0') {
+    local_60 = &string___String_type;
+    local_5c = &PTR_DAT_6c75ce30;
+    ppiVar7 = &local_60;
+    val = 1;
+    myfmt::myfmt_Println(ppiVar7,1,1);
+  }
+  else {
+    local_60 = &string___String_type;
+    local_5c = &PTR_DAT_6c75ce28;
+    ppiVar7 = &local_60;
+    val = 1;
+    myfmt::myfmt_Println(ppiVar7,1,1);
+  }
+  nat22_GetRandPort();
+  DAT_6c97e9a8 = ppiVar7;
+  ppiVar7 = DAT_6c97e9a8;
+  nat22_getLocalPort();
+  puVar3 = DAT_6c957530;
+  if ((ppiVar7 != (internal_abi_Type **)0x0) && (val != 0)) {
+    FUN_6c1a99b8();
+    local_58 = &string___String_type;
+    local_54 = &PTR_DAT_6c75ce38;
+    local_4c = runtime::runtime_convT32((uint32)ppiVar7);
+    local_50 = &int___Int_type;
+    local_44 = runtime::runtime_convT32(val);
+    local_48 = &int___Int_type;
+    local_40 = &string___String_type;
+    local_3c = &PTR_DAT_6c75c070;
+    myfmt::myfmt_Println(&local_58,4,4);
+    pcVar4 = DAT_6c957540;
+    pcVar5 = DAT_6c957520;
+    if (DAT_6c97e94b == '\0') {
+      DAT_6c9576a4 = DAT_6c957524;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+        *puVar6 = pcVar5;
+        puVar6[1] = DAT_6c9576a0;
+      }
+      DAT_6c9576a0 = pcVar5;
+      sVar1 = strconv::strconv_FormatInt((long)(int)ppiVar7,10);
+      sVar2 = strconv::strconv_FormatInt((long)(int)val,10);
+      pcVar5 = sVar2.str;
+      FUN_6c1a99b2();
+      local_38 = &DAT_6c5e9e2a;
+      local_34 = 0xe;
+      local_30 = DAT_6c9576a0;
+      local_2c = DAT_6c9576a4;
+      local_28 = &DAT_6c759e30;
+      local_24 = 1;
+      local_18 = &DAT_6c759e30;
+      local_14 = 1;
+      local_8 = 0x6c5e4a3c;
+      local_4 = 2;
+      a_00.len = 7;
+      a_00.array = (string *)&local_38;
+      a_00.cap = 7;
+      local_20 = sVar1.str;
+      local_1c = sVar1.len;
+      local_10 = pcVar5;
+      local_c = sVar2.len;
+      sVar1 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a_00);
+      iVar8 = sVar1.len;
+      pcVar5 = sVar1.str;
+    }
+    else {
+      DAT_6c9576a4 = DAT_6c957544;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+        *puVar6 = pcVar4;
+        puVar6[1] = DAT_6c9576a0;
+      }
+      DAT_6c9576a0 = pcVar4;
+      sVar1 = strconv::strconv_FormatInt((long)(int)ppiVar7,10);
+      sVar2 = strconv::strconv_FormatInt((long)(int)val,10);
+      pcVar5 = sVar2.str;
+      FUN_6c1a99b2();
+      local_38 = &DAT_6c5e9e1c;
+      local_34 = 0xe;
+      local_30 = DAT_6c9576a0;
+      local_2c = DAT_6c9576a4;
+      local_28 = &DAT_6c759e30;
+      local_24 = 1;
+      local_18 = &DAT_6c759e30;
+      local_14 = 1;
+      local_8 = 0x6c5e4a3c;
+      local_4 = 2;
+      a.len = 7;
+      a.array = (string *)&local_38;
+      a.cap = 7;
+      local_20 = sVar1.str;
+      local_1c = sVar1.len;
+      local_10 = pcVar5;
+      local_c = sVar2.len;
+      sVar1 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a);
+      iVar8 = sVar1.len;
+      pcVar5 = sVar1.str;
+    }
+    TCPTools::TCPTools_TCPSend(pcVar5,iVar8);
+    return;
+  }
+  if (DAT_6c97e94b == '\0') {
+    DAT_6c97e94c = 0;
+    sVar1.len = DAT_6c957524;
+    sVar1.str = DAT_6c957520;
+    local_8c = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,sVar1,(string)0x86c5e6941);
+    TCPTools::TCPTools_TCPSend(local_8c.str,local_8c.len);
+  }
+  else {
+    DAT_6c957534 = 6;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar6 = puVar3;
+    }
+    DAT_6c957530 = &DAT_6c5e590e;
+    sVar2.len = DAT_6c957544;
+    sVar2.str = DAT_6c957540;
+    local_8c = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,sVar2,(string)0x86c5e6941);
+    TCPTools::TCPTools_TCPSend(local_8c.str,local_8c.len);
+  }
+  return;
+}
+
+
+===== nat22.Scan @ 6c4c2f20 =====
+
+/* Golang function info: {@address 6c952620 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:88
+   Golang stacktrace signature: func nat22.Scan(4, 4) ??? */
+
+void nat22::nat22_Scan(int param_1)
+
+{
+  string val;
+  undefined4 uVar1;
+  int iVar2;
+  undefined4 *puVar3;
+  int in_FS_OFFSET;
+  internal_abi_Type **ppiVar4;
+  runtime_hmap *h;
+  net_UDPAddr *laddr;
+  char *pcVar5;
+  multireturn_net_UDPConn___error_ mStack_58;
+  multireturn_uint8_16__bool_ local_5c;
+  bool bStack_4c;
+  undefined1 local_44 [16];
+  undefined1 local_34 [16];
+  uint8 *local_24;
+  net_UDPConn *local_20;
+  uint8 *local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c326c;
+    runtime::runtime_morestack_noctxt();
+  }
+  if (DAT_6c97e94b == '\0') {
+    local_18 = &string___String_type;
+    local_14 = &PTR_DAT_6c75ce48;
+    ppiVar4 = &local_18;
+    myfmt::myfmt_Println(ppiVar4,1);
+    uVar1 = DAT_6c957520;
+    DAT_6c9576a4 = DAT_6c957524;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar3 = uVar1;
+      puVar3[1] = DAT_6c9576a0;
+    }
+    DAT_6c9576a0 = uVar1;
+  }
+  else {
+    local_18 = &string___String_type;
+    local_14 = &PTR_DAT_6c75ce40;
+    ppiVar4 = &local_18;
+    myfmt::myfmt_Println(ppiVar4,1);
+    uVar1 = DAT_6c957540;
+    DAT_6c9576a4 = DAT_6c957544;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar3 = uVar1;
+      puVar3[1] = DAT_6c9576a0;
+    }
+    DAT_6c9576a0 = uVar1;
+  }
+  if ((int)DAT_6c97e9a8 < 1) {
+    nat22_GetRandPort();
+    DAT_6c97e9a8 = ppiVar4;
+  }
+  local_1c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  local_5c = net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_34,&stack0xffffffa4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_44,local_34);
+  runtime::runtime_duffcopy_6c1a9ea8(local_1c,local_44);
+  if (bStack_4c == false) {
+    iVar2 = 0;
+    local_24 = (uint8 *)0x0;
+  }
+  else {
+    iVar2 = 0x10;
+    local_24 = local_1c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = iVar2;
+  (laddr->IP).cap = iVar2;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar3 = local_24;
+  }
+  (laddr->IP).array = local_24;
+  laddr->Port = (int)DAT_6c97e9a8;
+  pcVar5 = (char *)0x3;
+  mStack_58 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  if (mStack_58.~r1.tab != (error_itab *)0x0) {
+    (*(mStack_58.~r1.tab)->Error)(mStack_58.~r1.data);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75ce50;
+    val.len = (int)laddr;
+    val.str = pcVar5;
+    laddr = runtime::runtime_convTstring(val);
+    local_8 = &string___String_type;
+    local_4 = laddr;
+    myfmt::myfmt_Println(&local_10,2);
+    DAT_6c97e9a8 = (internal_abi_Type **)((int)DAT_6c97e9a8 + 1);
+    return;
+  }
+  local_20 = mStack_58.~r0;
+  nat22_scanAndNatType(mStack_58.~r0,param_1 + -200);
+  sync::sync___RWMutex__Lock((sync_RWMutex *)&DAT_6c97f070);
+  h = runtime::runtime_makemap_small();
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar3 = h;
+    puVar3[1] = DAT_6c957150;
+  }
+  DAT_6c957150 = h;
+  mStack_58.~r0 =
+       runtime::runtime_mapassign_fast32(&map_int__net_UDPConn___Map_type,h,(uint32)DAT_6c97e9a8);
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar3 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar3 = local_20;
+    puVar3[1] = (net_conn)*mStack_58.~r0;
+  }
+  *mStack_58.~r0 = (net_UDPConn)local_20;
+  sync::sync___RWMutex__Unlock((sync_RWMutex *)&DAT_6c97f070);
+  nat22_udpRecv(local_20);
+  return;
+}
+
+
+===== nat22.DeScan @ 6c4c3280 =====
+
+/* Golang function info: {@address 6c952670 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:115
+   Golang stacktrace signature: func nat22.DeScan(4, 4) ??? */
+
+void nat22::nat22_DeScan(int param_1,int param_2)
+
+{
+  string a1;
+  string a1_00;
+  int in_FS_OFFSET;
+  uint uVar1;
+  string local_10;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  if (param_1 < param_2) {
+    if (param_2 - param_1 == 1) {
+      DAT_6c97eacc = param_2 + 1;
+    }
+    else {
+      DAT_6c97eacc = (param_2 - param_1) / 2 + param_1;
+    }
+  }
+  else if (param_1 - param_2 == 1) {
+    DAT_6c97eacc = param_2 + -1;
+  }
+  else {
+    DAT_6c97eacc = param_2 + (param_1 - param_2) / 2;
+  }
+  if (DAT_6c95789c != 0) {
+    nat22_udpScan2(*DAT_6c957898,DAT_6c957898[1],DAT_6c97eacc,DAT_6c97e9a8,200);
+    if (DAT_6c97e94b == '\0') {
+      uVar1 = 0xe;
+      a1_00.len = DAT_6c9576a4;
+      a1_00.str = DAT_6c9576a0;
+      local_10 = runtime::runtime_concatstring3
+                           ((runtime_tmpBuf *)0x0,(string)0xe6c5e9e46,a1_00,(string)0x26c5e4a3c);
+    }
+    else {
+      uVar1 = 0xe;
+      a1.len = DAT_6c9576a4;
+      a1.str = DAT_6c9576a0;
+      local_10 = runtime::runtime_concatstring3
+                           ((runtime_tmpBuf *)0x0,(string)0xe6c5e9e38,a1,(string)0x26c5e4a3c);
+    }
+    time::time_Sleep((time *)0xbebc200,(ulong)uVar1 << 0x20);
+    TCPTools::TCPTools_TCPSend(local_10.str,local_10.len);
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+
+===== nat22.Feedback @ 6c4c3420 =====
+
+/* Golang function info: {@address 6c9526bc "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:141
+   Golang stacktrace signature: func nat22.Feedback() ??? */
+
+void nat22::nat22_Feedback(void)
+
+{
+  string a1;
+  int in_FS_OFFSET;
+  string sVar1;
+  string sVar2;
+  string local_20;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c36be;
+    runtime::runtime_morestack_noctxt();
+  }
+  if ((int)DAT_6c97eac8 < 1) {
+    if (DAT_6c97e94b == '\0') {
+      a1.len = DAT_6c9576a4;
+      a1.str = DAT_6c9576a0;
+      sVar2 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xe6c5e9e62,a1,(string)0x46c5e526d);
+      TCPTools::TCPTools_TCPSend(sVar2.str,sVar2.len);
+      DAT_6c97e94c = 0;
+    }
+    else {
+      local_18 = &string___String_type;
+      local_14 = &PTR_DAT_6c75ce60;
+      myfmt::myfmt_Println(&local_18,1,1);
+      UDPTools::UDPTools_StopRecv(0);
+      nat22_Positions();
+    }
+    return;
+  }
+  local_8 = (internal_abi_Type *)0x0;
+  local_4 = (unsafe_Pointer)0x0;
+  local_10 = &string___String_type;
+  local_c = &PTR_DAT_6c75ce58;
+  local_4 = runtime::runtime_convT32(DAT_6c97eac8);
+  local_8 = &int___Int_type;
+  myfmt::myfmt_Println(&local_10,2,2);
+  if (DAT_6c97e94b == '\0') {
+    sVar1 = strconv::strconv_FormatInt((long)(int)DAT_6c97eac8,10);
+    sVar2.len = DAT_6c9576a4;
+    sVar2.str = DAT_6c9576a0;
+    local_20 = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xe6c5e9e62,sVar2,(string)0x16c759e30,sVar1,
+                          (string)0x26c5e4a3c);
+  }
+  else {
+    sVar2 = strconv::strconv_FormatInt((long)(int)DAT_6c97eac8,10);
+    sVar1.len = DAT_6c9576a4;
+    sVar1.str = DAT_6c9576a0;
+    local_20 = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xe6c5e9e54,sVar1,(string)0x16c759e30,sVar2,
+                          (string)0x26c5e4a3c);
+  }
+  TCPTools::TCPTools_TCPSend(local_20.str,local_20.len);
+  nat22_starServerOrClient();
+  return;
+}
+
+
+===== nat22.Connection @ 6c4c36d0 =====
+
+/* Golang function info: {@address 6c952704 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:168
+   Golang stacktrace signature: func nat22.Connection(4) ??? */
+
+void nat22::nat22_Connection(int param_1)
+
+{
+  undefined *puVar1;
+  undefined4 *puVar2;
+  int in_FS_OFFSET;
+  string a2;
+  string local_10;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c382e;
+    runtime::runtime_morestack_noctxt();
+  }
+  if (param_1 == 0) {
+    if (DAT_6c97e94b == '\0') {
+      DAT_6c97e94c = 0;
+    }
+    else {
+      local_8 = &string___String_type;
+      local_4 = &PTR_DAT_6c75ce68;
+      myfmt::myfmt_Println(&local_8,1,1);
+      puVar1 = DAT_6c957530;
+      DAT_6c957534 = 5;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar2 = puVar1;
+      }
+      DAT_6c957530 = &DAT_6c5e5486;
+    }
+    return;
+  }
+  DAT_6c97e9a8 = param_1;
+  a2 = strconv::strconv_FormatInt((long)DAT_6c97eacc,10);
+  if (DAT_6c95789c != 0) {
+    local_10 = runtime::runtime_concatstring3
+                         ((runtime_tmpBuf *)0x0,*DAT_6c957898,(string)0x16c759ea0,a2);
+    DAT_6c957534 = local_10.len;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar2 = local_10.str;
+      puVar2[1] = DAT_6c957530;
+    }
+    DAT_6c957530 = local_10.str;
+    nat22_starServerOrClient();
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+
+===== nat22.getLocalPort @ 6c4c3840 =====
+
+/* Golang function info: {@address 6c952754 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:189
+   Golang stacktrace signature: func nat22.getLocalPort() ??? */
+
+void nat22::nat22_getLocalPort(void)
+
+{
+  uint32 val;
+  int in_FS_OFFSET;
+  internal_abi_Type **ppiVar1;
+  int iVar2;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  unsafe_Pointer local_c;
+  internal_abi_Type *local_8;
+  undefined *local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined *)0x6c4c3920;
+    runtime::runtime_morestack_noctxt();
+  }
+  val = 1;
+  while( true ) {
+    if (3 < (int)val) {
+      return;
+    }
+    FUN_6c1a99ba();
+    local_18 = &string___String_type;
+    local_14 = &PTR_DAT_6c75ce70;
+    local_c = runtime::runtime_convT32(val);
+    local_10 = &int___Int_type;
+    local_8 = &string___String_type;
+    local_4 = &DAT_6c75bbd8;
+    ppiVar1 = &local_18;
+    iVar2 = 3;
+    myfmt::myfmt_Println(ppiVar1,3,3);
+    nat22_getlocalport();
+    if ((0 < (int)ppiVar1) && (0 < iVar2)) break;
+    val = val + 1;
+  }
+  return;
+}
+
+
+===== nat22.getlocalport @ 6c4c3930 =====
+
+/* Golang function info: {@address 6c952794 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:201
+   Golang stacktrace signature: func nat22.getlocalport() ??? */
+
+void nat22::nat22_getlocalport(void)
+
+{
+  string val;
+  string s;
+  __uint8 _Var1;
+  __uint8 _Var2;
+  time_Time tVar3;
+  net_Addr nVar4;
+  net_Addr nVar5;
+  time_Time tVar6;
+  string sVar7;
+  multireturn_net_UDPConn___error_ mVar8;
+  error eVar9;
+  multireturn_int_error_ mVar10;
+  int in_FS_OFFSET;
+  undefined4 uVar11;
+  net_UDPConn *self;
+  net_UDPAddr *laddr;
+  char *pcVar12;
+  undefined4 *puVar13;
+  undefined4 uVar14;
+  uint uVar15;
+  undefined4 uVar16;
+  char cVar17;
+  undefined4 uVar18;
+  time_Location *ptVar19;
+  time_Location *n;
+  net_UDPAddr *local_d8;
+  error_itab *local_d4;
+  unsafe_Pointer local_d0;
+  undefined1 local_bd;
+  int local_bc;
+  int local_b8;
+  int local_b4;
+  int local_b0;
+  int local_ac;
+  int local_a8;
+  undefined1 local_a4 [16];
+  undefined1 local_94 [16];
+  uint8 *local_84;
+  net_UDPAddr *local_80;
+  char *local_7c;
+  char *local_78;
+  net_UDPConn *local_74;
+  char *local_70;
+  char *local_6c;
+  char *local_68;
+  uint8 *local_64;
+  uint8 *local_60;
+  code *local_5c;
+  net_UDPConn *local_58;
+  internal_abi_Type *local_54;
+  undefined **local_50;
+  internal_abi_Type *local_4c;
+  unsafe_Pointer local_48;
+  undefined1 local_44 [20];
+  undefined1 local_30 [44];
+  code **local_4;
+  
+  while (&local_70 <= *(char ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (code **)0x6c4c3f82;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_4 = (code **)0x0;
+  local_bd = 0;
+  local_60 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_94,&stack0xffffff18);
+  runtime::runtime_duffcopy_6c1a9ea8(local_a4,local_94);
+  runtime::runtime_duffcopy_6c1a9ea8(local_60,local_a4);
+  if ((char)local_d8 == '\0') {
+    local_bc = 0;
+    local_84 = (uint8 *)0x0;
+  }
+  else {
+    local_bc = 0x10;
+    local_84 = local_60;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = local_bc;
+  (laddr->IP).cap = local_bc;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar13 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar13 = local_84;
+  }
+  (laddr->IP).array = local_84;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar12 = (char *)0x3;
+  mVar8 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_74 = mVar8.~r0;
+  if (mVar8.~r1.tab != (error_itab *)0x0) {
+    (*(mVar8.~r1.tab)->Error)(mVar8.~r1.data);
+    local_4c = (internal_abi_Type *)0x0;
+    local_48 = (unsafe_Pointer)0x0;
+    local_54 = &string___String_type;
+    local_50 = &PTR_DAT_6c75ce78;
+    val.len = (int)laddr;
+    val.str = pcVar12;
+    local_48 = runtime::runtime_convTstring(val);
+    local_4c = &string___String_type;
+    myfmt::myfmt_Println();
+    DAT_6c97e9a8 = DAT_6c97e9a8 + 1;
+    return;
+  }
+  local_5c = nat22_getlocalport_func1;
+  local_4 = &local_5c;
+  local_bd = 1;
+  local_58 = local_74;
+  local_64 = runtime::runtime_makeslice(&uint8___Uint8_type,100,100);
+  puVar13 = runtime::runtime_newobject(&_5_uint8___Array_type.Type);
+  *puVar13 = 0x4f4a5a40;
+  *(undefined1 *)(puVar13 + 1) = 0x4b;
+  uVar15 = 5;
+  _Var1.len = 5;
+  _Var1.array = (uint8 *)puVar13;
+  _Var1.cap = 5;
+  nVar4.data = DAT_6c957094;
+  nVar4.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+  mVar10 = net::net___UDPConn__WriteTo(local_74,_Var1,nVar4);
+  local_d0 = mVar10.~r1.data;
+  local_d4 = mVar10.~r1.tab;
+  time::time_Sleep((time *)0xf4240,(ulong)uVar15 << 0x20);
+  puVar13 = runtime::runtime_newobject(&_5_uint8___Array_type.Type);
+  *puVar13 = 0x4f4a5a40;
+  *(undefined1 *)(puVar13 + 1) = 0x4b;
+  uVar15 = 5;
+  _Var2.len = 5;
+  _Var2.array = (uint8 *)puVar13;
+  _Var2.cap = 5;
+  nVar5.data = DAT_6c957098;
+  nVar5.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+  mVar10 = net::net___UDPConn__WriteTo(local_74,_Var2,nVar5);
+  local_d0 = mVar10.~r1.data;
+  local_d4 = mVar10.~r1.tab;
+  time::time_Sleep((time *)0xf4240,(ulong)uVar15 << 0x20);
+  local_b4 = 0;
+  local_78 = (char *)0x0;
+  local_b0 = 0;
+  local_70 = (char *)0x0;
+  while( true ) {
+    local_b8 = local_b0;
+    local_7c = local_70;
+    tVar6 = time::time_Now();
+    ptVar19 = tVar6.loc;
+    uVar18 = tVar6.ext._4_4_;
+    uVar16 = (undefined4)tVar6.ext;
+    uVar14 = tVar6.wall._4_4_;
+    uVar11 = (undefined4)tVar6.wall;
+    runtime::runtime_duffcopy_6c1a9e9e(local_30,&stack0xffffff10);
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff10,local_30);
+    n = (time_Location *)0x1dcd6500;
+    tVar6.wall._4_4_ = uVar14;
+    tVar6.wall._0_4_ = uVar11;
+    tVar6.ext._0_4_ = uVar16;
+    tVar6.ext._4_4_ = uVar18;
+    tVar6.loc = ptVar19;
+    time::time_Time_Add(tVar6);
+    runtime::runtime_duffcopy_6c1a9e9e(local_44,&local_d4);
+    self = local_74;
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff14,local_44);
+    tVar3.wall._4_4_ = uVar16;
+    tVar3.wall._0_4_ = uVar14;
+    tVar3.ext._0_4_ = uVar18;
+    tVar3.ext._4_4_ = ptVar19;
+    tVar3.loc = n;
+    eVar9 = net::net___conn__SetReadDeadline(&self->conn,tVar3);
+    local_d4 = eVar9.data;
+    local_d8 = (net_UDPAddr *)eVar9.tab;
+    FUN_6c1a99ba();
+    net::net___UDPConn__readFromUDP(local_74);
+    if (local_d4 != (error_itab *)0x0) {
+      local_54 = &string___String_type;
+      local_50 = &PTR_DAT_6c75ce80;
+      local_4c = (runtime__type *)0x0;
+      if (local_d4 != (error_itab *)0x0) {
+        local_4c = local_d4->_type;
+      }
+      local_48 = local_d0;
+      myfmt::myfmt_Println();
+      local_bd = 0;
+      (**local_4)();
+      return;
+    }
+    if ((time_Location *)&DAT_00000064 < n) break;
+    local_80 = local_d8;
+    sVar7 = runtime::runtime_slicebytetostring((runtime_tmpBuf *)0x0,local_64,(int)n);
+    local_a8 = sVar7.len;
+    pcVar12 = sVar7.str;
+    local_68 = pcVar12;
+    sVar7 = net::net___UDPAddr__String(local_80);
+    cVar17 = (char)pcVar12;
+    local_ac = sVar7.len;
+    local_6c = sVar7.str;
+    sVar7 = net::net___UDPAddr__String(DAT_6c957094);
+    if ((sVar7.len == local_ac) && (runtime::runtime_memequal(), cVar17 != '\0')) {
+      local_b4 = local_a8;
+      local_78 = local_68;
+    }
+    sVar7 = net::net___UDPAddr__String(local_80);
+    local_ac = sVar7.len;
+    local_6c = sVar7.str;
+    sVar7 = net::net___UDPAddr__String(DAT_6c957098);
+    local_b0 = local_b8;
+    local_70 = local_7c;
+    if ((sVar7.len == local_ac) &&
+       (runtime::runtime_memequal(), local_b0 = local_b8, local_70 = local_7c, cVar17 != '\0')) {
+      local_b0 = local_a8;
+      local_70 = local_68;
+    }
+    if ((local_b4 != 0) && (local_b0 != 0)) {
+      sVar7.len = local_b4;
+      sVar7.str = local_78;
+      strconv::strconv_Atoi(sVar7);
+      s.len = local_b0;
+      s.str = local_70;
+      strconv::strconv_Atoi(s);
+      local_bd = 0;
+      (**local_4)();
+      return;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicSliceAcap();
+}
+
+
+===== nat22.getlocalport.func1 @ 6c4c3f90 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c9527e0 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:209
+   Golang stacktrace signature: [partial] [error] func nat22.getlocalport.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat22::nat22_getlocalport_func1(_closure *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&stack0xfffffff4;
+  }
+  net::net___conn__Close((net_conn *)_context[1].F);
+  return;
+}
+
+
+===== nat22.udpScan @ 6c4c3fd0 =====
+
+/* Golang function info: {@address 6c952834 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:240
+   Golang stacktrace signature: func nat22.udpScan(4, 4, 4) ??? */
+
+void nat22::nat22_udpScan(net_UDPConn *param_1,uint32 param_2,uint32 param_3)
+
+{
+  int iVar1;
+  string s;
+  __byte val;
+  net_Addr nVar2;
+  multireturn_uint8_16__bool_ mVar3;
+  undefined4 uVar4;
+  uint32 val_00;
+  undefined4 *puVar5;
+  int in_FS_OFFSET;
+  uint uVar6;
+  bool local_78;
+  undefined1 local_60 [16];
+  undefined1 local_50 [16];
+  void *local_40;
+  char *local_3c;
+  undefined4 *local_38;
+  unsafe_Pointer local_34;
+  internal_abi_Type *local_30;
+  unsafe_Pointer local_2c;
+  internal_abi_Type *local_28;
+  undefined **local_24;
+  internal_abi_SliceType *local_20;
+  unsafe_Pointer local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  unsafe_Pointer local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&local_10 <= *(internal_abi_Type ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c4309;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_20 = (internal_abi_SliceType *)0x0;
+  local_1c = (unsafe_Pointer)0x0;
+  local_28 = &string___String_type;
+  local_24 = &PTR_DAT_6c75ce88;
+  val.len = DAT_6c95789c;
+  val.array = (uint8 *)DAT_6c957898;
+  val.cap = DAT_6c9578a0;
+  local_1c = runtime::runtime_convTslice(val);
+  local_20 = &__string___Slice_type;
+  myfmt::myfmt_Println(&local_28,2);
+  if (DAT_6c95789c == 0) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  local_3c = (char *)*DAT_6c957898;
+  iVar1 = DAT_6c957898[1];
+  local_34 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  s.len = iVar1;
+  s.str = local_3c;
+  mVar3 = net::net_parseIP(s);
+  local_78 = mVar3.~r1;
+  uVar6 = mVar3.~r0._0_4_;
+  runtime::runtime_duffcopy_6c1a9ea8(local_50,&stack0xffffff78);
+  runtime::runtime_duffcopy_6c1a9ea8(local_60,local_50);
+  runtime::runtime_duffcopy_6c1a9ea8(local_34,local_60);
+  if (local_78 == false) {
+    uVar4 = 0;
+    local_40 = (void *)0x0;
+  }
+  else {
+    uVar4 = 0x10;
+    local_40 = local_34;
+  }
+  local_38 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  local_38[1] = uVar4;
+  local_38[2] = uVar4;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar5 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar5 = local_40;
+  }
+  *local_38 = local_40;
+  local_38[3] = param_2;
+  for (val_00 = param_2; (int)val_00 <= (int)param_3; val_00 = val_00 + 1) {
+    local_38[3] = val_00;
+    if ((val_00 * 0x40000000 | val_00 * -0x3d70a3d7 + 0x51eb850 >> 2) < 0x28f5c29) {
+      time::time_Sleep((time *)&DAT_0000000a,(ulong)uVar6 << 0x20);
+    }
+    if ((val_00 * 0x10000000 | val_00 * 0x3afb7e91 + 0x346dc0 >> 4) < 0x68db9) {
+      time::time_Sleep((time *)0xbebc200,(ulong)uVar6 << 0x20);
+      local_30 = (internal_abi_Type *)0x0;
+      local_2c = (unsafe_Pointer)0x0;
+      local_2c = runtime::runtime_convT32(val_00);
+      local_30 = &int___Int_type;
+      myfmt::myfmt_Println(&local_30,1);
+    }
+    uVar6 = 0;
+    nVar2.data = local_38;
+    nVar2.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+    net::net___UDPConn__WriteTo(param_1,(__uint8)ZEXT812(0x6c97e940),nVar2);
+  }
+  FUN_6c1a99ba();
+  local_18 = &string___String_type;
+  local_14 = &PTR_DAT_6c75c018;
+  local_c = runtime::runtime_convT32(param_2);
+  local_10 = &int___Int_type;
+  local_4 = runtime::runtime_convT32(param_3);
+  local_8 = &int___Int_type;
+  myfmt::myfmt_Println(&local_18,3);
+  return;
+}
+
+
+===== nat22.udpRecv @ 6c4c4310 =====
+
+/* Golang function info: {@address 6c952884 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:258
+   Golang stacktrace signature: func nat22.udpRecv(4) ??? */
+
+void nat22::nat22_udpRecv(net_UDPConn *param_1)
+
+{
+  string s;
+  time_Time tVar1;
+  string a1;
+  error eVar2;
+  undefined *puVar3;
+  undefined4 *puVar4;
+  int in_FS_OFFSET;
+  net_UDPConn *self;
+  char cVar10;
+  time_Time tVar6;
+  string sVar12;
+  multireturn_int_error_ mVar9;
+  time_Location *n;
+  net_UDPAddr *pnVar14;
+  char *local_b4;
+  int local_b0;
+  undefined1 local_9d;
+  uint32 local_9c;
+  int local_98;
+  int local_94;
+  uint8 local_90 [32];
+  int *local_70;
+  net_UDPAddr *local_6c;
+  uint8 *local_68;
+  code *local_64;
+  net_UDPConn *local_60;
+  internal_abi_Type *local_5c;
+  undefined **local_58;
+  internal_abi_Type *local_54;
+  undefined **local_50;
+  internal_abi_Type *local_4c;
+  unsafe_Pointer local_48;
+  undefined1 local_44 [20];
+  undefined1 local_30 [44];
+  code **local_4;
+  undefined4 uVar5;
+  undefined4 uVar7;
+  undefined4 uVar8;
+  undefined4 uVar11;
+  time_Location *ptVar13;
+  
+  while (&local_50 <= *(undefined ****)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (code **)0x6c4c4824;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_64 = nat22_udpRecv_func1;
+  local_60 = param_1;
+  local_4 = &local_64;
+  local_9d = 1;
+  DAT_6c97eac8 = 0;
+  local_68 = runtime::runtime_makeslice(&uint8___Uint8_type,100,100);
+  tVar6 = time::time_Now();
+  ptVar13 = tVar6.loc;
+  uVar11 = tVar6.ext._4_4_;
+  uVar8 = (undefined4)tVar6.ext;
+  uVar7 = tVar6.wall._4_4_;
+  uVar5 = (undefined4)tVar6.wall;
+  runtime::runtime_duffcopy_6c1a9e9e(local_30,&stack0xffffff30);
+  runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff30,local_30);
+  n = (time_Location *)0x2a05f200;
+  tVar6.wall._4_4_ = uVar7;
+  tVar6.wall._0_4_ = uVar5;
+  tVar6.ext._0_4_ = uVar8;
+  tVar6.ext._4_4_ = uVar11;
+  tVar6.loc = ptVar13;
+  time::time_Time_Add(tVar6);
+  runtime::runtime_duffcopy_6c1a9e9e(local_44,&local_b4);
+  self = param_1;
+  runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff34,local_44);
+  tVar1.wall._4_4_ = uVar8;
+  tVar1.wall._0_4_ = uVar7;
+  tVar1.ext._0_4_ = uVar11;
+  tVar1.ext._4_4_ = ptVar13;
+  tVar1.loc = n;
+  eVar2 = net::net___conn__SetReadDeadline(&self->conn,tVar1);
+  local_b4 = eVar2.data;
+  pnVar14 = (net_UDPAddr *)eVar2.tab;
+  while( true ) {
+    FUN_6c1a99ba();
+    net::net___UDPConn__readFromUDP(param_1);
+    if (local_b4 != (char *)0x0) {
+      local_54 = &string___String_type;
+      local_50 = &PTR_DAT_6c75ce90;
+      local_4c = (internal_abi_Type *)0x0;
+      if (local_b4 != (char *)0x0) {
+        local_4c = *(internal_abi_Type **)(local_b4 + 4);
+      }
+      local_48 = (unsafe_Pointer)local_b0;
+      myfmt::myfmt_Println();
+      puVar3 = DAT_6c957530;
+      if (DAT_6c97e94b == '\0') {
+        DAT_6c97e94c = 0;
+        sVar12.len = DAT_6c957524;
+        sVar12.str = DAT_6c957520;
+        sVar12 = runtime::runtime_concatstring3
+                           ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,sVar12,(string)0x86c5e6941);
+        local_b0 = sVar12.len;
+        local_b4 = sVar12.str;
+        TCPTools::TCPTools_TCPSend();
+      }
+      else {
+        DAT_6c957534 = 6;
+        if (runtime_writeBarrier_discovered != 0) {
+          puVar4 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+          *puVar4 = puVar3;
+        }
+        DAT_6c957530 = &DAT_6c5e590e;
+        a1.len = DAT_6c957544;
+        a1.str = DAT_6c957540;
+        sVar12 = runtime::runtime_concatstring3
+                           ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,a1,(string)0x86c5e6941);
+        local_b0 = sVar12.len;
+        local_b4 = sVar12.str;
+        TCPTools::TCPTools_TCPSend();
+      }
+      local_9d = 0;
+      (**local_4)();
+      return;
+    }
+    if ((time_Location *)&DAT_00000064 < n) break;
+    local_6c = pnVar14;
+    sVar12 = runtime::runtime_slicebytetostring(&local_90,local_68,(int)n);
+    local_98 = sVar12.len;
+    local_70 = (int *)sVar12.str;
+    local_94 = local_98;
+    sVar12 = net::net_IP_String(local_6c->IP);
+    cVar10 = (char)sVar12.str;
+    if (DAT_6c95789c == 0) {
+                    /* WARNING: Subroutine does not return */
+      runtime::runtime_panicIndex();
+    }
+    if ((*(int *)(DAT_6c957898 + 4) == sVar12.len) && (runtime::runtime_memequal(), cVar10 != '\0'))
+    {
+      s.len = local_98;
+      s.str = (char *)local_70;
+      mVar9 = strconv::strconv_Atoi(s);
+      local_9c = mVar9.~r0;
+      if (mVar9.~r1.tab == (error_itab *)0x0) {
+        DAT_6c97eac8 = local_9c;
+        sVar12 = net::net___UDPAddr__String(local_6c);
+        DAT_6c957534 = sVar12.len;
+        if (runtime_writeBarrier_discovered != 0) {
+          puVar4 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+          *puVar4 = sVar12.str;
+          puVar4[1] = DAT_6c957530;
+        }
+        local_4c = (internal_abi_Type *)0x0;
+        local_48 = (unsafe_Pointer)0x0;
+        local_54 = &string___String_type;
+        local_50 = &PTR_DAT_6c75ce98;
+        DAT_6c957530 = sVar12.str;
+        local_48 = runtime::runtime_convT32(local_9c);
+        local_4c = &int___Int_type;
+        myfmt::myfmt_Println();
+        local_9d = 0;
+        (**local_4)();
+        return;
+      }
+    }
+    else if ((local_94 == 4) && (*local_70 == 0x504f5453)) {
+      local_5c = &string___String_type;
+      local_58 = &PTR_DAT_6c75cea0;
+      myfmt::myfmt_Println();
+      local_9d = 0;
+      (**local_4)();
+      return;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicSliceAcap();
+}
+
+
+===== nat22.udpRecv.func1 @ 6c4c4830 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c9528d4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:259
+   Golang stacktrace signature: [partial] [error] func nat22.udpRecv.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat22::nat22_udpRecv_func1(_closure *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&stack0xfffffff4;
+  }
+  net::net___conn__Close((net_conn *)_context[1].F);
+  return;
+}
+
+
+===== nat22.scanAndNatType @ 6c4c4870 =====
+
+/* Golang function info: {@address 6c952928 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:295
+   Golang stacktrace signature: func nat22.scanAndNatType(4, 4, 4) ??? */
+
+void nat22::nat22_scanAndNatType(net_UDPConn *param_1)
+
+{
+  string s;
+  __uint8 _Var1;
+  __uint8 _Var2;
+  __string a;
+  __string a_00;
+  time_Time tVar3;
+  time_Time tVar4;
+  string a1;
+  string a1_00;
+  net_Addr nVar5;
+  net_Addr nVar6;
+  net_IP self;
+  net_IP self_00;
+  time_Time tVar7;
+  multireturn_int_error_ mVar8;
+  string sVar9;
+  undefined *puVar10;
+  int iVar11;
+  uint32 uVar12;
+  char *pcVar13;
+  int iVar14;
+  char *pcVar15;
+  uint32 uVar16;
+  int in_FS_OFFSET;
+  undefined4 uVar17;
+  net_UDPConn *pnVar18;
+  undefined4 *puVar19;
+  undefined4 uVar20;
+  char *pcVar21;
+  uint uVar22;
+  undefined4 uVar23;
+  int iVar24;
+  char cVar25;
+  undefined4 uVar26;
+  char *pcVar27;
+  time_Location *ptVar28;
+  time_Location *n;
+  error_itab *peVar29;
+  undefined1 local_134 [12];
+  string local_130 [2];
+  int local_11c;
+  int local_118;
+  int local_114;
+  int local_110;
+  int local_10c;
+  int local_108;
+  uint32 local_104;
+  uint32 local_100;
+  uint32 local_fc;
+  uint32 local_f8;
+  int local_f4;
+  int local_f0;
+  int local_ec;
+  int local_e8;
+  char *local_e4;
+  char *local_e0;
+  char *local_dc;
+  char *local_d8;
+  error_itab *local_d4;
+  char *local_d0;
+  char *local_cc;
+  char *local_c8;
+  uint8 *local_c4;
+  internal_abi_Type *local_c0;
+  undefined **local_bc;
+  runtime__type *local_b8;
+  unsafe_Pointer local_b4;
+  undefined1 local_b0 [20];
+  undefined1 local_9c [44];
+  internal_abi_Type *local_70;
+  undefined **local_6c;
+  internal_abi_Type *local_68;
+  unsafe_Pointer local_64;
+  internal_abi_Type *local_60;
+  undefined *local_5c;
+  internal_abi_Type *local_58;
+  undefined **local_54;
+  internal_abi_Type *local_50;
+  unsafe_Pointer local_4c;
+  internal_abi_Type *local_48;
+  unsafe_Pointer local_44;
+  internal_abi_Type *local_40;
+  undefined **local_3c;
+  undefined *local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&local_cc <= *(char ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c5279;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_c4 = runtime::runtime_makeslice(&uint8___Uint8_type,100,100);
+  local_104 = 0;
+  uVar12 = 1;
+  iVar11 = 0;
+  pcVar13 = (char *)0x0;
+  iVar14 = 0;
+  pcVar15 = (char *)0x0;
+  uVar16 = 0;
+  while (local_fc = local_104, (int)uVar12 < 4) {
+    local_10c = iVar14;
+    local_108 = iVar11;
+    local_f8 = uVar12;
+    local_dc = pcVar15;
+    local_d8 = pcVar13;
+    FUN_6c1a99ba();
+    local_70 = &string___String_type;
+    local_6c = &PTR_DAT_6c75cea8;
+    local_64 = runtime::runtime_convT32(local_f8);
+    local_68 = &int___Int_type;
+    local_60 = &string___String_type;
+    local_5c = &DAT_6c75bbd8;
+    myfmt::myfmt_Println();
+    puVar19 = runtime::runtime_newobject(&_5_uint8___Array_type.Type);
+    *puVar19 = 0x4f4a5a40;
+    *(undefined1 *)(puVar19 + 1) = 0x4b;
+    uVar22 = 5;
+    _Var1.len = 5;
+    _Var1.array = (uint8 *)puVar19;
+    _Var1.cap = 5;
+    nVar5.data = DAT_6c957094;
+    nVar5.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+    local_134 = (undefined1  [12])net::net___UDPConn__WriteTo(param_1,_Var1,nVar5);
+    time::time_Sleep((time *)0xf4240,(ulong)uVar22 << 0x20);
+    puVar19 = runtime::runtime_newobject(&_5_uint8___Array_type.Type);
+    *puVar19 = 0x4f4a5a40;
+    *(undefined1 *)(puVar19 + 1) = 0x4b;
+    uVar22 = 5;
+    _Var2.len = 5;
+    _Var2.array = (uint8 *)puVar19;
+    _Var2.cap = 5;
+    nVar6.data = DAT_6c957098;
+    nVar6.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+    local_134 = (undefined1  [12])net::net___UDPConn__WriteTo(param_1,_Var2,nVar6);
+    time::time_Sleep((time *)0xf4240,(ulong)uVar22 << 0x20);
+    iVar11 = local_10c;
+    pcVar13 = local_dc;
+    do {
+      local_10c = iVar11;
+      local_dc = pcVar13;
+      tVar7 = time::time_Now();
+      ptVar28 = tVar7.loc;
+      uVar26 = tVar7.ext._4_4_;
+      uVar23 = (undefined4)tVar7.ext;
+      uVar20 = tVar7.wall._4_4_;
+      uVar17 = (undefined4)tVar7.wall;
+      runtime::runtime_duffcopy_6c1a9e9e(local_9c,&stack0xfffffeb4);
+      runtime::runtime_duffcopy_6c1a9e9e(&stack0xfffffeb4,local_9c);
+      n = (time_Location *)&DAT_11e1a300;
+      tVar7.wall._4_4_ = uVar20;
+      tVar7.wall._0_4_ = uVar17;
+      tVar7.ext._0_4_ = uVar23;
+      tVar7.ext._4_4_ = uVar26;
+      tVar7.loc = ptVar28;
+      time::time_Time_Add(tVar7);
+      runtime::runtime_duffcopy_6c1a9e9e(local_b0,(string *)((int)register0x00000010 + -0x130));
+      pnVar18 = param_1;
+      runtime::runtime_duffcopy_6c1a9e9e(&stack0xfffffeb8,local_b0);
+      tVar4.wall._4_4_ = uVar23;
+      tVar4.wall._0_4_ = uVar20;
+      tVar4.ext._0_4_ = uVar26;
+      tVar4.ext._4_4_ = ptVar28;
+      tVar4.loc = n;
+      _peVar29 = (string)net::net___conn__SetReadDeadline(&pnVar18->conn,tVar4);
+      FUN_6c1a99ba();
+      net::net___UDPConn__readFromUDP(param_1);
+      if ((error_itab *)local_134._4_4_ != (error_itab *)0x0) {
+        local_c0 = &string___String_type;
+        local_bc = &PTR_DAT_6c75ceb0;
+        local_b8 = (runtime__type *)0x0;
+        if ((error_itab *)local_134._4_4_ != (error_itab *)0x0) {
+          local_b8 = *(runtime__type **)(local_134._4_4_ + 4);
+        }
+        local_b4 = (unsafe_Pointer)local_134._8_4_;
+        myfmt::myfmt_Println();
+        return;
+      }
+      if ((time_Location *)&DAT_00000064 < n) {
+                    /* WARNING: Subroutine does not return */
+        runtime::runtime_panicSliceAcap();
+      }
+      local_d4 = peVar29;
+      sVar9 = runtime::runtime_slicebytetostring((runtime_tmpBuf *)0x0,local_c4,(int)n);
+      local_ec = sVar9.len;
+      local_c8 = sVar9.str;
+      self.array = (uint8 *)local_d4->inter;
+      self.len = (int)local_d4->_type;
+      self.cap = local_d4->hash;
+      sVar9 = net::net_IP_String(self);
+      local_f0 = sVar9.len;
+      local_cc = sVar9.str;
+      sVar9 = net::net_IP_String(*DAT_6c957094);
+      cVar25 = (char)sVar9.str;
+      if ((sVar9.len == local_f0) && (runtime::runtime_memequal(), cVar25 != '\0')) {
+        local_108 = local_ec;
+        local_d8 = local_c8;
+      }
+      self_00.array = (uint8 *)local_d4->inter;
+      self_00.len = (int)local_d4->_type;
+      self_00.cap = local_d4->hash;
+      sVar9 = net::net_IP_String(self_00);
+      local_f0 = sVar9.len;
+      local_cc = sVar9.str;
+      pcVar15 = (char *)DAT_6c957098->len;
+      iVar24 = DAT_6c957098->cap;
+      sVar9 = net::net_IP_String(*DAT_6c957098);
+      iVar14 = sVar9.len;
+      pcVar21 = sVar9.str;
+      iVar11 = local_10c;
+      pcVar13 = local_dc;
+      pcVar27 = pcVar21;
+      if ((iVar14 == local_f0) &&
+         (iVar24 = local_f0, runtime::runtime_memequal(), iVar11 = local_10c, pcVar13 = local_dc,
+         pcVar15 = pcVar21, (char)pcVar27 != '\0')) {
+        iVar11 = local_ec;
+        pcVar13 = local_c8;
+      }
+    } while ((local_108 == 0) || (iVar11 == 0));
+    pnVar18 = param_1;
+    local_f4 = iVar11;
+    local_d0 = pcVar13;
+    FUN_6c1a99bb();
+    tVar3.wall._4_4_ = iVar24;
+    tVar3.wall._0_4_ = pcVar15;
+    tVar3.ext._0_4_ = pcVar27;
+    tVar3.ext._4_4_ = iVar14;
+    tVar3.loc = n;
+    _peVar29 = (string)net::net___conn__SetReadDeadline(&pnVar18->conn,tVar3);
+    sVar9.len = local_108;
+    sVar9.str = local_d8;
+    mVar8 = strconv::strconv_Atoi(sVar9);
+    local_100 = mVar8.~r0;
+    s.len = local_f4;
+    s.str = local_d0;
+    mVar8 = strconv::strconv_Atoi(s);
+    local_fc = mVar8.~r0;
+    uVar16 = local_100;
+    if ((0 < (int)local_100) && (0 < (int)local_fc)) break;
+    iVar11 = local_108;
+    pcVar13 = local_d8;
+    iVar14 = local_f4;
+    pcVar15 = local_d0;
+    local_104 = local_fc;
+    uVar12 = local_f8 + 1;
+  }
+  puVar10 = DAT_6c957530;
+  if ((0 < (int)uVar16) && (0 < (int)local_fc)) {
+    local_100 = uVar16;
+    FUN_6c1a99b8();
+    local_58 = &string___String_type;
+    local_54 = &PTR_DAT_6c75ce38;
+    local_4c = runtime::runtime_convT32(local_100);
+    local_50 = &int___Int_type;
+    local_44 = runtime::runtime_convT32(local_fc);
+    local_48 = &int___Int_type;
+    local_40 = &string___String_type;
+    local_3c = &PTR_DAT_6c75c070;
+    myfmt::myfmt_Println();
+    nat22_udpScan();
+    local_e8 = (int)local_fc >> 0x1f;
+    if (DAT_6c97e94b == '\0') {
+      sVar9 = strconv::strconv_FormatInt((long)(int)local_100,10);
+      local_118 = sVar9.len;
+      local_e4 = sVar9.str;
+      sVar9 = strconv::strconv_FormatInt(CONCAT44(local_e8,local_fc),10);
+      local_11c = sVar9.len;
+      pcVar13 = sVar9.str;
+      FUN_6c1a99b2();
+      local_38 = &DAT_6c5e9e7e;
+      local_34 = 0xe;
+      local_30 = DAT_6c9576a0;
+      local_2c = DAT_6c9576a4;
+      local_28 = &DAT_6c759e30;
+      local_24 = 1;
+      local_20 = local_e4;
+      local_1c = local_118;
+      local_18 = &DAT_6c759e30;
+      local_14 = 1;
+      local_c = local_11c;
+      local_8 = 0x6c5e4a3c;
+      local_4 = 2;
+      a_00.len = 7;
+      a_00.array = (string *)&local_38;
+      a_00.cap = 7;
+      local_10 = pcVar13;
+      runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a_00);
+    }
+    else {
+      sVar9 = strconv::strconv_FormatInt((long)(int)local_100,10);
+      local_110 = sVar9.len;
+      local_e0 = sVar9.str;
+      sVar9 = strconv::strconv_FormatInt(CONCAT44(local_e8,local_fc),10);
+      local_114 = sVar9.len;
+      pcVar13 = sVar9.str;
+      FUN_6c1a99b2();
+      local_38 = &DAT_6c5e9e70;
+      local_34 = 0xe;
+      local_30 = DAT_6c9576a0;
+      local_2c = DAT_6c9576a4;
+      local_28 = &DAT_6c759e30;
+      local_24 = 1;
+      local_20 = local_e0;
+      local_1c = local_110;
+      local_18 = &DAT_6c759e30;
+      local_14 = 1;
+      local_c = local_114;
+      local_8 = 0x6c5e4a3c;
+      local_4 = 2;
+      a.len = 7;
+      a.array = (string *)&local_38;
+      a.cap = 7;
+      local_10 = pcVar13;
+      runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,a);
+    }
+    TCPTools::TCPTools_TCPSend();
+    return;
+  }
+  if (DAT_6c97e94b == '\0') {
+    DAT_6c97e94c = 0;
+    a1_00.len = DAT_6c957524;
+    a1_00.str = DAT_6c957520;
+    local_134._4_8_ =
+         runtime::runtime_concatstring3
+                   ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1_00,(string)0x86c5e6941);
+    TCPTools::TCPTools_TCPSend();
+  }
+  else {
+    DAT_6c957534 = 6;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar19 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar19 = puVar10;
+    }
+    DAT_6c957530 = &DAT_6c5e590e;
+    a1.len = DAT_6c957544;
+    a1.str = DAT_6c957540;
+    local_134._4_8_ =
+         runtime::runtime_concatstring3
+                   ((runtime_tmpBuf *)0x0,(string)0xc6c5e87c8,a1,(string)0x86c5e6941);
+    TCPTools::TCPTools_TCPSend();
+  }
+  return;
+}
+
+
+===== nat22.udpScan2 @ 6c4c5280 =====
+
+/* Golang function info: {@address 6c952978 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:358
+   Golang stacktrace signature: func nat22.udpScan2(struct? {4, 4}, 4, 4, 4) ??? */
+
+void nat22::nat22_udpScan2(char *param_1,int param_2,int param_3,int param_4,int param_5)
+
+{
+  string a1;
+  string sVar1;
+  char cVar2;
+  char cVar3;
+  undefined4 uVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  int in_FS_OFFSET;
+  undefined4 in_stack_ffffff90;
+  string local_64;
+  undefined1 local_50 [16];
+  undefined1 local_40 [16];
+  undefined1 local_30 [16];
+  void *local_20;
+  void *local_1c;
+  undefined4 *local_18;
+  undefined4 *local_14;
+  unsafe_Pointer local_10;
+  unsafe_Pointer local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (cVar2 = (char)in_stack_ffffff90,
+        &local_8 <= *(internal_abi_Type ***)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c5592;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  net::net_parseIP((string)0x76c5e5ee4);
+  cVar3 = cVar2;
+  runtime::runtime_duffcopy_6c1a9ea8(local_30,&stack0xffffff80);
+  runtime::runtime_duffcopy_6c1a9ea8(local_40,local_30);
+  runtime::runtime_duffcopy_6c1a9ea8(local_c,local_40);
+  if (cVar2 == '\0') {
+    uVar4 = 0;
+    local_1c = (void *)0x0;
+  }
+  else {
+    uVar4 = 0x10;
+    local_1c = local_c;
+  }
+  local_14 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  local_14[1] = uVar4;
+  local_14[2] = uVar4;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar6 = local_1c;
+  }
+  *local_14 = local_1c;
+  local_14[3] = param_4;
+  local_10 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  sVar1.len = param_2;
+  sVar1.str = param_1;
+  net::net_parseIP(sVar1);
+  runtime::runtime_duffcopy_6c1a9ea8(local_30,&stack0xffffff80);
+  runtime::runtime_duffcopy_6c1a9ea8(local_50,local_30);
+  runtime::runtime_duffcopy_6c1a9ea8(local_10,local_50);
+  if (cVar3 == '\0') {
+    uVar4 = 0;
+    local_20 = (void *)0x0;
+  }
+  else {
+    uVar4 = 0x10;
+    local_20 = local_10;
+  }
+  local_18 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  local_18[1] = uVar4;
+  local_18[2] = uVar4;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar6 = local_20;
+  }
+  *local_18 = local_20;
+  local_18[3] = param_3;
+  sVar1 = strconv::strconv_FormatInt((long)param_3,10);
+  local_8 = (internal_abi_Type *)0x0;
+  local_4 = (unsafe_Pointer)0x0;
+  a1.len = param_2;
+  a1.str = param_1;
+  local_64 = runtime::runtime_concatstring4
+                       ((runtime_tmpBuf *)0x0,(string)0x246c5fa097,a1,(string)0x16c759ea0,sVar1);
+  local_4 = runtime::runtime_convTstring(local_64);
+  local_8 = &string___String_type;
+  myfmt::myfmt_Println(&local_8,1);
+  nat22_rScan(0,local_14);
+  for (iVar5 = 1; iVar5 <= param_5; iVar5 = iVar5 + 1) {
+    local_14[3] = iVar5 + param_4;
+    nat22_rScan(0,local_14);
+    local_14[3] = param_4 - iVar5;
+    puVar6 = local_18;
+    nat22_rScan(0,local_14);
+    time::time_Sleep((time *)0xf4240,ZEXT48(puVar6) << 0x20);
+  }
+  return;
+}
+
+
+===== nat22.rScan @ 6c4c55a0 =====
+
+/* Golang function info: {@address 6c9529c8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:374
+   Golang stacktrace signature: func nat22.rScan(4, 4, 4) ??? */
+
+void nat22::nat22_rScan(undefined4 param_1,net_UDPAddr *param_2,unsafe_Pointer param_3)
+
+{
+  net_Addr nVar1;
+  int in_FS_OFFSET;
+  string s;
+  multireturn_net_UDPConn___error_ mVar2;
+  __byte _Var3;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c56e3;
+    runtime::runtime_morestack_noctxt();
+  }
+  mVar2 = net::net_ListenUDP((string)0x36c5e4cbe,param_2);
+  if (mVar2.~r1.tab != (error_itab *)0x0) {
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75ceb8;
+    local_4 = runtime::runtime_convT32(param_2->Port);
+    local_8 = &int___Int_type;
+    myfmt::myfmt_Println(&local_10,2,2);
+    return;
+  }
+  s = strconv::strconv_FormatInt((long)param_2->Port,10);
+  _Var3 = runtime::runtime_stringtoslicebyte((runtime_tmpBuf *)0x0,s);
+  nVar1.data = param_3;
+  nVar1.tab = (net_Addr_itab *)&net::_net_UDPAddr__implements__net_Addr__itab;
+  net::net___UDPConn__WriteTo(mVar2.~r0,(__uint8)_Var3,nVar1);
+  net::net___conn__Close(&(mVar2.~r0)->conn);
+  return;
+}
+
+
+===== nat22.starServerOrClient @ 6c4c56f0 =====
+
+/* Golang function info: {@address 6c952a18 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:398
+   Golang stacktrace signature: func nat22.starServerOrClient() ??? */
+
+void nat22::nat22_starServerOrClient(void)
+
+{
+  uintptr uVar1;
+  uintptr uVar2;
+  uintptr uVar3;
+  uintptr *puVar4;
+  int in_FS_OFFSET;
+  runtime_funcval *prVar5;
+  uint in_stack_ffffffec;
+  uintptr uVar6;
+  uintptr uVar7;
+  
+  while (uVar2 = DAT_6c957524, uVar1 = DAT_6c957520,
+        &stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  if (DAT_6c97e94b == '\0') {
+    uVar7 = DAT_6c97e9a8;
+    prVar5 = runtime::runtime_newobject
+                       (&nat22_struct___F_uintptr___autotmp_3_string___autotmp_4_int_____Struct_type
+                         .Type);
+    prVar5->fn = (uintptr)nat22_starServerOrClient_func2;
+    prVar5[2].fn = uVar2;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar4 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+      *puVar4 = uVar1;
+    }
+    prVar5[1].fn = uVar1;
+    prVar5[3].fn = uVar7;
+    runtime::runtime_newproc(prVar5);
+    return;
+  }
+  time::time_Sleep((time *)0x5f5e100,(ulong)in_stack_ffffffec << 0x20);
+  uVar3 = DAT_6c97e9a8;
+  uVar7 = DAT_6c957544;
+  uVar2 = DAT_6c957540;
+  uVar1 = DAT_6c957530;
+  uVar6 = DAT_6c957534;
+  prVar5 = runtime::runtime_newobject
+                     (&nat22_struct___F_uintptr___autotmp_0_string___autotmp_1_int___autotmp_2_string_____Struct_type
+                       .Type);
+  prVar5->fn = (uintptr)nat22_starServerOrClient_func1;
+  prVar5[2].fn = uVar7;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar4 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar4 = uVar2;
+  }
+  prVar5[1].fn = uVar2;
+  prVar5[3].fn = uVar3;
+  prVar5[5].fn = uVar6;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar4 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+    *puVar4 = uVar1;
+  }
+  prVar5[4].fn = uVar1;
+  runtime::runtime_newproc(prVar5);
+  return;
+}
+
+
+===== nat22.starServerOrClient.func2 @ 6c4c5850 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952a54 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:404
+   Golang stacktrace signature: [partial] [error] func nat22.starServerOrClient.func2() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat22::nat22_starServerOrClient_func2
+               (nat22_struct___F_uintptr___autotmp_3_string___autotmp_4_int__ *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_20;
+  int local_1c;
+  undefined *local_18;
+  undefined4 local_14;
+  int local_10;
+  undefined1 local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c58b3;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_20;
+  }
+  local_20 = (_context->_autotmp_3).str;
+  local_1c = (_context->_autotmp_3).len;
+  local_10 = _context->_autotmp_4;
+  local_18 = &DAT_6c5e7ae8;
+  local_14 = 0xb;
+  local_c = 0;
+  local_8 = 0;
+  local_4 = 0;
+  mapping::mapping_ServerStar();
+  return;
+}
+
+
+===== nat22.starServerOrClient.func1 @ 6c4c58d0 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952aa8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:401
+   Golang stacktrace signature: [partial] [error] func nat22.starServerOrClient.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void nat22::nat22_starServerOrClient_func1
+               (nat22_struct___F_uintptr___autotmp_0_string___autotmp_1_int___autotmp_2_string__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_2c;
+  int local_28;
+  undefined *local_24;
+  undefined4 local_20;
+  int local_1c;
+  char *local_18;
+  int local_14;
+  undefined1 local_10;
+  undefined4 local_c;
+  undefined4 local_8;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c5941;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_2c;
+  }
+  local_2c = (_context->_autotmp_0).str;
+  local_28 = (_context->_autotmp_0).len;
+  local_1c = _context->_autotmp_1;
+  local_18 = (_context->_autotmp_2).str;
+  local_14 = (_context->_autotmp_2).len;
+  local_24 = &DAT_6c5e7ae8;
+  local_20 = 0xb;
+  local_10 = 0;
+  local_c = 0;
+  local_8 = 0;
+  mapping::mapping_ClientStar();
+  return;
+}
+
+
+===== nat22.GetRandPort @ 6c4c5950 =====
+
+/* Golang function info: {@address 6c952afc "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/nat22/nat22.go:413
+   Golang stacktrace signature: func nat22.GetRandPort() ??? */
+
+void nat22::nat22_GetRandPort(void)
+
+{
+  uint uVar1;
+  uint uVar2;
+  int in_FS_OFFSET;
+  time_Time tVar3;
+  uint local_28;
+  uint local_24;
+  uint local_20;
+  int local_1c;
+  undefined1 local_14 [16];
+  undefined4 uStack_4;
+  undefined4 uVar4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c59f6;
+    runtime::runtime_morestack_noctxt();
+  }
+  tVar3 = time::time_Now();
+  uVar4 = (undefined4)tVar3.ext;
+  runtime::runtime_duffcopy_6c1a9e9e(local_14,&stack0xffffffc4);
+  runtime::runtime_duffcopy_6c1a9e9e(&local_28,local_14);
+  if ((local_24 & 0x80000000) != 0) {
+    uVar1 = local_28 >> 0x1f | local_24 << 1;
+    uVar2 = uVar1 << 1 | (local_28 & 0x7fffffff) >> 0x1e;
+    local_20 = uVar2 + 0xd7b17f80;
+    local_1c = (0xd - ((int)uVar1 >> 0x1f)) + (uint)(0x284e807f < uVar2);
+  }
+  math/rand::math_rand_Seed
+            ((math_rand *)(local_20 + 0x886e0900),
+             CONCAT44(uVar4,local_1c + -0xf + (uint)(0x7791f6ff < local_20)));
+  math/rand::math_rand_Intn(5000);
+  return;
+}
+
+
+===== natlan.LanCS @ 6c4c5a00 =====
+
+/* Golang function info: {@address 6c952b44 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:22
+   Golang stacktrace signature: func natlan.LanCS(struct? {4, 4}) ??? */
+
+void natlan::natlan_LanCS(char *param_1,int param_2)
+
+{
+  uintptr uVar1;
+  string sVar2;
+  __string _Var3;
+  int iVar4;
+  char *pcVar5;
+  undefined4 *puVar6;
+  int in_FS_OFFSET;
+  uint32 in_stack_ffffff7c;
+  runtime_hmap *prVar7;
+  runtime_funcval *fn;
+  runtime_hchan *c;
+  string *local_6c;
+  int local_68;
+  internal_abi_Type *local_48;
+  undefined **local_44;
+  internal_abi_Type *local_40;
+  unsafe_Pointer local_3c;
+  undefined *local_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 local_2c;
+  undefined4 *local_28;
+  undefined4 local_24;
+  char *local_20;
+  int local_1c;
+  undefined4 *local_18;
+  undefined4 local_14;
+  char *local_10;
+  int local_c;
+  undefined4 local_8;
+  undefined4 local_4;
+  
+  while (&local_4 <= *(undefined4 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c5cfb;
+    runtime::runtime_morestack_noctxt();
+  }
+  natlan_getRandPort();
+  DAT_6c97e9a8 = in_stack_ffffff7c;
+  local_40 = (internal_abi_Type *)0x0;
+  local_3c = (unsafe_Pointer)0x0;
+  local_48 = &string___String_type;
+  local_44 = &PTR_DAT_6c75cec0;
+  local_3c = runtime::runtime_convT32(DAT_6c97e9a8);
+  local_40 = &int___Int_type;
+  myfmt::myfmt_Println(&local_48,2,2);
+  prVar7 = runtime::runtime_makemap_small();
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar6 = prVar7;
+    puVar6[1] = DAT_6c957310;
+  }
+  DAT_6c957310 = prVar7;
+  c = runtime::runtime_makechan(&chan_bool___Chan_type,1);
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar6 = c;
+    puVar6[1] = DAT_6c95730c;
+  }
+  DAT_6c95730c = c;
+  runtime::runtime_chansend1(c,&DAT_6c75b9c0);
+  sVar2.len = param_2;
+  sVar2.str = param_1;
+  sVar2 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar2,(string)0x86c5e65a1);
+  _Var3 = strings::strings_genSplit(sVar2,(string)0x16c759e9c,0,-1);
+  local_68 = _Var3.len;
+  local_6c = _Var3.array;
+  for (iVar4 = 0; iVar4 < local_68; iVar4 = iVar4 + 1) {
+    uVar1 = local_6c[iVar4].len;
+    pcVar5 = local_6c[iVar4].str;
+    fn = runtime::runtime_newobject
+                   (&natlan_struct___F_uintptr___autotmp_8_string_____Struct_type.Type);
+    fn->fn = (uintptr)natlan_LanCS_func1;
+    fn[2].fn = uVar1;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar6 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar6 = pcVar5;
+    }
+    fn[1].fn = (uintptr)pcVar5;
+    runtime::runtime_newproc(fn);
+  }
+  sVar2 = strconv::strconv_FormatInt((long)(int)DAT_6c97e9a8,10);
+  pcVar5 = sVar2.str;
+  FUN_6c1a99b2();
+  local_38 = &DAT_6c5e707e;
+  local_34 = 9;
+  local_30 = DAT_6c957520;
+  local_2c = DAT_6c957524;
+  local_28 = &DAT_6c759e30;
+  local_24 = 1;
+  local_20 = param_1;
+  local_1c = param_2;
+  local_18 = &DAT_6c759ea0;
+  local_14 = 1;
+  local_8 = 0x6c5e4a3c;
+  local_4 = 2;
+  _Var3.len = 7;
+  _Var3.array = (string *)&local_38;
+  _Var3.cap = 7;
+  local_10 = pcVar5;
+  local_c = sVar2.len;
+  sVar2 = runtime::runtime_concatstrings((runtime_tmpBuf *)0x0,_Var3);
+  TCPTools::TCPTools_TCPSend(sVar2.str,sVar2.len);
+  return;
+}
+
+
+===== natlan.LanCS.func1 @ 6c4c5d00 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952b94 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:30
+   Golang stacktrace signature: [partial] [error] func natlan.LanCS.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void natlan::natlan_LanCS_func1(natlan_struct___F_uintptr___autotmp_8_string__ *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_8;
+  int local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c5d35;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_8;
+  }
+  local_8 = (_context->_autotmp_8).str;
+  local_4 = (_context->_autotmp_8).len;
+  natlan_csListen();
+  return;
+}
+
+
+===== natlan.LanCC @ 6c4c5d50 =====
+
+/* Golang function info: {@address 6c952be8 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:35
+   Golang stacktrace signature: func natlan.LanCC(struct? {4, 4, 4}) ??? */
+
+void natlan::natlan_LanCC(int param_1,uint param_2)
+
+{
+  uintptr uVar1;
+  char *pcVar2;
+  string s;
+  string s_00;
+  string a1;
+  string a3;
+  string sVar3;
+  __string _Var4;
+  __string _Var5;
+  int iVar6;
+  undefined4 *puVar7;
+  int in_FS_OFFSET;
+  char *pcVar8;
+  undefined4 *puVar9;
+  int iVar10;
+  runtime_funcval *fn;
+  runtime_hchan *c;
+  runtime_hchan *prVar11;
+  multireturn_int_error_ mVar12;
+  string *psVar13;
+  string local_4c;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  unsafe_Pointer local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c61bd;
+    runtime::runtime_morestack_noctxt();
+  }
+  puVar9 = runtime::runtime_newobject(&_1_string___Array_type.Type);
+  puVar9[1] = 3;
+  *puVar9 = &DAT_6c5e4d5a;
+  DAT_6c95789c = 1;
+  DAT_6c9578a0 = 1;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar7 = puVar9;
+    puVar7[1] = DAT_6c957898;
+  }
+  DAT_6c957898 = puVar9;
+  if (0 < (int)DAT_6c97e9ac) {
+    UDPTools::UDPTools_StopRecv(0);
+    local_8 = (internal_abi_Type *)0x0;
+    local_4 = (unsafe_Pointer)0x0;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75cec8;
+    local_4 = runtime::runtime_convT32(DAT_6c97e9ac);
+    local_8 = &int___Int_type;
+    myfmt::myfmt_Println(&local_10,2,2);
+  }
+  if (param_2 < 2) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  _Var4 = strings::strings_genSplit(*(string *)(param_1 + 8),(string)0x16c759ea0,0,-1);
+  psVar13 = _Var4.array;
+  if (_Var4.len == 0) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  _Var5 = strings::strings_genSplit(*psVar13,(string)0x16c759e9c,0,-1);
+  if ((uint)_Var4.len < 2) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  pcVar8 = psVar13[1].str;
+  iVar10 = psVar13[1].len;
+  mVar12 = strconv::strconv_Atoi(psVar13[1]);
+  DAT_6c97e9a8 = mVar12.~r0;
+  natlan_GetlanIP();
+  sVar3.len = iVar10;
+  sVar3.str = pcVar8;
+  sVar3 = runtime::runtime_concatstring2((runtime_tmpBuf *)0x0,sVar3,(string)0x86c5e65a1);
+  _Var4 = strings::strings_genSplit(sVar3,(string)0x16c759e9c,0,-1);
+  c = runtime::runtime_makechan(&chan_bool___Chan_type,1);
+  prVar11 = c;
+  runtime::runtime_chansend1(c,&DAT_6c75b9c0);
+  for (iVar6 = 0; iVar6 < _Var4.len; iVar6 = iVar6 + 1) {
+    uVar1 = _Var4.array[iVar6].len;
+    pcVar2 = _Var4.array[iVar6].str;
+    fn = runtime::runtime_newobject
+                   (&natlan_struct___F_uintptr___autotmp_25_string___autotmp_26___string___autotmp_27_chan_bool_____Struct_type
+                     .Type);
+    fn->fn = (uintptr)natlan_LanCC_func1;
+    fn[2].fn = uVar1;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar9 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+      *puVar9 = pcVar2;
+    }
+    fn[1].fn = (uintptr)pcVar2;
+    fn[4].fn = _Var5.len;
+    fn[5].fn = _Var5.cap;
+    if (runtime_writeBarrier_discovered != 0) {
+      puVar9 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+      *puVar9 = _Var5.array;
+      puVar9[1] = c;
+    }
+    fn[3].fn = (uintptr)_Var5.array;
+    fn[6].fn = (uintptr)c;
+    runtime::runtime_newproc(fn);
+  }
+  time::time_Sleep((time *)0x3b9aca00,ZEXT48(prVar11) << 0x20);
+  s.len = DAT_6c957534;
+  s.str = DAT_6c957530;
+  _Var4 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+  if ((_Var4.len < 3) &&
+     (s_00.len = DAT_6c957534, s_00.str = DAT_6c957530,
+     _Var4 = strings::strings_genSplit(s_00,(string)0x16c759ea0,0,-1), _Var4.len < 3)) {
+    a1.len = DAT_6c957544;
+    a1.str = DAT_6c957540;
+    a3.len = iVar10;
+    a3.str = pcVar8;
+    local_4c = runtime::runtime_concatstring5
+                         ((runtime_tmpBuf *)0x0,(string)0xa6c5e7828,a1,(string)0x16c759e30,a3,
+                          (string)0x26c5e4a3c);
+    TCPTools::TCPTools_TCPSend(local_4c.str,local_4c.len);
+  }
+  return;
+}
+
+
+===== natlan.LanCC.func1 @ 6c4c61d0 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952c38 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:52
+   Golang stacktrace signature: [partial] [error] func natlan.LanCC.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void natlan::natlan_LanCC_func1
+               (natlan_struct___F_uintptr___autotmp_25_string___autotmp_26___string___autotmp_27_chan_bool__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_18;
+  int local_14;
+  string *local_10;
+  int local_c;
+  int local_8;
+  chan_bool local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (chan_bool)0x6c4c6221;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_18;
+  }
+  local_18 = (_context->_autotmp_25).str;
+  local_14 = (_context->_autotmp_25).len;
+  local_10 = (_context->_autotmp_26).array;
+  local_c = (_context->_autotmp_26).len;
+  local_8 = (_context->_autotmp_26).cap;
+  local_4 = _context->_autotmp_27;
+  natlan_ccListen();
+  return;
+}
+
+
+===== natlan.Lan2 @ 6c4c6230 =====
+
+/* Golang function info: {@address 6c952c8c "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:62
+   Golang stacktrace signature: func natlan.Lan2(struct? {4, 4, 4}) ??? */
+
+void natlan::natlan_Lan2(int param_1,uint param_2)
+
+{
+  int iVar1;
+  bool bVar2;
+  string s;
+  string s_00;
+  string a1;
+  string a1_00;
+  __string _Var3;
+  string sVar4;
+  char cVar5;
+  undefined4 uVar6;
+  runtime_hmap *h;
+  int iVar7;
+  undefined4 *puVar8;
+  int in_FS_OFFSET;
+  undefined2 *puVar9;
+  undefined4 *puVar10;
+  runtime_hiter *it;
+  string *psVar11;
+  char *local_80;
+  int local_7c;
+  undefined1 local_68 [16];
+  undefined1 local_58 [16];
+  void *local_48;
+  string *local_44;
+  undefined4 *local_40;
+  char *local_3c;
+  net_UDPConn *local_38;
+  unsafe_Pointer local_34;
+  runtime_hiter local_30;
+  
+  while (&local_30.bptr <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_30.checkBucket = 0x6c4c65bf;
+    runtime::runtime_morestack_noctxt();
+  }
+  if (param_2 < 2) {
+                    /* WARNING: Subroutine does not return */
+    runtime::runtime_panicIndex();
+  }
+  _Var3 = strings::strings_genSplit(*(string *)(param_1 + 8),(string)0x16c759e9c,0,-1);
+  local_80 = (char *)_Var3.len;
+  psVar11 = _Var3.array;
+  h = DAT_6c957310;
+  local_44 = psVar11;
+  FUN_6c1a99b4();
+  it = &local_30;
+  runtime::runtime_mapiterinit(&map_string__net_UDPConn___Map_type,h,it);
+  while (local_30.key != (unsafe_Pointer)0x0) {
+    local_38 = *(net_UDPConn **)local_30.elem;
+    for (iVar7 = 0; iVar7 < (int)local_80; iVar7 = iVar7 + 1) {
+      local_3c = local_44[iVar7].str;
+      iVar1 = local_44[iVar7].len;
+      local_34 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+      sVar4.len = iVar1;
+      sVar4.str = local_3c;
+      net::net_parseIP(sVar4);
+      cVar5 = (char)psVar11;
+      runtime::runtime_duffcopy_6c1a9ea8(local_58,&stack0xffffff6c);
+      runtime::runtime_duffcopy_6c1a9ea8(local_68,local_58);
+      runtime::runtime_duffcopy_6c1a9ea8(local_34,local_68);
+      if (cVar5 == '\0') {
+        uVar6 = 0;
+        local_48 = (void *)0x0;
+      }
+      else {
+        uVar6 = 0x10;
+        local_48 = local_34;
+      }
+      puVar10 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+      puVar10[1] = uVar6;
+      puVar10[2] = uVar6;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar8 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar8 = local_48;
+      }
+      *puVar10 = local_48;
+      puVar10[3] = DAT_6c97e9a8;
+      local_40 = puVar10;
+      puVar9 = runtime::runtime_newobject(&_2_uint8___Array_type.Type);
+      *puVar9 = 0x5343;
+      it = (runtime_hiter *)0x2;
+      net::net___UDPConn__WriteToUDP(local_38);
+    }
+    runtime::runtime_mapiternext(&local_30);
+  }
+  time::time_Sleep((time *)0x3b9aca00,ZEXT48(it) << 0x20);
+  s.len = DAT_6c957534;
+  s.str = DAT_6c957530;
+  _Var3 = strings::strings_genSplit(s,(string)0x16c759ea4,0,-1);
+  local_80 = (char *)_Var3.len;
+  if ((int)local_80 < 3) {
+    s_00.len = DAT_6c957534;
+    s_00.str = DAT_6c957530;
+    _Var3 = strings::strings_genSplit(s_00,(string)0x16c759ea0,0,-1);
+    local_80 = (char *)_Var3.len;
+    bVar2 = (int)local_80 < 3;
+  }
+  else {
+    bVar2 = false;
+  }
+  if (bVar2) {
+    if (DAT_6c97e96e == '\0') {
+      a1_00.len = DAT_6c957524;
+      a1_00.str = DAT_6c957520;
+      sVar4 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xa6c5e7832,a1_00,(string)0x26c5e4a3c);
+      local_7c = sVar4.len;
+      local_80 = sVar4.str;
+      TCPTools::TCPTools_TCPSend(local_80,local_7c);
+    }
+    else {
+      DAT_6c97e96e = '\0';
+      a1.len = DAT_6c957524;
+      a1.str = DAT_6c957520;
+      sVar4 = runtime::runtime_concatstring3
+                        ((runtime_tmpBuf *)0x0,(string)0xc6c5e87e0,a1,(string)0x76c5e632f);
+      local_7c = sVar4.len;
+      local_80 = sVar4.str;
+      TCPTools::TCPTools_TCPSend(local_80,local_7c);
+    }
+    DAT_6c97e94c = 0;
+  }
+  return;
+}
+
+
+===== natlan.Lan3 @ 6c4c65d0 =====
+
+/* Golang function info: {@address 6c952cdc "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:84
+   Golang stacktrace signature: func natlan.Lan3() ??? */
+
+void natlan::natlan_Lan3(void)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int in_FS_OFFSET;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c6669;
+    runtime::runtime_morestack_noctxt();
+  }
+  UDPTools::UDPTools_StopRecv(0);
+  local_8 = &string___String_type;
+  local_4 = &PTR_DAT_6c75ced0;
+  myfmt::myfmt_Println(&local_8,1,1);
+  uVar1 = DAT_6c957530;
+  DAT_6c957534 = 5;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar2 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar2 = uVar1;
+  }
+  DAT_6c957530 = &DAT_6c5e5486;
+  return;
+}
+
+
+===== natlan.GetlanIP @ 6c4c6670 =====
+
+/* Golang function info: {@address 6c952d1c "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:93
+   Golang stacktrace signature: func natlan.GetlanIP() ??? */
+
+void natlan::natlan_GetlanIP(void)
+
+{
+  net_IP self;
+  string a0;
+  undefined4 uVar1;
+  undefined4 uVar2;
+  bool bVar3;
+  int iVar4;
+  char cVar5;
+  int in_FS_OFFSET;
+  bool bVar7;
+  char *pcVar9;
+  multireturn___net_Addr_error_ mVar6;
+  int iVar10;
+  string local_58;
+  int local_44;
+  uint8 *local_28;
+  net_IP *local_24;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  runtime__type *local_8;
+  unsafe_Pointer local_4;
+  error_itab *peVar8;
+  string a1;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c6959;
+    runtime::runtime_morestack_noctxt();
+  }
+  mVar6 = net::net_InterfaceAddrs();
+  peVar8 = mVar6.~r1.tab;
+  if (peVar8 != (error_itab *)0x0) {
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75bf58;
+    local_8 = (runtime__type *)0x0;
+    if (peVar8 != (error_itab *)0x0) {
+      local_8 = peVar8->_type;
+    }
+    local_4 = mVar6.~r1.data;
+    myfmt::myfmt_Println(&local_10,2,2);
+    return;
+  }
+  iVar4 = 0;
+  local_58.len = 0;
+  local_58.str = (char *)0x0;
+  do {
+    if (mVar6.~r0.len <= iVar4) {
+      if (1 < local_58.len) {
+        return;
+      }
+      return;
+    }
+    if (mVar6.~r0.array[iVar4].tab == (net_Addr_itab *)&net::_net_IPNet__implements__net_Addr__itab)
+    {
+      local_24 = mVar6.~r0.array[iVar4].data;
+      bVar7 = net::net_IP_IsLoopback(*local_24);
+      bVar3 = !bVar7;
+    }
+    else {
+      local_24 = (net_IP *)0x0;
+      bVar3 = false;
+    }
+    if (bVar3) {
+      local_28 = local_24->array;
+      uVar1 = local_24->array;
+      uVar2 = local_24->len;
+      self.len = uVar2;
+      self.array = (uint8 *)uVar1;
+      if (local_24->len != 4) {
+        if (local_24->len == 0x10) {
+          for (local_44 = 0; local_44 < 10; local_44 = local_44 + 1) {
+            if (local_28[local_44] != 0) goto LAB_6c4c67fd;
+          }
+          if ((local_28[10] == 0xff) && (local_28[0xb] == 0xff)) {
+            local_28 = local_28 + 0xc;
+            goto LAB_6c4c680b;
+          }
+        }
+LAB_6c4c67fd:
+        local_28 = (uint8 *)0x0;
+      }
+LAB_6c4c680b:
+      if (local_28 != (uint8 *)0x0) {
+        self.cap = local_24->cap;
+        a1 = net::net_IP_String(self);
+        iVar10 = a1.len;
+        pcVar9 = a1.str;
+        if (DAT_6c5440c4 == iVar10) {
+          runtime::runtime_memequal(pcVar9,DAT_6c5440c0,iVar10);
+          cVar5 = (char)pcVar9;
+        }
+        else {
+          cVar5 = '\0';
+        }
+        if ((cVar5 == '\0') && (4 < iVar10)) {
+          a0.len = local_58.len;
+          a0.str = local_58.str;
+          local_58 = runtime::runtime_concatstring3((runtime_tmpBuf *)0x0,a0,a1,(string)0x16c759e9c)
+          ;
+        }
+      }
+    }
+    iVar4 = iVar4 + 1;
+  } while( true );
+}
+
+
+===== natlan.getRandPort @ 6c4c6960 =====
+
+/* Golang function info: {@address 6c952d64 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:147
+   Golang stacktrace signature: func natlan.getRandPort() ??? */
+
+void natlan::natlan_getRandPort(void)
+
+{
+  uint uVar1;
+  uint uVar2;
+  int in_FS_OFFSET;
+  time_Time tVar3;
+  uint local_28;
+  uint local_24;
+  uint local_20;
+  int local_1c;
+  undefined1 local_14 [16];
+  undefined4 uStack_4;
+  undefined4 uVar4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c6a06;
+    runtime::runtime_morestack_noctxt();
+  }
+  tVar3 = time::time_Now();
+  uVar4 = (undefined4)tVar3.ext;
+  runtime::runtime_duffcopy_6c1a9e9e(local_14,&stack0xffffffc4);
+  runtime::runtime_duffcopy_6c1a9e9e(&local_28,local_14);
+  if ((local_24 & 0x80000000) != 0) {
+    uVar1 = local_28 >> 0x1f | local_24 << 1;
+    uVar2 = uVar1 << 1 | (local_28 & 0x7fffffff) >> 0x1e;
+    local_20 = uVar2 + 0xd7b17f80;
+    local_1c = (0xd - ((int)uVar1 >> 0x1f)) + (uint)(0x284e807f < uVar2);
+  }
+  math/rand::math_rand_Seed
+            ((math_rand *)(local_20 + 0x886e0900),
+             CONCAT44(uVar4,local_1c + -0xf + (uint)(0x7791f6ff < local_20)));
+  math/rand::math_rand_Intn(99);
+  return;
+}
+
+
+===== natlan.csListen @ 6c4c6a10 =====
+
+/* Golang function info: {@address 6c952dac "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:158
+   Golang stacktrace signature: func natlan.csListen(struct? {4, 4}) ??? */
+
+void natlan::natlan_csListen(char *param_1,uintptr param_2)
+
+{
+  string val;
+  string val_00;
+  string val_01;
+  string val_02;
+  string val_03;
+  string val_04;
+  time_Time tVar1;
+  time_Time tVar2;
+  string s;
+  time_Time tVar3;
+  string sVar4;
+  multireturn_net_UDPConn___error_ mVar5;
+  error eVar6;
+  undefined4 *puVar7;
+  uintptr *puVar8;
+  int in_FS_OFFSET;
+  undefined4 uVar9;
+  net_UDPConn *pnVar10;
+  net_UDPAddr *laddr;
+  char *pcVar11;
+  undefined4 uVar12;
+  uint8 *puVar13;
+  runtime_hchan *prVar14;
+  undefined2 *puVar15;
+  runtime_funcval *fn;
+  multireturn_bool_bool_ mVar16;
+  undefined4 uVar17;
+  int iVar18;
+  undefined2 uVar19;
+  undefined4 uVar20;
+  short *psVar21;
+  undefined4 *puVar22;
+  time_Location *ptVar23;
+  time_Location *n;
+  net_UDPAddr *local_bc;
+  unsafe_Pointer local_b8 [5];
+  int local_a4;
+  int local_a0;
+  uintptr local_9c;
+  uintptr local_98;
+  undefined1 local_94 [16];
+  undefined1 local_84 [16];
+  uint8 *local_74;
+  net_UDPAddr *local_70;
+  short *local_6c;
+  net_UDPConn *local_68;
+  char *local_64;
+  uint8 *local_60;
+  uint8 *local_5c;
+  internal_abi_Type *local_58;
+  undefined **local_54;
+  internal_abi_Type *local_50;
+  unsafe_Pointer local_4c;
+  undefined1 local_48 [20];
+  undefined1 local_34 [20];
+  internal_abi_Type *local_20;
+  undefined **local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  undefined **local_c;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (&local_54 <= *(undefined ****)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (unsafe_Pointer)0x6c4c710b;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_5c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  sVar4.len = param_2;
+  sVar4.str = param_1;
+  net::net_parseIP(sVar4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_84,&stack0xffffff34);
+  runtime::runtime_duffcopy_6c1a9ea8(local_94,local_84);
+  runtime::runtime_duffcopy_6c1a9ea8(local_5c,local_94);
+  if ((char)local_bc == '\0') {
+    local_a4 = 0;
+    local_74 = (uint8 *)0x0;
+  }
+  else {
+    local_a4 = 0x10;
+    local_74 = local_5c;
+  }
+  laddr = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (laddr->IP).len = local_a4;
+  (laddr->IP).cap = local_a4;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar22 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar22 = local_74;
+  }
+  (laddr->IP).array = local_74;
+  laddr->Port = DAT_6c97e9a8;
+  pcVar11 = (char *)0x3;
+  mVar5 = net::net_ListenUDP((string)0x36c5e4cbe,laddr);
+  local_68 = mVar5.~r0;
+  if (mVar5.~r1.tab != (error_itab *)0x0) {
+    (*(mVar5.~r1.tab)->Error)(mVar5.~r1.data);
+    local_50 = (internal_abi_Type *)0x0;
+    local_4c = (unsafe_Pointer)0x0;
+    local_58 = &string___String_type;
+    local_54 = &PTR_DAT_6c75ced8;
+    val.len = (int)laddr;
+    val.str = pcVar11;
+    local_4c = runtime::runtime_convTstring(val);
+    local_50 = &string___String_type;
+    myfmt::myfmt_Println();
+    return;
+  }
+  sync::sync___RWMutex__Lock((sync_RWMutex *)&DAT_6c97f0f0);
+  s.len = param_2;
+  s.str = param_1;
+  puVar22 = runtime::runtime_mapassign_faststr(&map_string__net_UDPConn___Map_type,DAT_6c957310,s);
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar7 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+    *puVar7 = local_68;
+    puVar7[1] = *puVar22;
+  }
+  *puVar22 = local_68;
+  sync::sync___RWMutex__Unlock((sync_RWMutex *)&DAT_6c97f0f0);
+  while( true ) {
+    local_60 = runtime::runtime_makeslice(&uint8___Uint8_type,100,100);
+    tVar3 = time::time_Now();
+    ptVar23 = tVar3.loc;
+    uVar20 = tVar3.ext._4_4_;
+    uVar17 = (undefined4)tVar3.ext;
+    uVar12 = tVar3.wall._4_4_;
+    uVar9 = (undefined4)tVar3.wall;
+    runtime::runtime_duffcopy_6c1a9e9e(local_34,&stack0xffffff2c);
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff2c,local_34);
+    n = (time_Location *)0xee6b2800;
+    tVar3.wall._4_4_ = uVar12;
+    tVar3.wall._0_4_ = uVar9;
+    tVar3.ext._0_4_ = uVar17;
+    tVar3.ext._4_4_ = uVar20;
+    tVar3.loc = ptVar23;
+    time::time_Time_Add(tVar3);
+    runtime::runtime_duffcopy_6c1a9e9e(local_48,local_b8);
+    pnVar10 = local_68;
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xffffff30,local_48);
+    tVar1.wall._4_4_ = uVar17;
+    tVar1.wall._0_4_ = uVar12;
+    tVar1.ext._0_4_ = uVar20;
+    tVar1.ext._4_4_ = ptVar23;
+    tVar1.loc = n;
+    eVar6 = net::net___conn__SetReadDeadline(&pnVar10->conn,tVar1);
+    local_b8[0] = eVar6.data;
+    local_bc = (net_UDPAddr *)eVar6.tab;
+    runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+    iVar18 = 100;
+    puVar13 = local_60;
+    net::net___UDPConn__readFromUDP(local_68);
+    if (local_b8[0] != (unsafe_Pointer)0x0) {
+      (**(code **)((int)local_b8[0] + 0x10))();
+      local_50 = (internal_abi_Type *)0x0;
+      local_4c = (unsafe_Pointer)0x0;
+      local_58 = &string___String_type;
+      local_54 = &PTR_DAT_6c75bf48;
+      val_04.len = iVar18;
+      val_04.str = (char *)puVar13;
+      local_4c = runtime::runtime_convTstring(val_04);
+      local_50 = &string___String_type;
+      myfmt::myfmt_Println();
+      return;
+    }
+    if ((time_Location *)&DAT_00000064 < n) break;
+    local_70 = local_bc;
+    sVar4 = runtime::runtime_slicebytetostring((runtime_tmpBuf *)0x0,local_60,(int)n);
+    iVar18 = sVar4.len;
+    psVar21 = (short *)sVar4.str;
+    local_a0 = iVar18;
+    local_6c = psVar21;
+    sVar4 = net::net___UDPAddr__String(local_70);
+    local_98 = sVar4.len;
+    local_64 = sVar4.str;
+    FUN_6c1a99b8();
+    local_20 = &string___String_type;
+    local_1c = &PTR_DAT_6c75ccf0;
+    val_00.len = local_a0;
+    val_00.str = (char *)local_6c;
+    local_14 = runtime::runtime_convTstring(val_00);
+    local_18 = &string___String_type;
+    local_10 = &string___String_type;
+    local_c = &PTR_DAT_6c75bf28;
+    val_01.len = local_98;
+    val_01.str = local_64;
+    local_4 = runtime::runtime_convTstring(val_01);
+    local_8 = &string___String_type;
+    uVar19 = 0;
+    myfmt::myfmt_Println();
+    if ((local_a0 == 2) && (*local_6c == 0x4343)) {
+      prVar14 = DAT_6c95730c;
+      mVar16 = runtime::runtime_selectnbrecv((unsafe_Pointer)0x0,DAT_6c95730c);
+      uVar17 = CONCAT22(uVar19,mVar16);
+      if (mVar16.~r0 == false) {
+        net::net___conn__Close(&local_68->conn);
+        return;
+      }
+      pnVar10 = local_68;
+      FUN_6c1a99bb();
+      tVar2.wall._4_4_ = uVar17;
+      tVar2.wall._0_4_ = prVar14;
+      tVar2.ext._0_4_ = psVar21;
+      tVar2.ext._4_4_ = iVar18;
+      tVar2.loc = n;
+      eVar6 = net::net___conn__SetReadDeadline(&pnVar10->conn,tVar2);
+      local_b8[0] = eVar6.data;
+      puVar15 = runtime::runtime_newobject(&_2_uint8___Array_type.Type);
+      *puVar15 = 0x5343;
+      net::net___UDPConn__WriteToUDP(local_68);
+      sVar4 = net::net___UDPAddr__String(local_70);
+      DAT_6c957534 = sVar4.len;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar22 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+        *puVar22 = sVar4.str;
+        puVar22[1] = DAT_6c957530;
+      }
+      DAT_6c957530 = sVar4.str;
+      sVar4 = net::net___UDPAddr__String(local_70);
+      local_98 = sVar4.len;
+      local_64 = sVar4.str;
+      FUN_6c1a99b8();
+      val_02.len = param_2;
+      val_02.str = param_1;
+      local_1c = runtime::runtime_convTstring(val_02);
+      local_20 = &string___String_type;
+      local_18 = &string___String_type;
+      local_14 = &PTR_DAT_6c75bf30;
+      val_03.len = local_98;
+      val_03.str = local_64;
+      local_c = runtime::runtime_convTstring(val_03);
+      local_10 = &string___String_type;
+      local_8 = &string___String_type;
+      local_4 = &PTR_DAT_6c75bf38;
+      myfmt::myfmt_Println();
+      net::net___conn__Close(&local_68->conn);
+      local_98 = DAT_6c957524;
+      local_64 = (char *)DAT_6c957520;
+      local_9c = DAT_6c97e9a8;
+      fn = runtime::runtime_newobject
+                     (&natlan_struct___F_uintptr___autotmp_28_string___autotmp_29_int___autotmp_30_string_____Struct_type
+                       .Type);
+      fn->fn = (uintptr)natlan_csListen_func1;
+      fn[2].fn = local_98;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar8 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+        *puVar8 = (uintptr)local_64;
+      }
+      fn[1].fn = (uintptr)local_64;
+      fn[3].fn = local_9c;
+      fn[5].fn = param_2;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar22 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar22 = param_1;
+      }
+      fn[4].fn = (uintptr)param_1;
+      runtime::runtime_newproc(fn);
+      return;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicSliceAcap();
+}
+
+
+===== natlan.csListen.func1 @ 6c4c7110 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952dfc "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:187
+   Golang stacktrace signature: [partial] [error] func natlan.csListen.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void natlan::natlan_csListen_func1
+               (natlan_struct___F_uintptr___autotmp_28_string___autotmp_29_int___autotmp_30_string__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_20;
+  int local_1c;
+  undefined *local_18;
+  undefined4 local_14;
+  int local_10;
+  undefined1 local_c;
+  char *local_8;
+  int local_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = 0x6c4c7171;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_20;
+  }
+  local_20 = (_context->_autotmp_28).str;
+  local_1c = (_context->_autotmp_28).len;
+  local_10 = _context->_autotmp_29;
+  local_8 = (_context->_autotmp_30).str;
+  local_4 = (_context->_autotmp_30).len;
+  local_18 = &DAT_6c5e7ae8;
+  local_14 = 0xb;
+  local_c = 0;
+  mapping::mapping_ServerStar();
+  return;
+}
+
+
+===== natlan.ccListen @ 6c4c7180 =====
+
+/* Golang function info: {@address 6c952e50 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:198
+   Golang stacktrace signature: func natlan.ccListen(struct? {4, 4}, struct? {4, 4, 4}, 4) ??? */
+
+void natlan::natlan_ccListen
+               (char *param_1,uintptr param_2,int param_3,int param_4,undefined4 param_5,
+               runtime_hchan *param_6)
+
+{
+  int *piVar1;
+  string val;
+  string s;
+  string val_00;
+  string val_01;
+  string val_02;
+  time_Time tVar2;
+  time_Time tVar3;
+  time_Time tVar4;
+  string sVar5;
+  multireturn_net_UDPConn___error_ mVar6;
+  error eVar7;
+  char cVar8;
+  uintptr uVar9;
+  undefined4 *puVar10;
+  uintptr *puVar11;
+  int in_FS_OFFSET;
+  net_UDPConn *pnVar12;
+  net_UDPAddr *pnVar13;
+  char *pcVar14;
+  undefined4 *puVar15;
+  undefined2 *puVar16;
+  undefined4 uVar17;
+  uint8 *puVar18;
+  runtime_funcval *fn;
+  multireturn_bool_bool_ mVar19;
+  undefined4 uVar20;
+  int iVar21;
+  undefined4 uVar22;
+  undefined4 uVar23;
+  time_Location *ptVar24;
+  time_Location *n;
+  net_UDPAddr *local_104;
+  unsafe_Pointer local_100 [5];
+  int local_ec;
+  undefined4 local_e8;
+  int local_e4;
+  uintptr local_e0;
+  uintptr local_dc;
+  uintptr local_d8;
+  undefined1 local_d4 [16];
+  undefined1 local_c4 [16];
+  undefined1 local_b4 [16];
+  uint8 local_a4 [8];
+  undefined1 local_9c [24];
+  void *local_84;
+  uint8 *local_80;
+  undefined4 *local_7c;
+  int *local_78;
+  net_UDPConn *local_74;
+  net_UDPAddr *local_70;
+  uintptr local_6c;
+  char *local_68;
+  uint8 *local_64;
+  unsafe_Pointer local_60;
+  uint8 *local_5c;
+  internal_abi_Type *local_58;
+  undefined **local_54;
+  internal_abi_Type *local_50;
+  unsafe_Pointer local_4c;
+  undefined1 local_48 [20];
+  undefined1 local_34 [20];
+  internal_abi_Type *local_20;
+  unsafe_Pointer local_1c;
+  internal_abi_Type *local_18;
+  undefined **local_14;
+  internal_abi_Type *local_10;
+  unsafe_Pointer local_c;
+  internal_abi_Type *local_8;
+  undefined **local_4;
+  
+  while (local_9c <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    local_4 = (undefined **)0x6c4c794e;
+    runtime::runtime_morestack_noctxt();
+  }
+  local_5c = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+  sVar5.len = param_2;
+  sVar5.str = param_1;
+  net::net_parseIP(sVar5);
+  cVar8 = (char)local_104;
+  runtime::runtime_duffcopy_6c1a9ea8(local_d4,&stack0xfffffeec);
+  runtime::runtime_duffcopy_6c1a9ea8(local_b4,local_d4);
+  runtime::runtime_duffcopy_6c1a9ea8(local_5c,local_b4);
+  if (cVar8 == '\0') {
+    local_ec = 0;
+    local_80 = (uint8 *)0x0;
+  }
+  else {
+    local_ec = 0x10;
+    local_80 = local_5c;
+  }
+  pnVar13 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+  (pnVar13->IP).len = local_ec;
+  (pnVar13->IP).cap = local_ec;
+  if (runtime_writeBarrier_discovered != 0) {
+    puVar15 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+    *puVar15 = local_80;
+  }
+  (pnVar13->IP).array = local_80;
+  pnVar13->Port = DAT_6c97e9a8;
+  pcVar14 = (char *)0x3;
+  mVar6 = net::net_ListenUDP((string)0x36c5e4cbe,pnVar13);
+  local_74 = mVar6.~r0;
+  if (mVar6.~r1.tab != (error_itab *)0x0) {
+    (*(mVar6.~r1.tab)->Error)(mVar6.~r1.data);
+    local_50 = (internal_abi_Type *)0x0;
+    local_4c = (unsafe_Pointer)0x0;
+    local_58 = &string___String_type;
+    local_54 = &PTR_DAT_6c75bf10;
+    val.len = (int)pnVar13;
+    val.str = pcVar14;
+    local_4c = runtime::runtime_convTstring(val);
+    local_50 = &string___String_type;
+    myfmt::myfmt_Println();
+    return;
+  }
+  for (uVar9 = 0; (int)uVar9 < param_4; uVar9 = uVar9 + 1) {
+    piVar1 = (int *)(param_3 + uVar9 * 8);
+    iVar21 = piVar1[1];
+    piVar1 = (int *)*piVar1;
+    if (((((iVar21 != 7) || (*piVar1 != 0x2e302e30)) || ((short)piVar1[1] != 0x2e30)) ||
+        (*(char *)((int)piVar1 + 6) != '0')) && (iVar21 != 0)) {
+      local_e4 = iVar21;
+      local_d8 = uVar9;
+      local_78 = piVar1;
+      local_60 = runtime::runtime_newobject(&_16_uint8___Array_type.Type);
+      s.len = local_e4;
+      s.str = (char *)local_78;
+      net::net_parseIP(s);
+      cVar8 = (char)local_104;
+      runtime::runtime_duffcopy_6c1a9ea8(local_d4,&stack0xfffffeec);
+      runtime::runtime_duffcopy_6c1a9ea8(local_c4,local_d4);
+      runtime::runtime_duffcopy_6c1a9ea8(local_60,local_c4);
+      if (cVar8 == '\0') {
+        local_e8 = 0;
+        local_84 = (void *)0x0;
+      }
+      else {
+        local_e8 = 0x10;
+        local_84 = local_60;
+      }
+      puVar15 = runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+      puVar15[1] = local_e8;
+      puVar15[2] = local_e8;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar10 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar10 = local_84;
+      }
+      *puVar15 = local_84;
+      puVar15[3] = DAT_6c97e9a8;
+      local_7c = puVar15;
+      puVar16 = runtime::runtime_newobject(&_2_uint8___Array_type.Type);
+      *puVar16 = 0x4343;
+      net::net___UDPConn__WriteToUDP(local_74);
+      uVar9 = local_d8;
+    }
+  }
+  while( true ) {
+    local_64 = runtime::runtime_makeslice(&uint8___Uint8_type,100,100);
+    tVar4 = time::time_Now();
+    ptVar24 = tVar4.loc;
+    uVar22 = tVar4.ext._4_4_;
+    uVar20 = (undefined4)tVar4.ext;
+    uVar17 = tVar4.wall._4_4_;
+    uVar23 = (undefined4)tVar4.wall;
+    runtime::runtime_duffcopy_6c1a9e9e(local_34,&stack0xfffffee4);
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xfffffee4,local_34);
+    n = (time_Location *)0xb2d05e00;
+    tVar4.wall._4_4_ = uVar17;
+    tVar4.wall._0_4_ = uVar23;
+    tVar4.ext._0_4_ = uVar20;
+    tVar4.ext._4_4_ = uVar22;
+    tVar4.loc = ptVar24;
+    time::time_Time_Add(tVar4);
+    runtime::runtime_duffcopy_6c1a9e9e(local_48,local_100);
+    pnVar12 = local_74;
+    runtime::runtime_duffcopy_6c1a9e9e(&stack0xfffffee8,local_48);
+    tVar2.wall._4_4_ = uVar20;
+    tVar2.wall._0_4_ = uVar17;
+    tVar2.ext._0_4_ = uVar22;
+    tVar2.ext._4_4_ = ptVar24;
+    tVar2.loc = n;
+    eVar7 = net::net___conn__SetReadDeadline(&pnVar12->conn,tVar2);
+    local_100[0] = eVar7.data;
+    local_104 = (net_UDPAddr *)eVar7.tab;
+    runtime::runtime_newobject(&net::net_UDPAddr___Struct_type.Type);
+    iVar21 = 100;
+    puVar18 = local_64;
+    net::net___UDPConn__readFromUDP(local_74);
+    if (local_100[0] != (unsafe_Pointer)0x0) {
+      (**(code **)((int)local_100[0] + 0x10))();
+      local_50 = (internal_abi_Type *)0x0;
+      local_4c = (unsafe_Pointer)0x0;
+      local_58 = &string___String_type;
+      local_54 = &PTR_DAT_6c75bf18;
+      val_02.len = iVar21;
+      val_02.str = (char *)puVar18;
+      local_4c = runtime::runtime_convTstring(val_02);
+      local_50 = &string___String_type;
+      myfmt::myfmt_Println();
+      return;
+    }
+    if ((time_Location *)&DAT_00000064 < n) break;
+    local_70 = local_104;
+    sVar5 = runtime::runtime_slicebytetostring((runtime_tmpBuf *)local_a4,local_64,(int)n);
+    if ((sVar5.len == 2) && (*(short *)sVar5.str == 0x5343)) {
+      mVar19 = runtime::runtime_selectnbrecv((unsafe_Pointer)0x0,param_6);
+      if (mVar19.~r0 == false) {
+        net::net___conn__Close(&local_74->conn);
+        return;
+      }
+      sVar5 = net::net___UDPAddr__String(local_70);
+      local_d8 = sVar5.len;
+      local_68 = sVar5.str;
+      FUN_6c1a99b8();
+      val_00.len = param_2;
+      val_00.str = param_1;
+      local_1c = runtime::runtime_convTstring(val_00);
+      local_20 = &string___String_type;
+      local_18 = &string___String_type;
+      local_14 = &PTR_DAT_6c75cee0;
+      val_01.len = local_d8;
+      val_01.str = local_68;
+      local_c = runtime::runtime_convTstring(val_01);
+      local_10 = &string___String_type;
+      local_8 = &string___String_type;
+      local_4 = &PTR_DAT_6c75bf38;
+      myfmt::myfmt_Println();
+      puVar16 = runtime::runtime_newobject(&_2_uint8___Array_type.Type);
+      *puVar16 = 0x4343;
+      uVar20 = 2;
+      uVar23 = 2;
+      pnVar13 = local_70;
+      net::net___UDPConn__WriteToUDP(local_74);
+      pnVar12 = local_74;
+      FUN_6c1a99bb();
+      tVar3.wall._4_4_ = uVar20;
+      tVar3.wall._0_4_ = puVar16;
+      tVar3.ext._0_4_ = uVar23;
+      tVar3.ext._4_4_ = pnVar13;
+      tVar3.loc = n;
+      eVar7 = net::net___conn__SetReadDeadline(&pnVar12->conn,tVar3);
+      local_100[0] = eVar7.data;
+      sVar5 = net::net___UDPAddr__String(local_70);
+      DAT_6c957534 = sVar5.len;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar15 = (undefined4 *)runtime::runtime_gcWriteBarrier2();
+        *puVar15 = sVar5.str;
+        puVar15[1] = DAT_6c957530;
+      }
+      DAT_6c957530 = sVar5.str;
+      net::net___conn__Close(&local_74->conn);
+      local_d8 = DAT_6c957544;
+      local_68 = DAT_6c957530;
+      local_dc = DAT_6c957534;
+      local_6c = DAT_6c957540;
+      local_e0 = DAT_6c97e9a8;
+      fn = runtime::runtime_newobject
+                     (&natlan_struct___F_uintptr___autotmp_38_string___autotmp_39_int___autotmp_40_string___autotmp_41_string_____Struct_type
+                       .Type);
+      fn->fn = (uintptr)natlan_ccListen_func1;
+      fn[2].fn = local_d8;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar11 = (uintptr *)runtime::runtime_gcWriteBarrier1();
+        *puVar11 = local_6c;
+      }
+      fn[1].fn = local_6c;
+      fn[3].fn = local_e0;
+      fn[5].fn = local_dc;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar15 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar15 = local_68;
+      }
+      fn[4].fn = (uintptr)local_68;
+      fn[7].fn = param_2;
+      if (runtime_writeBarrier_discovered != 0) {
+        puVar15 = (undefined4 *)runtime::runtime_gcWriteBarrier1();
+        *puVar15 = param_1;
+      }
+      fn[6].fn = (uintptr)param_1;
+      runtime::runtime_newproc(fn);
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicSliceAcap();
+}
+
+
+===== natlan.ccListen.func1 @ 6c4c7960 =====
+
+/* WARNING: Unknown calling convention */
+/* Golang function info: {@address 6c952ea0 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/natlan/natlan.go:229
+   Golang stacktrace signature: [partial] [error] func natlan.ccListen.func1() ???
+   Golang signature [params_missing, return_info_missing, closure]: func(.context, ???) ??? */
+
+void natlan::natlan_ccListen_func1
+               (natlan_struct___F_uintptr___autotmp_38_string___autotmp_39_int___autotmp_40_string___autotmp_41_string__
+                *_context)
+
+{
+  int *piVar1;
+  int in_FS_OFFSET;
+  char *local_2c;
+  int local_28;
+  undefined *local_24;
+  undefined4 local_20;
+  int local_1c;
+  char *local_18;
+  int local_14;
+  undefined1 local_10;
+  char *local_c;
+  int local_8;
+  undefined4 uStack_4;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    uStack_4 = 0x6c4c79cf;
+    runtime::runtime_morestack();
+  }
+  piVar1 = *(int **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 0x10);
+  if ((piVar1 != (int *)0x0) && ((undefined1 *)*piVar1 == &stack0x00000004)) {
+    *piVar1 = (int)&local_2c;
+  }
+  local_2c = (_context->_autotmp_38).str;
+  local_28 = (_context->_autotmp_38).len;
+  local_1c = _context->_autotmp_39;
+  local_18 = (_context->_autotmp_40).str;
+  local_14 = (_context->_autotmp_40).len;
+  local_c = (_context->_autotmp_41).str;
+  local_8 = (_context->_autotmp_41).len;
+  local_24 = &DAT_6c5e7ae8;
+  local_20 = 0xb;
+  local_10 = 0;
+  mapping::mapping_ClientStar();
+  return;
+}
+
+
+===== upnpCon.UPNPCon @ 6c4c79e0 =====
+
+/* Golang function info: {@address 6c952ef4 "Flags: []"}
+   Golang source: F:/_natpierce/source/_main/src/upnpCon/upnpCon.go:21
+   Golang stacktrace signature: func upnpCon.UPNPCon(struct? {4, 4, 4}) ??? */
+
+void upnpCon::upnpCon_UPNPCon(int param_1,uint param_2,undefined4 param_3)
+
+{
+  int in_FS_OFFSET;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(**(int **)(in_FS_OFFSET + DAT_6c97eb28) + 8)) {
+    runtime::runtime_morestack_noctxt();
+  }
+  if (2 < param_2) {
+    if ((*(int *)(param_1 + 0x14) == 4) && (**(int **)(param_1 + 0x10) == 0x706e7075)) {
+      upnpCon_ccUPNP(param_1,param_2,param_3);
+    }
+    else {
+      upnpCon_csUPNP();
+    }
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  runtime::runtime_panicIndex();
+}
+
+

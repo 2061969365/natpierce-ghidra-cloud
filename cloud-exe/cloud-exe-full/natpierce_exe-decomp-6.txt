@@ -1,0 +1,784 @@
+===== SetWindowLongA @ 00406a4c =====
+
+LONG __stdcall SetWindowLongA(HWND hWnd,int nIndex,LONG dwNewLong)
+
+{
+  LONG LVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a4c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  LVar1 = SetWindowLongA(hWnd,nIndex,dwNewLong);
+  return LVar1;
+}
+
+
+===== SetWindowPlacement @ 00406a54 =====
+
+BOOL __stdcall SetWindowPlacement(HWND hWnd,WINDOWPLACEMENT *lpwndpl)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a54. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = SetWindowPlacement(hWnd,lpwndpl);
+  return BVar1;
+}
+
+
+===== SetWindowPos @ 00406a5c =====
+
+BOOL __stdcall SetWindowPos(HWND hWnd,HWND hWndInsertAfter,int X,int Y,int cx,int cy,UINT uFlags)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a5c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = SetWindowPos(hWnd,hWndInsertAfter,X,Y,cx,cy,uFlags);
+  return BVar1;
+}
+
+
+===== SetWindowTextA @ 00406a64 =====
+
+BOOL __stdcall SetWindowTextA(HWND hWnd,LPCSTR lpString)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a64. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = SetWindowTextA(hWnd,lpString);
+  return BVar1;
+}
+
+
+===== SetWindowsHookExA @ 00406a6c =====
+
+HHOOK __stdcall SetWindowsHookExA(int idHook,HOOKPROC lpfn,HINSTANCE hmod,DWORD dwThreadId)
+
+{
+  HHOOK pHVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a6c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  pHVar1 = SetWindowsHookExA(idHook,lpfn,hmod,dwThreadId);
+  return pHVar1;
+}
+
+
+===== ShowCursor @ 00406a74 =====
+
+int __stdcall ShowCursor(BOOL bShow)
+
+{
+  int iVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a74. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  iVar1 = ShowCursor(bShow);
+  return iVar1;
+}
+
+
+===== ShowOwnedPopups @ 00406a7c =====
+
+BOOL __stdcall ShowOwnedPopups(HWND hWnd,BOOL fShow)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a7c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ShowOwnedPopups(hWnd,fShow);
+  return BVar1;
+}
+
+
+===== ShowWindow @ 00406a8c =====
+
+BOOL __stdcall ShowWindow(HWND hWnd,int nCmdShow)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a8c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ShowWindow(hWnd,nCmdShow);
+  return BVar1;
+}
+
+
+===== SystemParametersInfoA @ 00406a94 =====
+
+BOOL __stdcall SystemParametersInfoA(UINT uiAction,UINT uiParam,PVOID pvParam,UINT fWinIni)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a94. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = SystemParametersInfoA(uiAction,uiParam,pvParam,fWinIni);
+  return BVar1;
+}
+
+
+===== TrackPopupMenu @ 00406a9c =====
+
+BOOL __stdcall
+TrackPopupMenu(HMENU hMenu,UINT uFlags,int x,int y,int nReserved,HWND hWnd,RECT *prcRect)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406a9c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = TrackPopupMenu(hMenu,uFlags,x,y,nReserved,hWnd,prcRect);
+  return BVar1;
+}
+
+
+===== TranslateMDISysAccel @ 00406aa4 =====
+
+BOOL __stdcall TranslateMDISysAccel(HWND hWndClient,LPMSG lpMsg)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406aa4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = TranslateMDISysAccel(hWndClient,lpMsg);
+  return BVar1;
+}
+
+
+===== TranslateMessage @ 00406aac =====
+
+BOOL __stdcall TranslateMessage(MSG *lpMsg)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406aac. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = TranslateMessage(lpMsg);
+  return BVar1;
+}
+
+
+===== UnhookWindowsHookEx @ 00406ab4 =====
+
+BOOL __stdcall UnhookWindowsHookEx(HHOOK hhk)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406ab4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = UnhookWindowsHookEx(hhk);
+  return BVar1;
+}
+
+
+===== UnregisterClassA @ 00406abc =====
+
+BOOL __stdcall UnregisterClassA(LPCSTR lpClassName,HINSTANCE hInstance)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406abc. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = UnregisterClassA(lpClassName,hInstance);
+  return BVar1;
+}
+
+
+===== UpdateWindow @ 00406ac4 =====
+
+BOOL __stdcall UpdateWindow(HWND hWnd)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406ac4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = UpdateWindow(hWnd);
+  return BVar1;
+}
+
+
+===== WaitMessage @ 00406acc =====
+
+BOOL __stdcall WaitMessage(void)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406acc. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = WaitMessage();
+  return BVar1;
+}
+
+
+===== WinHelpA @ 00406ad4 =====
+
+BOOL __stdcall WinHelpA(HWND hWndMain,LPCSTR lpszHelp,UINT uCommand,ULONG_PTR dwData)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406ad4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = WinHelpA(hWndMain,lpszHelp,uCommand,dwData);
+  return BVar1;
+}
+
+
+===== WindowFromPoint @ 00406adc =====
+
+HWND __stdcall WindowFromPoint(POINT Point)
+
+{
+  HWND pHVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406adc. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  pHVar1 = WindowFromPoint(Point);
+  return pHVar1;
+}
+
+
+===== CreateWindowExA @ 00406b7c =====
+
+HWND __stdcall
+CreateWindowExA(DWORD dwExStyle,LPCSTR lpClassName,LPCSTR lpWindowName,DWORD dwStyle,int X,int Y,
+               int nWidth,int nHeight,HWND hWndParent,HMENU hMenu,HINSTANCE hInstance,LPVOID lpParam
+               )
+
+{
+  HWND pHVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00406b7c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  pHVar1 = CreateWindowExA(dwExStyle,lpClassName,lpWindowName,dwStyle,X,Y,nWidth,nHeight,hWndParent,
+                           hMenu,hInstance,lpParam);
+  return pHVar1;
+}
+
+
+===== Sleep @ 0040c9e8 =====
+
+void __stdcall Sleep(DWORD dwMilliseconds)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x0040c9e8. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  Sleep(dwMilliseconds);
+  return;
+}
+
+
+===== VariantInit @ 0040d5e8 =====
+
+void __stdcall VariantInit(VARIANTARG *pvarg)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x0040d5e8. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  VariantInit(pvarg);
+  return;
+}
+
+
+===== VariantClear @ 0040d5f0 =====
+
+HRESULT __stdcall VariantClear(VARIANTARG *pvarg)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040d5f0. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = VariantClear(pvarg);
+  return HVar1;
+}
+
+
+===== VariantCopy @ 0040d5f8 =====
+
+HRESULT __stdcall VariantCopy(VARIANTARG *pvargDest,VARIANTARG *pvargSrc)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040d5f8. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = VariantCopy(pvargDest,pvargSrc);
+  return HVar1;
+}
+
+
+===== VariantChangeType @ 0040d600 =====
+
+HRESULT __stdcall
+VariantChangeType(VARIANTARG *pvargDest,VARIANTARG *pvarSrc,USHORT wFlags,VARTYPE vt)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040d600. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = VariantChangeType(pvargDest,pvarSrc,wFlags,vt);
+  return HVar1;
+}
+
+
+===== SafeArrayCreate @ 0040da4c =====
+
+SAFEARRAY * __stdcall SafeArrayCreate(VARTYPE vt,UINT cDims,SAFEARRAYBOUND *rgsabound)
+
+{
+  SAFEARRAY *pSVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040da4c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  pSVar1 = SafeArrayCreate(vt,cDims,rgsabound);
+  return pSVar1;
+}
+
+
+===== SafeArrayGetLBound @ 0040da54 =====
+
+HRESULT __stdcall SafeArrayGetLBound(SAFEARRAY *psa,UINT nDim,LONG *plLbound)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040da54. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = SafeArrayGetLBound(psa,nDim,plLbound);
+  return HVar1;
+}
+
+
+===== SafeArrayGetUBound @ 0040da5c =====
+
+HRESULT __stdcall SafeArrayGetUBound(SAFEARRAY *psa,UINT nDim,LONG *plUbound)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040da5c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = SafeArrayGetUBound(psa,nDim,plUbound);
+  return HVar1;
+}
+
+
+===== SafeArrayPtrOfIndex @ 0040da64 =====
+
+HRESULT __stdcall SafeArrayPtrOfIndex(SAFEARRAY *psa,LONG *rgIndices,void **ppvData)
+
+{
+  HRESULT HVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0040da64. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  HVar1 = SafeArrayPtrOfIndex(psa,rgIndices,ppvData);
+  return HVar1;
+}
+
+
+===== ImageList_Create @ 00422110 =====
+
+HIMAGELIST __stdcall ImageList_Create(int cx,int cy,UINT flags,int cInitial,int cGrow)
+
+{
+  HIMAGELIST p_Var1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422110. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  p_Var1 = ImageList_Create(cx,cy,flags,cInitial,cGrow);
+  return p_Var1;
+}
+
+
+===== ImageList_Destroy @ 00422118 =====
+
+BOOL __stdcall ImageList_Destroy(HIMAGELIST himl)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422118. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_Destroy(himl);
+  return BVar1;
+}
+
+
+===== ImageList_GetImageCount @ 00422120 =====
+
+int __stdcall ImageList_GetImageCount(HIMAGELIST himl)
+
+{
+  int iVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422120. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  iVar1 = ImageList_GetImageCount(himl);
+  return iVar1;
+}
+
+
+===== ImageList_Add @ 00422128 =====
+
+int __stdcall ImageList_Add(HIMAGELIST himl,HBITMAP hbmImage,HBITMAP hbmMask)
+
+{
+  int iVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422128. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  iVar1 = ImageList_Add(himl,hbmImage,hbmMask);
+  return iVar1;
+}
+
+
+===== ImageList_ReplaceIcon @ 00422130 =====
+
+int __stdcall ImageList_ReplaceIcon(HIMAGELIST himl,int i,HICON hicon)
+
+{
+  int iVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422130. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  iVar1 = ImageList_ReplaceIcon(himl,i,hicon);
+  return iVar1;
+}
+
+
+===== ImageList_SetBkColor @ 00422138 =====
+
+COLORREF __stdcall ImageList_SetBkColor(HIMAGELIST himl,COLORREF clrBk)
+
+{
+  COLORREF CVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422138. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  CVar1 = ImageList_SetBkColor(himl,clrBk);
+  return CVar1;
+}
+
+
+===== ImageList_GetBkColor @ 00422140 =====
+
+COLORREF __stdcall ImageList_GetBkColor(HIMAGELIST himl)
+
+{
+  COLORREF CVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422140. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  CVar1 = ImageList_GetBkColor(himl);
+  return CVar1;
+}
+
+
+===== ImageList_Draw @ 00422154 =====
+
+BOOL __stdcall ImageList_Draw(HIMAGELIST himl,int i,HDC hdcDst,int x,int y,UINT fStyle)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422154. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_Draw(himl,i,hdcDst,x,y,fStyle);
+  return BVar1;
+}
+
+
+===== ImageList_DrawEx @ 0042215c =====
+
+BOOL __stdcall
+ImageList_DrawEx(HIMAGELIST himl,int i,HDC hdcDst,int x,int y,int dx,int dy,COLORREF rgbBk,
+                COLORREF rgbFg,UINT fStyle)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0042215c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_DrawEx(himl,i,hdcDst,x,y,dx,dy,rgbBk,rgbFg,fStyle);
+  return BVar1;
+}
+
+
+===== ImageList_Remove @ 00422164 =====
+
+BOOL __stdcall ImageList_Remove(HIMAGELIST himl,int i)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422164. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_Remove(himl,i);
+  return BVar1;
+}
+
+
+===== ImageList_GetIcon @ 0042216c =====
+
+HICON __stdcall ImageList_GetIcon(HIMAGELIST himl,int i,UINT flags)
+
+{
+  HICON pHVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0042216c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  pHVar1 = ImageList_GetIcon(himl,i,flags);
+  return pHVar1;
+}
+
+
+===== ImageList_BeginDrag @ 00422174 =====
+
+BOOL __stdcall ImageList_BeginDrag(HIMAGELIST himlTrack,int iTrack,int dxHotspot,int dyHotspot)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422174. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_BeginDrag(himlTrack,iTrack,dxHotspot,dyHotspot);
+  return BVar1;
+}
+
+
+===== ImageList_EndDrag @ 0042217c =====
+
+void __stdcall ImageList_EndDrag(void)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x0042217c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  ImageList_EndDrag();
+  return;
+}
+
+
+===== ImageList_DragEnter @ 00422184 =====
+
+BOOL __stdcall ImageList_DragEnter(HWND hwndLock,int x,int y)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422184. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_DragEnter(hwndLock,x,y);
+  return BVar1;
+}
+
+
+===== ImageList_DragLeave @ 0042218c =====
+
+BOOL __stdcall ImageList_DragLeave(HWND hwndLock)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0042218c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_DragLeave(hwndLock);
+  return BVar1;
+}
+
+
+===== ImageList_DragMove @ 00422194 =====
+
+BOOL __stdcall ImageList_DragMove(int x,int y)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00422194. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_DragMove(x,y);
+  return BVar1;
+}
+
+
+===== ImageList_SetDragCursorImage @ 0042219c =====
+
+BOOL __stdcall
+ImageList_SetDragCursorImage(HIMAGELIST himlDrag,int iDrag,int dxHotspot,int dyHotspot)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x0042219c. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_SetDragCursorImage(himlDrag,iDrag,dxHotspot,dyHotspot);
+  return BVar1;
+}
+
+
+===== ImageList_DragShowNolock @ 004221a4 =====
+
+BOOL __stdcall ImageList_DragShowNolock(BOOL fShow)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221a4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_DragShowNolock(fShow);
+  return BVar1;
+}
+
+
+===== ImageList_GetDragImage @ 004221ac =====
+
+HIMAGELIST __stdcall ImageList_GetDragImage(POINT *ppt,POINT *pptHotspot)
+
+{
+  HIMAGELIST p_Var1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221ac. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  p_Var1 = ImageList_GetDragImage(ppt,pptHotspot);
+  return p_Var1;
+}
+
+
+===== ImageList_Read @ 004221b4 =====
+
+HIMAGELIST __stdcall ImageList_Read(IStream *pstm)
+
+{
+  HIMAGELIST p_Var1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221b4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  p_Var1 = ImageList_Read(pstm);
+  return p_Var1;
+}
+
+
+===== ImageList_Write @ 004221bc =====
+
+BOOL __stdcall ImageList_Write(HIMAGELIST himl,IStream *pstm)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221bc. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_Write(himl,pstm);
+  return BVar1;
+}
+
+
+===== ImageList_GetIconSize @ 004221c4 =====
+
+BOOL __stdcall ImageList_GetIconSize(HIMAGELIST himl,int *cx,int *cy)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221c4. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_GetIconSize(himl,cx,cy);
+  return BVar1;
+}
+
+
+===== ImageList_SetIconSize @ 004221cc =====
+
+BOOL __stdcall ImageList_SetIconSize(HIMAGELIST himl,int cx,int cy)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x004221cc. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = ImageList_SetIconSize(himl,cx,cy);
+  return BVar1;
+}
+
+
+===== Shell_NotifyIconA @ 00424938 =====
+
+BOOL __stdcall Shell_NotifyIconA(DWORD dwMessage,PNOTIFYICONDATAA lpData)
+
+{
+  BOOL BVar1;
+  
+                    /* WARNING: Could not recover jumptable at 0x00424938. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  BVar1 = Shell_NotifyIconA(dwMessage,lpData);
+  return BVar1;
+}
+
+
+===== thunk_FUN_0042f7d5 @ 0042f7d0 =====
+
+bool thunk_FUN_0042f7d5(int param_1,int param_2)
+
+{
+  for (; (param_2 != 0 && (param_1 != param_2)); param_2 = *(int *)(param_2 + 0x30)) {
+  }
+  return param_2 != 0;
+}
+
+
+===== thunk_FUN_0043e348 @ 0043e344 =====
+
+undefined4 thunk_FUN_0043e348(int param_1)
+
+{
+  int iVar1;
+  
+  do {
+    iVar1 = param_1;
+    param_1 = *(int *)(iVar1 + 100);
+  } while (param_1 != 0);
+  return *(undefined4 *)(iVar1 + 0x70);
+}
+
+
+===== thunk_FUN_0043f37a @ 0043f374 =====
+
+void thunk_FUN_0043f37a(int param_1,int param_2)
+
+{
+  for (; (0 < param_2 && (param_1 != 0)); param_1 = *(int *)(param_1 + 100)) {
+    param_2 = param_2 + -1;
+  }
+  return;
+}
+
+
+===== thunk_FUN_0044a1c1 @ 0044a1bc =====
+
+int thunk_FUN_0044a1c1(int param_1)
+
+{
+  for (; (param_1 != 0 && (*(char *)(param_1 + 0x99) == '\0')); param_1 = *(int *)(param_1 + 0x30))
+  {
+  }
+  if ((param_1 != 0) && ((*(byte *)(param_1 + 0x1c) & 0x10) != 0)) {
+    param_1 = 0;
+  }
+  return param_1;
+}
+
+

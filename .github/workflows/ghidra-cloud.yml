@@ -21,6 +21,10 @@ on:
         description: "Functions per DecompileBatch run"
         default: "60"
         required: true
+      string_refs:
+        description: "Comma-separated substrings for FindStringRefs (empty = skip)"
+        default: ""
+        required: false
 
 jobs:
   decompile:
@@ -35,6 +39,8 @@ jobs:
           java-version: "21"
 
       - name: Resolve + download Ghidra
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           URL=$(python3 tools/resolve_ghidra.py "${{ inputs.ghidra_version }}")
           echo "Ghidra URL: $URL"
@@ -90,6 +96,19 @@ jobs:
             done
           done
           echo "inputs: ghidra=${{ inputs.ghidra_version }} target=${{ inputs.target }} scope=${{ inputs.scope }}" >> out/RUN_SUMMARY.md
+          if [ -n "${{ inputs.string_refs }}" ]; then
+            IFS=',' read -ra REFS <<< "${{ inputs.string_refs }}"
+            for f in ${{ steps.pick.outputs.list }}; do
+              [ -f "targets/$f" ] || continue
+              base="$(basename "$f" | tr '.' '_')"
+              echo "== string refs $f ==" | tee -a out/RUN_SUMMARY.md
+              "$AH" "$GITHUB_WORKSPACE/proj" "$base" \
+                -process "$f" -noanalysis \
+                -scriptPath "$GITHUB_WORKSPACE/scripts" \
+                -postScript FindStringRefs.java "$GITHUB_WORKSPACE/out/$base-refs.txt" "${REFS[@]}" \
+                2>&1 | tee out/headless-refs-$base.log | tail -2
+            done
+          fi
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -115,6 +134,8 @@ jobs:
           node-version: "24"
 
       - name: Install REA + Ghidra 12.1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g rea-agents@3.1.0
           URL=$(python3 tools/resolve_ghidra.py "12.1.2")

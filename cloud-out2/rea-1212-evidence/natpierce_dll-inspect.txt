@@ -1,0 +1,72 @@
+schema_version: 2
+evidence_id: ev_e9510e9baeddd1df1cc64ffec24154eb3cbf49463e416fd122b8f58203f8254b
+subject:
+  name: natpierce.dll
+  digest:
+    sha256: e36d606453eb5dfe9bcf9822b36dda9b0432079b3f9fe55218fbbf8c4c8e74a5
+  format: pe
+  architecture: x86
+  local_path: /home/runner/work/natpierce-ghidra-cloud/natpierce-ghidra-cloud/targets/natpierce.dll
+provider:
+  id: rea-workflow
+  name: REA composed investigation workflow
+  version: "1"
+predicate_type: rea.analysis/v2
+operation: binary_overview
+parameters:
+  detail: concise
+  limit: 10
+raw_result: null
+normalized_result:
+  document: target-e36d606453eb.dll
+  detail: concise
+  segments[10]{name,start,end}:
+    Headers,0x6c140000,0x6c140400
+    .text,0x6c141000,0x6c4dda00
+    .data,0x6c4de000,0x6c551200
+    .rdata,0x6c552000,0x6c955200
+    .eh_fram,0x6c956000,0x6c956600
+    .bss,0x6c957000,0x6c97ee70
+    .bss.writeBarrierFlag,0x6c97ee70,0x6c97ee74
+    .bss.part2,0x6c97ee74,0x6c987818
+    .edata,0x6c988000,0x6c988200
+    .idata,0x6c989000,0x6c989a00
+  segment_count: 14
+  procedure_count: 8083
+  string_count: 13292
+confidence: derived
+authority: shipped-artifact
+environment: null
+limitations[1]: Derived by an REA composed workflow.
+locations: []
+evidence_links: []
+analysis_profile:
+  schema_version: 1
+  provider:
+    id: rea-workflow
+    name: REA composed investigation workflow
+    version: "1"
+  provider_profile_schema_version: 1
+  parameters:
+    upstream_analysis_profile:
+      schema_version: 1
+      provider:
+        id: ghidra
+        name: Ghidra
+        version: 12.1.2
+      provider_profile_schema_version: 1
+      parameters:
+        target_kind: executable
+        target_format: pe
+        architecture: x86
+        available_architectures[1]: x86
+        import_mode: ephemeral-read-only
+        loader: auto-from-header
+        language_id: auto-from-header
+        compiler_spec_id: auto-default
+        analyzer_preset: ghidra-default
+        analysis_timeout_seconds: 300
+        max_cpu: 2
+        max_heap: 2G
+      digest: 9555699d3f9665bf1677c42c140a344b0c8c3ff95067d13b653aa5f68efe6494
+  digest: c169121951c630babc482c1fc9ebfe949ff768844a1d0fa98ec2fef6347c3916

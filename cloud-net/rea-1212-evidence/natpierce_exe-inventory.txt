@@ -1,0 +1,95 @@
+schema_version: 2
+evidence_id: ev_4e4e5eae18922b5f6e0a7d95f92ca964fdd7ec755bca57dac73c030698e91b2a
+subject:
+  name: natpierce.exe
+  digest:
+    sha256: 7c2cfb58ad8c680635640fc53e26afdabfa326e670f39ec4e0e87ca96e2c11c4
+  format: pe
+  architecture: null
+  local_path: /home/runner/work/natpierce-ghidra-cloud/natpierce-ghidra-cloud/targets/natpierce.exe
+provider:
+  id: rea-artifact-graph
+  name: REA safe artifact graph provider
+  version: "1"
+predicate_type: rea.analysis/v2
+operation: inventory_artifact
+parameters:
+  node_offset: 0
+  node_limit: 10
+  occurrence_offset: 0
+  occurrence_limit: 10
+  edge_offset: 0
+  edge_limit: 10
+  integrity_policy: fail
+  integrity_continue_approved: false
+  max_integrity_mismatches: 10
+  native_mount_approved: false
+raw_result: null
+normalized_result:
+  manifest:
+    schema_version: 1
+    manifest_id: agm_77481915ad0a81ebc11a9a1431c9434f7f28956568029c99dd06576158c0922c
+    root_artifact_id: art_25cffa0069cebd1074c2f29163219b001ac570b385473d7b525f0bd7486c5df0
+    root_sha256: 7c2cfb58ad8c680635640fc53e26afdabfa326e670f39ec4e0e87ca96e2c11c4
+    root_format: pe
+    graph_sha256: 4ff46c32679fa49bf8c7ca051e7dd1959f5e77beebb48c726f0de674b9a2a06d
+    node_count: 1
+    occurrence_count: 1
+    edge_count: 0
+  nodes:
+    items[1]:
+      - artifact_id: art_25cffa0069cebd1074c2f29163219b001ac570b385473d7b525f0bd7486c5df0
+        kind: resource
+        format: pe
+        sha256: 7c2cfb58ad8c680635640fc53e26afdabfa326e670f39ec4e0e87ca96e2c11c4
+        size: 483328
+        media_type: null
+        architecture: null
+        executable: false
+        content_state: materialized
+        limitations: []
+    offset: 0
+    limit: 10
+    total: 1
+    next_offset: null
+  occurrences:
+    items[1]:
+      - occurrence_id: occ_81d386b9aec8186856b6442f838b2b3cc0899f654b806532d67a01bdbaaa9e3b
+        artifact_id: art_25cffa0069cebd1074c2f29163219b001ac570b385473d7b525f0bd7486c5df0
+        parent_occurrence_id: null
+        logical_path: .
+        entry_kind: file
+        declared_size: 483328
+        compressed_size: null
+        executable: false
+        encrypted: false
+        hash_status: verified
+        source_location: null
+        limitations: []
+    offset: 0
+    limit: 10
+    total: 1
+    next_offset: null
+  edges:
+    items: []
+    offset: 0
+    limit: 10
+    total: 0
+    next_offset: null
+  limits:
+    max_entries: 10000
+    max_total_bytes: 1073741824
+    max_entry_bytes: 268435456
+    max_compression_ratio: 1000
+    max_depth: 20
+    max_path_bytes: 4096
+  provenance: []
+  integrity_contradictions: []
+  limitations[1]: Artifact has no child container entries.
+confidence: observed
+authority: shipped-artifact
+environment: null
+limitations[1]: Artifact has no child container entries.
+locations[1]{kind,path}:
+  artifact-path,.
+evidence_links: []
