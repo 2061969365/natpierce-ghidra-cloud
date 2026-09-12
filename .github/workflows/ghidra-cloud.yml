@@ -61,8 +61,8 @@ jobs:
           : > out/RUN_SUMMARY.md
           for f in ${{ steps.pick.outputs.list }}; do
             [ -f "targets/$f" ] || { echo "SKIP missing targets/$f" | tee -a out/RUN_SUMMARY.md; continue; }
-            base="${f%.*}"
-            echo "### $f" >> out/RUN_SUMMARY.md
+            base="$(basename "$f" | tr '.' '_')"
+            echo "### $f (out prefix $base)" >> out/RUN_SUMMARY.md
             echo "== import+analyze $f ==" | tee -a out/RUN_SUMMARY.md
             "$AH" "$GITHUB_WORKSPACE/proj" "$base" \
               -Import "$GITHUB_WORKSPACE/targets/$f" -overwrite \

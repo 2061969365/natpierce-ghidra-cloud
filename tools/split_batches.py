@@ -19,8 +19,14 @@ os.makedirs(outdir, exist_ok=True)
 
 rows = []
 with open(funcs_csv, newline="") as f:
-    for addr, name in csv.reader(f):
-        if addr == "addr":
+    for i, line in enumerate(f):
+        line = line.rstrip("\r\n")
+        if i == 0 and line == "addr,name":
+            continue
+        if "," not in line:
+            continue
+        addr, name = line.split(",", 1)  # names may contain commas (C++/thunks)
+        if not addr:
             continue
         if scope == "app":
             if not APP.search("," + name):
